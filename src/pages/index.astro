@@ -1,0 +1,434 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Charger le contenu
+const siteEntry = await getEntry('settings', 'site');
+const site = siteEntry!.data;
+
+const homeEntry = await getEntry('pages', 'home');
+const home = homeEntry!.data as any;
+
+const allSongs = await getCollection('songs');
+const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
+
+// JSON-LD
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `https://${site.domain}/#business`,
+      "name": site.name,
+      "description": "Création de chansons personnalisées pour les moments essentiels de la vie : célébration, transition, hommage.",
+      "url": `https://${site.domain}/`,
+      "telephone": site.phoneIntl,
+      "email": site.email,
+      "priceRange": "CHF 330 – Sur devis",
+      "founder": { "@type": "Person", "name": "Carole Correvon", "jobTitle": "Auteure-compositrice, thérapeute facilitatrice de changement" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Echallens", "addressRegion": "Vaud", "postalCode": "1040", "addressCountry": "CH" },
+      "areaServed": [{ "@type": "AdministrativeArea", "name": "Suisse romande" }, { "@type": "Country", "name": "Suisse" }],
+      "inLanguage": "fr-CH"
+    },
+    {
+      "@type": "Service",
+      "name": "Chanson personnalisée sur mesure",
+      "provider": { "@id": `https://${site.domain}/#business` },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formules L'Instant Sonore",
+        "itemListElement": home.tarifs.formules.map((f: any) => ({
+          "@type": "Offer",
+          "name": f.name.replace(/<[^>]+>/g, '') + ' — ' + f.context,
+          "price": (f.price.match(/\d+/) || ['0'])[0],
+          "priceCurrency": "CHF"
+        }))
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": home.faq.items.map((item: any) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answerHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+        }
+      }))
+    }
+  ]
+});
+---
+<BaseLayout seo={home.seo} site={site} jsonLd={jsonLd}>
+
+<!-- ─── NAV ──────────────────────────────────────────── -->
+<nav class="nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" aria-label="L'Instant Sonore — retour en haut">L'Instant<span>✦</span>Sonore</a>
+    <ul class="nav-sections" role="list">
+      <li><a href="#origine" class="nav-section-link" data-section="origine">Origine</a></li>
+      <li><a href="#moments" class="nav-section-link" data-section="moments">Moments</a></li>
+      <li><a href="#ecouter" class="nav-section-link" data-section="ecouter">Écouter</a></li>
+      <li><a href="#tarifs" class="nav-section-link" data-section="tarifs">Tarifs</a></li>
+      <li><a href="#faq" class="nav-section-link" data-section="faq">Questions</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-pro-menu" id="navProMenu">
+        <button class="nav-pro-trigger" id="navProTrigger" aria-expanded="false" aria-controls="navProDropdown">
+          <span class="nav-pro-icon">✦</span> Pour les pros
+          <span class="nav-pro-trigger-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-pro-dropdown" id="navProDropdown" role="menu">
+          <a href="mariage.html" role="menuitem">
+            <span class="nav-pro-dropdown-title">Wedding planners</span>
+            <span class="nav-pro-dropdown-sub">Mariages, demandes, cérémonies</span>
+          </a>
+          <a href="pompes-funebres.html" role="menuitem">
+            <span class="nav-pro-dropdown-title">Pompes funèbres</span>
+            <span class="nav-pro-dropdown-sub">Hommage, cérémonie, deuil</span>
+          </a>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Premier échange</a>
+      <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Menu">
+  <div class="nav-overlay-inner">
+    <ul class="nav-overlay-list" role="list">
+      <li><a href="#origine">L'origine</a></li>
+      <li><a href="#moments">Les moments</a></li>
+      <li><a href="#ecouter">Écouter les créations</a></li>
+      <li><a href="#processus">Le processus</a></li>
+      <li><a href="#carole">Qui je suis</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
+      <li class="nav-overlay-divider"><a href="mariage.html">✦ Wedding planners</a></li>
+      <li class="nav-overlay-divider"><a href="pompes-funebres.html">✦ Pompes funèbres</a></li>
+    </ul>
+    <a href="#contact" class="nav-overlay-cta">Premier échange →</a>
+    <div class="nav-overlay-foot">
+      <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-image"><img src={home.hero.image} alt="" loading="eager" /></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">{home.hero.eyebrow}</div>
+    <h1 class="reveal" set:html={home.hero.title}></h1>
+    <p class="hero-tagline reveal">{home.hero.tagline}</p>
+    <p class="hero-sub reveal">{home.hero.sub}</p>
+    <div class="hero-actions reveal">
+      <a href={home.hero.ctaPrimary.href} class="btn btn-primary">{home.hero.ctaPrimary.label} <span class="btn-arrow">→</span></a>
+      <a href={home.hero.ctaGhost.href} class="btn btn-ghost">{home.hero.ctaGhost.label}</a>
+    </div>
+  </div>
+</header>
+
+<!-- ─── CONCEPT ──────────────────────────────────────── -->
+<section class="concept">
+  <div class="container-narrow">
+    <span class="eyebrow" style="margin-bottom:2rem;display:inline-block">— ✦ —</span>
+    <p class="concept-lead" set:html={home.concept.lead}></p>
+    <p class="concept-body">{home.concept.body}</p>
+    <div class="concept-image">
+      <img src={home.concept.image} alt={home.concept.imageAlt} loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── ORIGINE ──────────────────────────────────────── -->
+<section class="origine" id="origine">
+  <div class="origine-grid">
+    <aside class="origine-side">
+      <span class="eyebrow">{home.origine.eyebrow}</span>
+      <h2 set:html={home.origine.title}></h2>
+      <p class="origine-quote">{home.origine.quote}</p>
+      <div class="origine-side-image">
+        <img src={home.origine.image} alt={home.origine.imageAlt} loading="lazy" />
+      </div>
+    </aside>
+    <div class="origine-text">
+      {home.origine.paragraphs.map((p: string) => (
+        <p set:html={p}></p>
+      ))}
+      <div class="pull-quote">
+        <span>✦</span>
+        {home.origine.pullQuote}
+      </div>
+      <p set:html={home.origine.outro}></p>
+      {home.origine.thanks && (
+        <p style="font-style:italic;color:var(--gold);font-family:'Fraunces',serif;font-variation-settings:'opsz' 24,'SOFT' 100">{home.origine.thanks}</p>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- ─── PILIERS / MOMENTS ────────────────────────────── -->
+<section class="piliers" id="moments">
+  <div class="piliers-head">
+    <span class="eyebrow">{home.piliers.eyebrow}</span>
+    <h2 set:html={home.piliers.title}></h2>
+    <p>{home.piliers.subtitle}</p>
+  </div>
+  <div class="piliers-grid">
+    {home.piliers.items.map((item: any) => (
+      <article class="pilier">
+        <div class="pilier-image">
+          <img src={item.image} alt={item.imageAlt} loading="lazy" />
+          <div class="pilier-num">— ✦ {item.num} —</div>
+        </div>
+        <div class="pilier-content">
+          <h3>{item.title}</h3>
+          <div class="pilier-sub">{item.sub}</div>
+          <p>{item.description}</p>
+          <ul class="pilier-list">
+            {item.tags.map((tag: string) => <li>{tag}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<!-- ─── ÉCOUTER ──────────────────────────────────────── -->
+<section class="ecouter" id="ecouter">
+  <img class="ecouter-decor" src="https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646107/disque_atroqy.png" alt="" loading="lazy" />
+  <div class="ecouter-head">
+    <span class="eyebrow">{home.ecouter.eyebrow}</span>
+    <p class="ecouter-lead">{home.ecouter.lead}</p>
+    <h2 set:html={home.ecouter.title}></h2>
+    <p>{home.ecouter.subtitle}</p>
+  </div>
+  <div class="players">
+    {home.ecouter.songs.map((slug: string) => {
+      const song = songsBySlug[slug];
+      if (!song) return null;
+      return (
+        <div class="player" data-src={song.src}>
+          <div class="player-head">
+            <button class="player-btn" aria-label="Lire / mettre en pause">
+              <span class="player-btn-icon">
+                <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.5v13l11-6.5z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+              </span>
+            </button>
+            <div class="player-text">
+              <div class="player-title">{song.title}</div>
+              <div class="player-context">{song.context}</div>
+            </div>
+            <div class="player-time">--:--</div>
+          </div>
+          <div class="player-progress"><div class="player-progress-bar"></div><button class="player-seek" aria-label="Aller à"></button></div>
+        </div>
+      );
+    })}
+  </div>
+  {home.ecouter.note && <p class="ecouter-note">{home.ecouter.note}</p>}
+</section>
+
+<!-- ─── PROCESSUS ────────────────────────────────────── -->
+<section class="processus" id="processus">
+  <img class="processus-decor" src="https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/livre_et_e%CC%81couteur_qxtgso.png" alt="" loading="lazy" />
+  <div class="processus-head">
+    <span class="eyebrow">{home.processus.eyebrow}</span>
+    <h2 set:html={home.processus.title}></h2>
+  </div>
+  <div class="steps">
+    {home.processus.steps.map((step: any) => (
+      <div class="step">
+        <div class="step-num">{step.num}</div>
+        <div class="step-body">
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ─── CAROLE ───────────────────────────────────────── -->
+<section class="carole" id="carole">
+  <div class="carole-grid">
+    <div>
+      <div class="portrait-frame">
+        <div class="portrait-inner">
+          {home.carole.photo ? (
+            <img src={home.carole.photo} alt="Carole Correvon" />
+          ) : (
+            <span class="portrait-placeholder">✦<br/>Photo<br/>Carole</span>
+          )}
+        </div>
+      </div>
+      <p class="portrait-caption">{home.carole.photoCaption}</p>
+    </div>
+    <div class="carole-text">
+      <span class="eyebrow">{home.carole.eyebrow}</span>
+      <h2 set:html={home.carole.title}></h2>
+      {home.carole.paragraphs.map((p: string) => <p set:html={p}></p>)}
+      <div class="carole-signature">— {home.carole.signature}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TARIFS ───────────────────────────────────────── -->
+<section class="tarifs" id="tarifs">
+  <div class="tarifs-head">
+    <span class="eyebrow">{home.tarifs.eyebrow}</span>
+    <h2 set:html={home.tarifs.title}></h2>
+    <p>{home.tarifs.subtitle}</p>
+  </div>
+  <p class="tarifs-intro" set:html={home.tarifs.intro}></p>
+  <div class="formules">
+    {home.tarifs.formules.map((f: any) => (
+      <div class={`formule${f.featured ? ' formule-featured' : ''}`}>
+        {f.tag && <div class="formule-tag">{f.tag}</div>}
+        <div class="formule-name" set:html={f.name}></div>
+        <div class="formule-context">{f.context}</div>
+        <div class="formule-price">{f.price}<small> {f.priceUnit}</small></div>
+        <div class="formule-divider"></div>
+        <ul class="formule-includes">
+          {f.includes.map((i: string) => <li>{i}</li>)}
+        </ul>
+        <a href={f.cta.href} class="formule-cta">{f.cta.label} →</a>
+      </div>
+    ))}
+  </div>
+  <p class="tarifs-foot">{home.tarifs.foot}</p>
+</section>
+
+<!-- ─── PROS GATEWAY ─────────────────────────────────── -->
+<section class="pros-gw">
+  <div class="pros-gw-head">
+    <span class="eyebrow">{home.prosGateway.eyebrow}</span>
+    <h2 set:html={home.prosGateway.title}></h2>
+    <p>{home.prosGateway.subtitle}</p>
+  </div>
+  <div class="pros-cards">
+    {home.prosGateway.cards.map((card: any) => (
+      <a href={card.href} class="pros-card">
+        <div class="pros-card-image">
+          <img src={card.image} alt={card.imageAlt} loading="lazy" />
+        </div>
+        <div class="pros-card-body">
+          <span class="pros-card-tag">{card.tag}</span>
+          <h3 set:html={card.title}></h3>
+          <p>{card.description}</p>
+          <span class="pros-card-arrow">Découvrir →</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<!-- ─── FAQ ──────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="faq-head">
+    <span class="eyebrow">{home.faq.eyebrow}</span>
+    <h2 set:html={home.faq.title}></h2>
+    <p>{home.faq.subtitle}</p>
+  </div>
+  <div class="faq-list">
+    {home.faq.items.map((item: any) => (
+      <details class="faq-item">
+        <summary><span>{item.question}</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-answer" set:html={item.answerHtml}></div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<!-- ─── TÉMOIGNAGE ───────────────────────────────────── -->
+<section class="temoignage">
+  <div class="container-narrow">
+    <p class="temoignage-quote">{home.temoignage.quote}</p>
+    <p class="temoignage-attr">{home.temoignage.attribution}</p>
+  </div>
+</section>
+
+<!-- ─── CONTACT ──────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="eyebrow">{home.contact.eyebrow}</span>
+    <h2 set:html={home.contact.title}></h2>
+    <p class="contact-lead">{home.contact.lead}</p>
+
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate
+          data-success-message={home.contact.successMessage}
+          data-site-email={site.email}
+          data-site-phone={site.phone}
+          data-site-phone-intl={site.phoneIntl}>
+      <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI" />
+      <input type="hidden" name="from_name" value="L'Instant Sonore — Site web" />
+      <input type="hidden" name="subject" value={`Nouveau message depuis ${site.domain}`} />
+      <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="cf-name">Prénom & nom <span class="form-required" aria-hidden="true">*</span></label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Email <span class="form-required" aria-hidden="true">*</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="form-field">
+          <label for="cf-phone">Téléphone <span class="form-optional">(optionnel)</span></label>
+          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+        </div>
+        <div class="form-field">
+          <label for="cf-moment">Quel moment ?</label>
+          <select id="cf-moment" name="moment">
+            <option value="">Choisir…</option>
+            <option>Célébration · mariage, naissance, anniversaire</option>
+            <option>Transition · retraite, mots non-dits, réconciliation</option>
+            <option>Hommage · deuil, fin de vie, héritage sonore</option>
+            <option>Je ne sais pas encore</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field form-field-full">
+        <label for="cf-message">Votre message <span class="form-required" aria-hidden="true">*</span></label>
+        <textarea id="cf-message" name="message" rows="5" required placeholder="Quelques mots sur votre intention, le moment à honorer, ce que vous portez…"></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        <span class="form-submit-label">{home.contact.submitLabel}</span>
+        <span class="form-submit-icon" aria-hidden="true">→</span>
+      </button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+      <p class="form-privacy">{home.contact.privacy}</p>
+    </form>
+
+    <div class="contact-divider"><span>ou directement</span></div>
+    <div class="contact-info">
+      <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <div class="contact-info-sub">{site.location}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-brand">L'Instant Sonore — ✦ — quand les mots deviennent musique</div>
+  <nav class="footer-nav" aria-label="Pied de page">
+    <a href="#origine">L'origine</a>
+    <a href="#moments">Les moments</a>
+    <a href="#ecouter">Écouter</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#faq">FAQ</a>
+    <a href="mariage.html">Wedding planners</a>
+    <a href="pompes-funebres.html">Pompes funèbres</a>
+  </nav>
+  <div class="footer-meta">
+    © {site.year} Carole Correvon · {site.location} · <a href={`https://${site.domain}`}>{site.domain}</a>
+  </div>
+</footer>
+
+</BaseLayout>

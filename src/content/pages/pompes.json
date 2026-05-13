@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": "Pompes funèbres — L'Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
+    "description": "Pour les pompes funèbres de Suisse romande : une trace vivante en complément des fleurs. Chanson personnalisée pour cérémonie d'adieu, deuil, hommage. Livraison 48h pour les urgences. Carole Correvon, Echallens (VD).",
+    "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
+    "ogTitle": "Pompes funèbres — L'Instant Sonore",
+    "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
+    "ogImage": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg"
+  },
+  "hero": {
+    "eyebrow": "Pour les pompes funèbres — Suisse romande",
+    "title": "Un hommage qui demeure <em>bien au-delà de la cérémonie.</em>",
+    "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646104/fleur_et_lanterne_q27nfu.jpg",
+    "ctaPrimary": { "label": "Découvrir l'apport", "href": "#apports" },
+    "ctaGhost": { "label": "Devenir partenaire", "href": "#contact" }
+  },
+  "manifesto": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
+  "pourquoi": {
+    "eyebrow": "Pourquoi ce partenariat vous concerne",
+    "title": "Vous accompagnez des familles dans <em>l'un des moments les plus profonds</em> de l'existence.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg",
+    "imageAlt": "Bouquet en hommage",
+    "paragraphs": [
+      "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
+      "<strong>L'Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
+      "Une chanson créée sur mesure à partir des souvenirs et de l'histoire unique de la personne honorée, offerte à ceux qui restent."
+    ],
+    "pullQuote": "Une trace vivante — quelque chose qui demeure bien au-delà de la cérémonie."
+  },
+  "apports": {
+    "eyebrow": "Ce que L'Instant Sonore apporte à vos familles",
+    "title": "Cinq raisons d'<em>en parler.</em>",
+    "subtitle": "Cinq dimensions concrètes qui enrichissent votre accompagnement — sans le modifier.",
+    "items": [
+      {
+        "icon": "✦",
+        "title": "Une trace qui <em>demeure</em>",
+        "description": "La chanson est quelque chose qui reste. Les familles peuvent l'écouter, la partager, la garder — un lien vivant avec la personne honorée, pour toujours.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Un espace pour <em>l'indicible</em>",
+        "description": "Certaines familles ne trouvent pas les mots. La chanson dit ce que le cœur ressent mais ne sait pas toujours exprimer — avec douceur et vérité.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Un hommage <em>personnalisé</em>",
+        "description": "Chaque chanson est unique — elle reflète qui était vraiment la personne honorée, ce qu'elle a transmis, ce que les proches veulent garder vivant.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Une <em>disponibilité supplémentaire</em> pour la famille",
+        "description": "Dans les moments où tout va vite et où la famille est submergée, je suis disponible — à leur rythme, selon leurs besoins, avec la délicatesse que la situation demande.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Une <em>dimension humaine</em> supplémentaire",
+        "description": "Une dimension émotionnelle de plus. Une dimension humaine supplémentaire. Une dimension sonore et durable. Une dimension rare à offrir.",
+        "fullWidth": true
+      }
+    ]
+  },
+  "ecouter": {
+    "eyebrow": "Écouter",
+    "title": "Quelques créations<br/>dans <em>l'esprit hommage.</em>",
+    "subtitle": "Chaque chanson est unique. Ces extraits illustrent la dimension d'apaisement et de transmission qu'on peut traduire en musique.",
+    "songs": ["ce-qui-reste", "je-suis-la", "un-parrain-precieux"]
+  },
+  "processus": {
+    "eyebrow": "Comment ça fonctionne",
+    "title": "Quatre étapes, un accompagnement <em>partagé.</em>",
+    "subtitle": "Votre rôle : mentionner la possibilité à la famille, en transmettre le contact. Je prends ensuite le relais.",
+    "urgenceNote": "✦ Pour les cérémonies imminentes — une livraison en 48h est possible. Appelez-moi directement, je m'organise.",
+    "steps": [
+      {
+        "num": "01",
+        "icon": "✦",
+        "title": "Premier <em>contact</em>",
+        "description": "Un échange simple, sans engagement — par téléphone ou email. Pour comprendre la situation et voir ensemble comment je peux accompagner la famille."
+      },
+      {
+        "num": "02",
+        "icon": "✦",
+        "title": "La <em>rencontre</em>",
+        "description": "Je retrouve la famille en personne ou en visio — pour écouter, ressentir, et recueillir ce qui compte vraiment. Les souvenirs, les mots, ce qu'ils souhaitent transmettre. Dans un espace bienveillant et confidentiel."
+      },
+      {
+        "num": "03",
+        "icon": "✦",
+        "title": "Je <em>crée</em>",
+        "description": "J'écris, je ressens, je compose selon mon ressenti. Nous affinons ensuite les paroles et le style musical, jusqu'à sa validation finale."
+      },
+      {
+        "num": "04",
+        "icon": "✦",
+        "title": "Je <em>livre</em>",
+        "description": "La chanson et ses paroles sont transmises à la famille — prêtes à être diffusées lors de la cérémonie, ou simplement gardées précieusement."
+      }
+    ]
+  },
+  "tarifsRedirect": {
+    "eyebrow": "L'offre",
+    "title": "Les tarifs sont ceux affichés sur <em>la page principale.</em>",
+    "subtitle": "Dans le cadre d'un partenariat, nous convenons ensemble des modalités de collaboration.",
+    "cta": { "label": "Voir les tarifs", "href": "index.html#tarifs" }
+  },
+  "collab": {
+    "eyebrow": "Une collaboration simple & sans contrainte",
+    "title": "Aucune charge <em>pour vous.</em>",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+    "imageAlt": "Mains qui se tiennent",
+    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
+    "list": [
+      "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
+      "Un service qui <strong>valorise votre accompagnement</strong> et témoigne de votre attention aux familles",
+      "Votre implication reste simple — <strong>je prends le relais avec soin</strong>",
+      "<strong>Adapté à chaque famille</strong>, quelle que soit la situation"
+    ]
+  },
+  "carole": {
+    "eyebrow": "Qui je suis",
+    "title": "Carole Correvon —<br/><em>là où l'écoute se transforme en musique.</em>",
+    "paragraphs": [
+      "Je suis infirmière de formation et thérapeute facilitatrice de changement depuis de nombreuses années. Mon parcours m'a appris à être présente, observatrice et à écouter ce qui se dit au-delà des mots — à percevoir ce qui se passe vraiment chez l'autre. Accompagner, soutenir, cheminer avec l'autre : c'est <strong>le cœur de mon travail depuis toujours</strong>.",
+      "En 2024, j'ai traversé sept deuils en une année — une succession de pertes, de cérémonies, d'au revoir. J'ai vu combien il était difficile pour certains d'exprimer ce qu'ils ressentaient vraiment. <strong>C'est de là qu'est né L'Instant Sonore.</strong>",
+      "Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la famille vit, ressent et souhaite exprimer. <strong>Car là où les mots peinent à sortir, la musique libère</strong> — elle réveille les émotions, ouvre le cœur, et facilite le chemin du deuil."
+    ]
+  },
+  "contact": {
+    "eyebrow": "Devenir partenaire",
+    "title": "Envie d'en <em>savoir plus ?</em>",
+    "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
+    "submitLabel": "Demander un échange",
+    "mailtoSubject": "Partenariat pompes funèbres — L'Instant Sonore"
+  }
+}

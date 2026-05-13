@@ -1,0 +1,271 @@
+{
+  "seo": {
+    "title": "L'Instant Sonore — Chanson personnalisée pour les moments essentiels | Carole Correvon, Vaud",
+    "description": "Une chanson unique sur mesure pour célébrer, transmettre, honorer. Mariage, hommage, fin de vie, mots non-dits. Création par Carole Correvon, Echallens (VD), Suisse romande.",
+    "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, Suisse romande, Vaud, Echallens, Carole Correvon",
+    "ogTitle": "L'Instant Sonore — Quand les mots deviennent musique",
+    "ogDescription": "Une chanson unique pour les moments essentiels de votre vie."
+  },
+  "hero": {
+    "eyebrow": "Chanson personnalisée — Suisse romande",
+    "title": "Quand les mots<br/>deviennent <em>musique.</em>",
+    "tagline": "Une chanson unique pour les moments essentiels de votre vie.",
+    "sub": "Ce qui compte mérite vraiment de durer.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646098/mains_et_note_illumine%CC%81e_bb4vg8.png",
+    "ctaPrimary": { "label": "Écouter une création", "href": "#ecouter" },
+    "ctaGhost": { "label": "Premier échange", "href": "#contact" }
+  },
+  "concept": {
+    "lead": "Il y a des moments dans une vie où quelque chose demande à être <em>dit</em>.",
+    "body": "Quelque chose de profond, d'important, qui ne trouve pas toujours les mots. L'Instant Sonore transforme ce qui compte en musique — une chanson unique, à offrir, à garder, pour toujours.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646096/femme_qui_e%CC%81coute_main_sur_le_coeur_oeezpi.png",
+    "imageAlt": "Femme à l'écoute, main sur le cœur"
+  },
+  "origine": {
+    "eyebrow": "L'origine",
+    "title": "Pourquoi <em>L'Instant Sonore</em> est né.",
+    "quote": "Là où les mots s'arrêtent, je prends le relais. Là où les mots tremblent, la chanson parle.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646092/notebook_csp3tv.webp",
+    "imageAlt": "Carnet et stylo, espace d'écriture",
+    "paragraphs": [
+      "Écrire pour les autres, c'est naturel pour moi depuis toujours. On me confie souvent les mots des moments importants — un discours d'anniversaire, un texte de mariage, une carte pour marquer une étape. <strong>Les mots justes arrivent, comme une évidence.</strong>",
+      "Puis la vie m'a bousculée. En l'espace d'une année, j'ai traversé sept deuils — perdant mon papa, et accompagnant de très près ceux qui me sont chers dans leurs propres pertes. Une succession de cérémonies, d'au revoir, de silences.",
+      "Dans ces moments intenses, j'ai observé combien il était difficile pour certains d'exprimer ce qu'ils ressentaient. Des mots retenus, des silences trop lourds.",
+      "Avant que mon papa nous quitte, j'ai pu lui lire un texte d'au revoir — en sa présence. Des mots qui l'ont profondément touché, et qui lui ont permis de partir plus serein. <strong>C'est là que j'ai compris quelque chose d'essentiel : les mots dits à temps libèrent.</strong>",
+      "Peu après, mon ami Cyr m'a montré comment une chanson pouvait aller encore plus loin. Nous l'avons testé ensemble. Quelque chose de bien plus puissant que les mots seuls s'est produit. <strong>J'en ai été bouleversée.</strong>"
+    ],
+    "pullQuote": "Quand les mots deviennent musique, quelque chose se libère — les émotions se déposent à l'extérieur, le cœur respire et peut s'ouvrir autrement.",
+    "outro": "C'est de là qu'est né L'Instant Sonore. De cette conviction que les mots, quand ils deviennent musique, touchent autrement — <strong>ils apaisent, ils libèrent, ils restent.</strong>",
+    "thanks": "Un merci tout particulier à Cyr, spécialiste en communication, sans qui L'Instant Sonore n'aurait peut-être jamais vu le jour."
+  },
+  "piliers": {
+    "eyebrow": "Pour quels moments",
+    "title": "Trois <em>moments.</em>",
+    "subtitle": "L'Instant Sonore accompagne les étapes essentielles d'une vie. Celles que l'on célèbre et celles que l'on traverse.",
+    "items": [
+      {
+        "num": "I",
+        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png",
+        "imageAlt": "Mariage",
+        "title": "Célébration",
+        "sub": "Élan de vie",
+        "description": "Exprimer l'amour, la joie, l'importance d'un lien. Une chanson pour marquer un moment heureux et le rendre inoubliable.",
+        "tags": [
+          "Mariage · cérémonie · demande",
+          "Naissance · anniversaire",
+          "Message d'amour · reconnaissance"
+        ]
+      },
+      {
+        "num": "II",
+        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg",
+        "imageAlt": "Transition de vie",
+        "title": "Transition",
+        "sub": "Passage et renouveau",
+        "description": "Traverser une étape, déposer ce qui doit l'être, marquer un tournant. Une chanson pour donner du sens à ce qui se transforme.",
+        "tags": [
+          "Retraite · changement",
+          "Mots non-dits",
+          "Réconciliation"
+        ]
+      },
+      {
+        "num": "III",
+        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646097/retraite_jfahxn.png",
+        "imageAlt": "Hommage et mémoire",
+        "title": "Hommage",
+        "sub": "Lien éternel & héritage",
+        "description": "Honorer une personne, dire au revoir autrement, garder ce qui reste au-delà de l'absence.",
+        "tags": [
+          "Deuil · cérémonie",
+          "Fin de vie · héritage sonore",
+          "Dernier message"
+        ]
+      }
+    ]
+  },
+  "ecouter": {
+    "eyebrow": "Écouter",
+    "lead": "Chaque écoute vous dira plus que tous les mots.",
+    "title": "Écouter <em>quelques créations.</em>",
+    "subtitle": "Chaque chanson est unique — ces extraits illustrent différents styles et contextes.",
+    "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme.",
+    "songs": ["quand-les-mots", "ce-qui-reste", "50-soleils", "demande-complice"]
+  },
+  "processus": {
+    "eyebrow": "Le processus",
+    "title": "Cinq étapes,<br/>une <em>même délicatesse.</em>",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Premier contact",
+        "description": "Un échange simple, sans engagement — par téléphone ou email. Pour comprendre votre intention, et voir ensemble si le moment est juste."
+      },
+      {
+        "num": "02",
+        "title": "L'entretien",
+        "description": "Nous nous retrouvons en personne ou en visio — pour que je puisse vraiment vous entendre, ressentir ce qui compte, et capter l'essentiel au-delà des mots. Dans un espace bienveillant et confidentiel."
+      },
+      {
+        "num": "03",
+        "title": "Je crée",
+        "description": "J'écris, je ressens, je compose — jusqu'à ce que chaque mot sonne juste et vous ressemble."
+      },
+      {
+        "num": "04",
+        "title": "Vous validez",
+        "description": "Paroles d'abord, musique ensuite. Nous affinons ensemble, jusqu'à ce que la chanson vous ressemble pleinement."
+      },
+      {
+        "num": "05",
+        "title": "Vous recevez",
+        "description": "La chanson finale — fichier audio haute qualité et paroles illustrées — prête à offrir, partager, garder. Pour toujours."
+      }
+    ]
+  },
+  "carole": {
+    "eyebrow": "Qui je suis",
+    "title": "Écouter,<br/>ressentir, <em>traduire.</em>",
+    "photo": null,
+    "photoCaption": "Carole Correvon · Echallens",
+    "paragraphs": [
+      "<strong>Je suis Carole Correvon</strong> — infirmière de première formation et thérapeute facilitatrice de changement depuis de nombreuses années. Je vis à Echallens, dans le canton de Vaud.",
+      "Mon parcours m'a appris à être présente, observatrice et à écouter ce qui se dit au-delà des mots, à percevoir ce qui se passe vraiment chez l'autre. Accompagner, soutenir, cheminer avec l'autre : c'est le cœur de mon travail depuis toujours.",
+      "J'ai aussi un côté profondément créatif et intuitif. Écrire pour les autres a toujours été naturel. Et dans mon travail de thérapeute, on me dit souvent que je mets <strong>des mots justes sur ce que les gens n'arrivent pas à verbaliser eux-mêmes</strong>. C'est cette double sensibilité — l'écoute profonde et le mot juste — que j'apporte aujourd'hui à L'Instant Sonore.",
+      "Je ne cherche pas à analyser ni à réparer. Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la personne vit, ressent et souhaite exprimer."
+    ],
+    "signature": "Je suis là pour ceux qui veulent transmettre un message sans trop savoir comment le faire."
+  },
+  "tarifs": {
+    "eyebrow": "L'offre",
+    "title": "Un investissement <em>unique,</em><br/>un souvenir <em>durable.</em>",
+    "subtitle": "Trois formules, adaptées à la nature et à la profondeur du moment.",
+    "intro": "1<sup>er</sup> échange par téléphone ou mail offert, sans engagement.",
+    "foot": "Paiement par virement, TWINT ou cash — 50 % à la commande, 50 % à la livraison · Révision supplémentaire CHF 50.—",
+    "formules": [
+      {
+        "name": "<em>Instant</em> Unique",
+        "context": "Un moment, une chanson",
+        "price": "CHF 330",
+        "priceUnit": "/ chanson",
+        "featured": false,
+        "tag": null,
+        "includes": [
+          "1 entretien",
+          "1 chanson sur mesure",
+          "1 adaptation selon vos souhaits",
+          "Envoi MP3",
+          "Envoi paroles de la chanson"
+        ],
+        "cta": { "label": "Choisir cette formule", "href": "#contact" }
+      },
+      {
+        "name": "<em>Instant</em> du Cœur",
+        "context": "Pour choisir plus librement",
+        "price": "CHF 530",
+        "priceUnit": "/ chanson",
+        "featured": true,
+        "tag": "Le plus choisi",
+        "includes": [
+          "1 entretien",
+          "2 chansons sur mesure (paroles et styles différents)",
+          "Vous choisissez celle qui vous plaît le plus",
+          "2 adaptations selon vos souhaits",
+          "Envoi MP3 et paroles de la chanson choisie"
+        ],
+        "cta": { "label": "Choisir cette formule", "href": "#contact" }
+      },
+      {
+        "name": "<em>Instant</em> sur mesure",
+        "context": "Tout est possible, rien n'est figé",
+        "price": "dès CHF 600",
+        "priceUnit": "/ sur devis",
+        "featured": false,
+        "tag": null,
+        "includes": [
+          "Échanges approfondis à votre rythme",
+          "Entretiens multiples",
+          "Disponibilité adaptée à la situation",
+          "Libre choix du nombre de chansons",
+          "Présence, flexibilité et accompagnement humain",
+          "Envoi MP3 et paroles de chaque chanson"
+        ],
+        "cta": { "label": "Demander un devis", "href": "#contact" }
+      }
+    ]
+  },
+  "prosGateway": {
+    "eyebrow": "Pour les professionnels",
+    "title": "Une dimension <em>humaine</em><br/>en plus, sans modifier votre pratique.",
+    "subtitle": "L'Instant Sonore peut s'intégrer naturellement dans votre accompagnement, comme un complément précieux à ce que vous offrez déjà à vos clients.",
+    "cards": [
+      {
+        "href": "mariage.html",
+        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+        "imageAlt": "Mains qui se tiennent — mariage",
+        "tag": "Wedding planners",
+        "title": "Une chanson <em>qu'ils n'oublieront jamais.</em>",
+        "description": "Surprise lors de la cérémonie, déclaration, cadeau d'invités — un moment unique au cœur du mariage que vous orchestrez."
+      },
+      {
+        "href": "pompes-funebres.html",
+        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646104/fleur_et_lanterne_q27nfu.jpg",
+        "imageAlt": "Fleur et lanterne — hommage",
+        "tag": "Pompes funèbres",
+        "title": "Une trace vivante,<br/><em>au-delà de la cérémonie.</em>",
+        "description": "Un complément émotionnel fort pour les familles en deuil — une chanson sur mesure, livrable en 48h pour les urgences."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions fréquentes",
+    "title": "Avant de <em>commencer.</em>",
+    "subtitle": "Quelques réponses aux questions que l'on me pose souvent. Pour tout le reste, un appel suffit.",
+    "items": [
+      {
+        "question": "Combien de temps faut-il pour recevoir ma chanson ?",
+        "answerHtml": "<p>Chaque situation est unique — le délai se définit ensemble lors du premier entretien. <strong>En cas d'urgence, une livraison en 48h est possible.</strong> Dans les autres situations, comptez en général <strong>5 à 14 jours</strong>. La date de votre événement est ma boussole.</p>"
+      },
+      {
+        "question": "Comment se passe la première rencontre ?",
+        "answerHtml": "<p>Nous nous retrouvons en personne ou en visio — pour que je puisse vraiment vous entendre et ressentir ce que vous portez. Comptez <strong>60 à 90 minutes</strong> pour partager votre histoire, votre intention, ce que vous souhaitez transmettre. C'est un espace bienveillant et confidentiel.</p>"
+      },
+      {
+        "question": "Et si la chanson ne me correspond pas ?",
+        "answerHtml": "<p>Chaque situation a ses solutions. L'échange, l'écoute et la communication sont essentiels — c'est ensemble que nous trouvons ce qui résonne juste, dans le respect des limites de chacun.</p><p>Chaque formule inclut une ou plusieurs adaptations. Si des révisions supplémentaires s'avèrent nécessaires, un ajustement de prix pourra être appliqué — vous en serez informé au préalable.</p><p>Dans le cas d'une rétractation, l'acompte de 50 % versé à la commande reste acquis.</p><p>L'ensemble de ces conditions est formalisé dans <strong>l'accord de création signé ensemble lors de l'entretien</strong>.</p>"
+      },
+      {
+        "question": "La confidentialité est-elle garantie ?",
+        "answerHtml": "<p>Absolument. <strong>Tout ce que vous partagez reste strictement confidentiel.</strong> Aucune chanson n'est diffusée, partagée ou utilisée comme exemple sans votre accord écrit explicite.</p><p>La confidentialité est formalisée dans l'accord de création signé par les deux parties lors de l'entretien.</p>"
+      },
+      {
+        "question": "À qui appartient la chanson une fois livrée ?",
+        "answerHtml": "<p>Après règlement intégral, vous disposez d'un <strong>droit d'usage personnel et non commercial</strong> de la chanson — écoute, partage privé, diffusion lors d'une cérémonie.</p><p>Pour tout usage public ou commercial, contactez-moi pour en discuter.</p><p>L'ensemble de ces conditions est formalisé dans l'accord de création signé ensemble lors de l'entretien.</p>"
+      },
+      {
+        "question": "Acceptez-vous les demandes urgentes ?",
+        "answerHtml": "<p>Oui. L'urgence peut arriver à tout moment et je fais de mon mieux pour m'y adapter. <strong>Une livraison en 48h est possible</strong> selon la situation.</p><p>Si le délai ne peut pas être respecté, vous en serez informé rapidement afin de trouver ensemble la meilleure solution.</p><p>En cas d'urgence, laissez-moi un message <strong>WhatsApp</strong> — je vous réponds dès que possible.</p>"
+      },
+      {
+        "question": "Faut-il avoir une idée précise, des compétences musicales ou littéraires ?",
+        "answerHtml": "<p>Pas du tout. Vous n'avez besoin ni de compétences musicales ni littéraires, ni même d'une idée précise de ce que vous voulez. Beaucoup de personnes arrivent sans savoir par où commencer — c'est tout à fait normal.</p><p>Mon rôle est de <strong>vous guider et vous accompagner pas à pas</strong>. Venez avec votre histoire, vos mots, ce que vous vivez — je m'occupe du reste.</p>"
+      },
+      {
+        "question": "Comment se passe le paiement ?",
+        "answerHtml": "<p>Par <strong>virement bancaire, TWINT ou cash</strong>. Un acompte de 50 % est demandé à la signature de l'accord de création, le solde à la livraison de la chanson validée.</p><p>Les déplacements dans un rayon de 50 km autour d'Echallens sont inclus. Au-delà, un forfait de CHF 50 sera appliqué — ou la visio vous est proposée gratuitement.</p>"
+      }
+    ]
+  },
+  "temoignage": {
+    "quote": "Parce que parfois, une chanson dit ce que le cœur ne réussit pas à formuler seul.",
+    "attribution": "Carole Correvon · L'Instant Sonore"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Un premier échange,<br/><em>sans engagement.</em>",
+    "lead": "Simplement, humainement. Pour parler de votre intention, du moment à honorer, de ce qui demande à être dit.",
+    "submitLabel": "Envoyer le message",
+    "successMessage": "✦ Merci, votre message est arrivé. Je vous réponds très vite, avec attention.",
+    "privacy": "✦ Vos informations restent strictement confidentielles."
+  }
+}

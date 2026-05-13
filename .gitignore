@@ -1,6 +1,24 @@
+# Astro
+dist/
+.astro/
+
+# Node
 node_modules/
-.DS_Store
+*.log
+npm-debug.log*
+
+# Env
 .env
 .env.local
+.env.production
+
+# Netlify
 .netlify/
-*.log
+
+# IDE
+.DS_Store
+.vscode/
+.idea/
+
+# OS
+Thumbs.db

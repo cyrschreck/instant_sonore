@@ -1,0 +1,166 @@
+{
+  "seo": {
+    "title": "Wedding planners — L'Instant Sonore | Une chanson sur mesure pour rendre un mariage inoubliable",
+    "description": "Pour les wedding planners de Suisse romande : enrichissez votre offre d'une chanson personnalisée — surprise lors de la cérémonie, déclaration, cadeau d'invités. Création par Carole Correvon, Echallens (VD).",
+    "keywords": "chanson personnalisée mariage, chanson sur mesure cérémonie, demande mariage chanson, wedding planner Suisse romande, surprise mariage musical, Carole Correvon",
+    "ogTitle": "Wedding planners — L'Instant Sonore",
+    "ogDescription": "La chanson est le cadeau que les mariés n'attendaient pas — et qu'ils n'oublieront jamais.",
+    "ogImage": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png"
+  },
+  "hero": {
+    "eyebrow": "Pour les wedding planners — Suisse romande",
+    "title": "La chanson que les mariés <em>n'attendaient pas.</em>",
+    "tagline": "Celle qui touche les mariés et leurs invités, du premier au dernier rang. Celle dont on parlera encore des années plus tard.",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png",
+    "ctaPrimary": { "label": "Voir des idées concrètes", "href": "#idees" },
+    "ctaGhost": { "label": "Devenir partenaire", "href": "#contact" }
+  },
+  "manifesto": "Les fleurs, le décor, le repas — les souvenirs s'amenuisent avec le temps. La chanson, elle, s'écoute encore et encore.",
+  "pourquoi": {
+    "eyebrow": "Pourquoi ce partenariat vous concerne",
+    "title": "Vous créez des mariages <em>uniques.</em>",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+    "imageAlt": "Mains qui se tiennent",
+    "paragraphs": [
+      "Vous connaissez l'importance de chaque détail qui fait la différence. Une chanson personnalisée est l'un de ces détails — celui dont on parle encore des années plus tard. <strong>Celle qui touche les mariés et leurs invités au plus profond.</strong>",
+      "L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — vous mentionnez la possibilité, je prends le relais."
+    ],
+    "pullQuote": "Un moment que les invités retiennent. Une chanson que les mariés gardent toute leur vie."
+  },
+  "apports": {
+    "eyebrow": "Ce que L'Instant Sonore apporte à vos clients",
+    "title": "Cinq raisons d'<em>en parler.</em>",
+    "subtitle": "Cinq scénarios qui valorisent votre accompagnement et créent un moment dont on se souviendra.",
+    "items": [
+      {
+        "icon": "✦",
+        "title": "Une <em>surprise</em> inoubliable lors de la cérémonie",
+        "description": "Imaginez l'effet de surprise et les réactions qui en découlent quand une chanson écrite pour les mariés — avec leurs mots, leur histoire — retentit pour la première fois lors de la cérémonie. Aimeriez-vous offrir ce moment dans votre accompagnement ?",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "La chanson de leur <em>histoire d'amour</em>",
+        "description": "Chaque chanson naît de leur histoire — leur rencontre, leurs souvenirs, leurs mots. Pas un standard — une création unique qui leur ressemble vraiment. Ces informations peuvent venir de vous, des mariés, de leurs proches ou des organisateurs de la surprise — selon le contexte, nous trouvons ensemble la meilleure façon de recueillir ce qui compte.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Un cadeau des <em>invités ou des parents</em>",
+        "description": "Une famille, un groupe d'amis, les parents, les témoins — qui souhaitent offrir quelque chose d'unique. La chanson devient un cadeau qui a du sens, qui sort de l'ordinaire.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Une <em>déclaration</em> pendant la cérémonie",
+        "description": "Pour celui ou celle qui veut exprimer quelque chose d'essentiel à l'autre — sans toujours trouver les mots justes. La chanson devient alors le messager du cœur.",
+        "fullWidth": false
+      },
+      {
+        "icon": "✦",
+        "title": "Un élément <em>différenciant</em> dans votre offre",
+        "description": "Une plus-value émotionnelle rare qui s'ajoute naturellement à ce que vous créez déjà avec soin.",
+        "fullWidth": true
+      }
+    ]
+  },
+  "idees": {
+    "eyebrow": "Idées concrètes pour vos mariages",
+    "title": "Cinq façons de <em>l'intégrer.</em>",
+    "subtitle": "Voici quelques scénarios concrets, qui s'adaptent au style et au budget de chaque couple.",
+    "items": [
+      {
+        "num": "I",
+        "title": "Lors de la <em>cérémonie</em>",
+        "description": "La chanson est créée à l'insu des mariés — en collaboration avec les familles, les témoins ou les parents. Vous me transmettez le contact des organisateurs de la surprise, je prends le relais. La chanson est livrée bien avant le jour J, prête à être diffusée lors de la cérémonie."
+      },
+      {
+        "num": "II",
+        "title": "Pour l'<em>entrée des mariés</em>",
+        "description": "La chanson personnalisée remplace ou accompagne la musique d'entrée. Elle est créée à partir de leur histoire et livrée bien avant le jour J — prête à être diffusée au moment choisi."
+      },
+      {
+        "num": "III",
+        "title": "Lors du <em>vin d'honneur ou du dîner</em>",
+        "description": "La chanson est diffusée lors du cocktail ou du dîner — une surprise préparée par l'un des époux, les parents ou les proches. Un moment intime au cœur de la fête."
+      },
+      {
+        "num": "IV",
+        "title": "Lors de la <em>soirée dansante</em>",
+        "description": "La chanson personnalisée remplace ou ouvre la soirée dansante — diffusée comme premier slow, elle crée un moment suspendu, unique, que les mariés et leurs invités n'oublieront pas."
+      },
+      {
+        "num": "V",
+        "title": "Pour le <em>premier anniversaire de mariage</em>",
+        "description": "Dans la continuité de votre accompagnement, proposer une chanson pour le premier anniversaire de mariage est un geste rare et attentionné. <strong>Une façon de garder le lien avec vos couples bien au-delà du jour J.</strong>"
+      }
+    ]
+  },
+  "ecouter": {
+    "eyebrow": "Écouter",
+    "title": "Quelques <em>créations.</em>",
+    "subtitle": "Chaque chanson est unique. Cet extrait illustre l'élan, la complicité, la joie qu'on peut traduire en musique.",
+    "songs": ["demande-complice"],
+    "note": "D'autres créations dans l'esprit célébration à venir prochainement."
+  },
+  "processus": {
+    "eyebrow": "Comment ça fonctionne",
+    "title": "Trois étapes, un accompagnement <em>partagé.</em>",
+    "subtitle": "Votre rôle : mentionner la possibilité à vos clients et leur transmettre mon contact. Je gère tout le reste.",
+    "steps": [
+      {
+        "num": "01",
+        "icon": "✦",
+        "title": "On se <em>parle</em>",
+        "description": "Deux possibilités — vous me transmettez les informations que vous avez déjà récoltées, ou je contacte directement les mariés ou les organisateurs de la surprise. Ensemble nous trouvons la façon la plus adaptée à votre situation."
+      },
+      {
+        "num": "02",
+        "icon": "✦",
+        "title": "Je <em>crée</em>",
+        "description": "J'écris, je ressens, je compose selon mon ressenti. Nous affinons ensuite les paroles et le style musical, jusqu'à sa validation finale."
+      },
+      {
+        "num": "03",
+        "icon": "✦",
+        "title": "Vous <em>recevez</em>",
+        "description": "Le fichier MP3 vous est remis bien avant le jour J — accompagné des paroles de la chanson, prêt à être diffusé au moment que vous avez choisi."
+      }
+    ]
+  },
+  "tarifsRedirect": {
+    "eyebrow": "L'offre",
+    "title": "Les tarifs sont ceux affichés sur <em>la page principale.</em>",
+    "subtitle": "Dans le cadre d'un partenariat, nous convenons ensemble des modalités de collaboration.",
+    "cta": { "label": "Voir les tarifs", "href": "index.html#tarifs" }
+  },
+  "collab": {
+    "eyebrow": "Une collaboration simple & valorisante",
+    "title": "Aucune charge <em>pour vous.</em>",
+    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646095/anniversaire_1_rh86nv.png",
+    "imageAlt": "Célébration",
+    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
+    "list": [
+      "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
+      "Un service qui <strong>valorise votre réputation</strong> et fidélise vos clients",
+      "Votre implication reste simple — <strong>je prends le relais avec soin</strong>",
+      "<strong>Adapté à chaque couple</strong>, quelle que soit leur histoire ou leur budget"
+    ]
+  },
+  "carole": {
+    "eyebrow": "Qui je suis",
+    "title": "Carole Correvon —<br/><em>là où les mots deviennent musique.</em>",
+    "paragraphs": [
+      "Je suis Carole Correvon — thérapeute facilitatrice de changement et créatrice de L'Instant Sonore. Mon expertise n'est pas l'organisation d'un mariage — c'est <strong>l'écoute, le mot juste, et la capacité à traduire ce que les gens veulent dire en quelque chose d'unique</strong>. Avec L'Instant Sonore, ces mots deviennent musique.",
+      "Je suis profondément sensible à ce qui se vit au-delà des mots — aux élans du cœur, à ce qui cherche à se dire dans les grands moments de vie."
+    ],
+    "quoteFinal": "Chaque couple a une histoire unique. La chanson est là pour qu'elle soit entendue."
+  },
+  "contact": {
+    "eyebrow": "Devenir partenaire",
+    "title": "Envie d'en <em>discuter ?</em>",
+    "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
+    "submitLabel": "Demander un échange",
+    "mailtoSubject": "Partenariat mariage — L'Instant Sonore"
+  }
+}

@@ -1,0 +1,255 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteEntry = await getEntry('settings', 'site');
+const site = siteEntry!.data;
+
+const pompesEntry = await getEntry('pages', 'pompes');
+const p = pompesEntry!.data as any;
+
+const allSongs = await getCollection('songs');
+const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
+---
+<BaseLayout seo={{...p.seo, ogImage: p.seo.ogImage}} site={site}>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="L'Instant Sonore — retour à l'accueil">L'Instant<span>✦</span>Sonore</a>
+    <ul class="nav-sections" role="list">
+      <li><a href="#pourquoi" class="nav-section-link" data-section="pourquoi">Pourquoi</a></li>
+      <li><a href="#apports" class="nav-section-link" data-section="apports">Apports</a></li>
+      <li><a href="#ecouter" class="nav-section-link" data-section="ecouter">Écouter</a></li>
+      <li><a href="#processus" class="nav-section-link" data-section="processus">Processus</a></li>
+      <li><a href="#tarifs" class="nav-section-link" data-section="tarifs">Tarifs</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="index.html" class="nav-link-back"><span class="nav-link-back-icon">←</span> Accueil</a>
+      <a href="#contact" class="nav-cta">Devenir partenaire</a>
+      <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Menu">
+  <div class="nav-overlay-inner">
+    <ul class="nav-overlay-list" role="list">
+      <li><a href="#pourquoi">Pourquoi ce partenariat</a></li>
+      <li><a href="#apports">Ce que ça apporte aux familles</a></li>
+      <li><a href="#ecouter">Écouter les créations</a></li>
+      <li><a href="#processus">Comment ça fonctionne</a></li>
+      <li><a href="#tarifs">L'offre</a></li>
+      <li class="nav-overlay-divider"><a href="index.html">← Retour à l'accueil</a></li>
+    </ul>
+    <a href="#contact" class="nav-overlay-cta">Devenir partenaire →</a>
+    <div class="nav-overlay-foot">
+      <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-image"><img src={p.hero.image} alt="" loading="eager" /></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">{p.hero.eyebrow}</div>
+    <h1 set:html={p.hero.title}></h1>
+    <p class="hero-tagline">{p.hero.tagline}</p>
+    <div class="hero-actions">
+      <a href={p.hero.ctaPrimary.href} class="btn btn-primary">{p.hero.ctaPrimary.label} <span class="btn-arrow">→</span></a>
+      <a href={p.hero.ctaGhost.href} class="btn btn-ghost">{p.hero.ctaGhost.label}</a>
+    </div>
+  </div>
+</header>
+
+<section class="manifesto">
+  <div class="container-narrow">
+    <p class="manifesto-quote">{p.manifesto}</p>
+  </div>
+</section>
+
+<section class="pourquoi" id="pourquoi">
+  <div class="pourquoi-grid">
+    <div class="pourquoi-image">
+      <img src={p.pourquoi.image} alt={p.pourquoi.imageAlt} loading="lazy" />
+    </div>
+    <div class="pourquoi-text">
+      <span class="eyebrow">{p.pourquoi.eyebrow}</span>
+      <h2 set:html={p.pourquoi.title}></h2>
+      {p.pourquoi.paragraphs.map((para: string) => <p set:html={para}></p>)}
+      <div class="pull-quote">{p.pourquoi.pullQuote}</div>
+    </div>
+  </div>
+</section>
+
+<section class="apports" id="apports">
+  <div class="apports-head">
+    <span class="eyebrow">{p.apports.eyebrow}</span>
+    <h2 set:html={p.apports.title}></h2>
+    <p>{p.apports.subtitle}</p>
+  </div>
+  <div class="apports-grid">
+    {p.apports.items.map((item: any) => (
+      <article class="apport" style={item.fullWidth ? 'grid-column:1/-1;text-align:center' : ''}>
+        <div class="apport-icon">{item.icon}</div>
+        <h3 set:html={item.title}></h3>
+        <p style={item.fullWidth ? 'margin:0 auto;max-width:55ch' : ''}>{item.description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="ecouter" id="ecouter">
+  <img class="ecouter-decor" src="https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646107/disque_atroqy.png" alt="" loading="lazy" />
+  <div class="ecouter-head">
+    <span class="eyebrow">{p.ecouter.eyebrow}</span>
+    <h2 set:html={p.ecouter.title}></h2>
+    <p>{p.ecouter.subtitle}</p>
+  </div>
+  <div class="players">
+    {p.ecouter.songs.map((slug: string) => {
+      const song = songsBySlug[slug];
+      if (!song) return null;
+      return (
+        <div class="player" data-src={song.src}>
+          <div class="player-head">
+            <button class="player-btn" aria-label="Lire / mettre en pause">
+              <span class="player-btn-icon">
+                <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.5v13l11-6.5z"/></svg>
+                <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+              </span>
+            </button>
+            <div class="player-text">
+              <div class="player-title">{song.title}</div>
+              <div class="player-context">{song.context}</div>
+            </div>
+            <div class="player-time">--:--</div>
+          </div>
+          <div class="player-progress"><div class="player-progress-bar"></div><button class="player-seek" aria-label="Aller à"></button></div>
+        </div>
+      );
+    })}
+  </div>
+</section>
+
+<section class="processus" id="processus">
+  <div class="processus-head">
+    <span class="eyebrow">{p.processus.eyebrow}</span>
+    <h2 set:html={p.processus.title}></h2>
+    <p>{p.processus.subtitle}</p>
+  </div>
+  <div class="processus-3">
+    {p.processus.steps.map((step: any) => (
+      <div class="process-step">
+        <span class="process-step-num">{step.num}</span>
+        <div class="process-step-icon">{step.icon}</div>
+        <h3 set:html={step.title}></h3>
+        <p set:html={step.description}></p>
+      </div>
+    ))}
+  </div>
+  {p.processus.urgenceNote && (
+    <p class="processus-urgence">{p.processus.urgenceNote} <a href={`tel:${site.phoneIntl}`}>{site.phone}</a></p>
+  )}
+</section>
+
+<section class="tarifs-info" id="tarifs">
+  <div class="container-narrow" style="text-align:center;padding:5rem 1.5rem">
+    <span class="eyebrow" style="display:block;margin-bottom:1.5rem">{p.tarifsRedirect.eyebrow}</span>
+    <h2 style="margin-bottom:1.5rem" set:html={p.tarifsRedirect.title}></h2>
+    <p style="margin:0 auto;color:var(--ink-soft);font-size:1.05rem;line-height:1.7;max-width:55ch">{p.tarifsRedirect.subtitle}</p>
+    <a href={p.tarifsRedirect.cta.href} class="btn btn-primary" style="margin-top:2.5rem">{p.tarifsRedirect.cta.label} <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<section class="collab">
+  <div class="collab-grid">
+    <div class="collab-text">
+      <span class="eyebrow">{p.collab.eyebrow}</span>
+      <h2 set:html={p.collab.title}></h2>
+      <p set:html={p.collab.intro}></p>
+      <ul class="collab-list">
+        {p.collab.list.map((li: string) => <li set:html={li}></li>)}
+      </ul>
+    </div>
+    <div class="collab-image">
+      <img src={p.collab.image} alt={p.collab.imageAlt} loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="carole">
+  <div class="carole-inner">
+    <span class="eyebrow">{p.carole.eyebrow}</span>
+    <h2 set:html={p.carole.title}></h2>
+    {p.carole.paragraphs.map((para: string) => <p set:html={para}></p>)}
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="eyebrow">{p.contact.eyebrow}</span>
+    <h2 set:html={p.contact.title}></h2>
+    <p class="contact-lead">{p.contact.lead}</p>
+
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate
+          data-success-message="✦ Merci, votre demande est arrivée. Je vous recontacte très vite."
+          data-site-email={site.email}
+          data-site-phone={site.phone}
+          data-site-phone-intl={site.phoneIntl}>
+      <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI" />
+      <input type="hidden" name="from_name" value="L'Instant Sonore — Pompes funèbres" />
+      <input type="hidden" name="subject" value={`Nouvelle demande pompes funèbres — ${site.domain}`} />
+      <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="cf-name">Prénom & nom <span class="form-required" aria-hidden="true">*</span></label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Email <span class="form-required" aria-hidden="true">*</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="form-field">
+          <label for="cf-phone">Téléphone <span class="form-optional">(optionnel)</span></label>
+          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+        </div>
+        <div class="form-field">
+          <label for="cf-structure">Votre structure</label>
+          <input type="text" id="cf-structure" name="structure" placeholder="Nom de l'agence, ville…" />
+        </div>
+      </div>
+      <div class="form-field form-field-full">
+        <label for="cf-message">Votre message <span class="form-required" aria-hidden="true">*</span></label>
+        <textarea id="cf-message" name="message" rows="5" required placeholder="Quelques mots sur votre activité, ce que vous imaginez…"></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        <span class="form-submit-label">{p.contact.submitLabel}</span>
+        <span class="form-submit-icon" aria-hidden="true">→</span>
+      </button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+      <p class="form-privacy">✦ Vos informations restent strictement confidentielles.</p>
+    </form>
+
+    <div class="contact-divider"><span>ou directement</span></div>
+    <div class="contact-info">
+      <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      <a href={`mailto:${site.email}?subject=${encodeURIComponent(p.contact.mailtoSubject)}`}>{site.email}</a>
+      <div class="contact-info-sub">Carole Correvon · {site.location}</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">L'Instant Sonore — ✦ — quand les mots deviennent musique</div>
+  <nav class="footer-nav" aria-label="Pied de page">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#origine">L'origine</a>
+    <a href="index.html#tarifs">Tarifs</a>
+    <a href="#ecouter">Écouter</a>
+    <a href="mariage.html">Wedding planners</a>
+  </nav>
+  <div class="footer-meta">© {site.year} Carole Correvon · {site.location} · <a href={`https://${site.domain}`}>{site.domain}</a></div>
+</footer>
+
+</BaseLayout>
