@@ -21,7 +21,7 @@ export interface Props {
 
 const { seo, site, jsonLd, bodyClass } = Astro.props;
 const canonicalUrl = seo.canonical || `https://${site.domain}${Astro.url.pathname}`;
-const ogImage = seo.ogImage || 'https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646098/mains_et_note_illumine%CC%81e_bb4vg8.png';
+const ogImage = seo.ogImage || '/uploads/images/mains-et-note.png';
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,7 +54,6 @@ const ogImage = seo.ogImage || 'https://res.cloudinary.com/dhf3b3pyq/image/uploa
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://res.cloudinary.com" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 {jsonLd && <script type="application/ld+json" set:html={jsonLd}></script>}

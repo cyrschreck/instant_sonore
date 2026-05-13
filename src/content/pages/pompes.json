@@ -5,13 +5,13 @@
     "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
     "ogTitle": "Pompes funèbres — L'Instant Sonore",
     "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
-    "ogImage": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg"
+    "ogImage": "/uploads/images/bouquet-deuil.jpg"
   },
   "hero": {
     "eyebrow": "Pour les pompes funèbres — Suisse romande",
     "title": "Un hommage qui demeure <em>bien au-delà de la cérémonie.</em>",
     "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646104/fleur_et_lanterne_q27nfu.jpg",
+    "image": "/uploads/images/fleur-lanterne.jpg",
     "ctaPrimary": { "label": "Découvrir l'apport", "href": "#apports" },
     "ctaGhost": { "label": "Devenir partenaire", "href": "#contact" }
   },
@@ -19,7 +19,7 @@
   "pourquoi": {
     "eyebrow": "Pourquoi ce partenariat vous concerne",
     "title": "Vous accompagnez des familles dans <em>l'un des moments les plus profonds</em> de l'existence.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg",
+    "image": "/uploads/images/bouquet-deuil.jpg",
     "imageAlt": "Bouquet en hommage",
     "paragraphs": [
       "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
@@ -112,7 +112,7 @@
   "collab": {
     "eyebrow": "Une collaboration simple & sans contrainte",
     "title": "Aucune charge <em>pour vous.</em>",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+    "image": "/uploads/images/mains-tiennent.png",
     "imageAlt": "Mains qui se tiennent",
     "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [

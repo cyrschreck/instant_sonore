@@ -5,13 +5,13 @@
     "keywords": "chanson personnalisée mariage, chanson sur mesure cérémonie, demande mariage chanson, wedding planner Suisse romande, surprise mariage musical, Carole Correvon",
     "ogTitle": "Wedding planners — L'Instant Sonore",
     "ogDescription": "La chanson est le cadeau que les mariés n'attendaient pas — et qu'ils n'oublieront jamais.",
-    "ogImage": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png"
+    "ogImage": "/uploads/images/mariage.png"
   },
   "hero": {
     "eyebrow": "Pour les wedding planners — Suisse romande",
     "title": "La chanson que les mariés <em>n'attendaient pas.</em>",
     "tagline": "Celle qui touche les mariés et leurs invités, du premier au dernier rang. Celle dont on parlera encore des années plus tard.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png",
+    "image": "/uploads/images/mariage.png",
     "ctaPrimary": { "label": "Voir des idées concrètes", "href": "#idees" },
     "ctaGhost": { "label": "Devenir partenaire", "href": "#contact" }
   },
@@ -19,7 +19,7 @@
   "pourquoi": {
     "eyebrow": "Pourquoi ce partenariat vous concerne",
     "title": "Vous créez des mariages <em>uniques.</em>",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+    "image": "/uploads/images/mains-tiennent.png",
     "imageAlt": "Mains qui se tiennent",
     "paragraphs": [
       "Vous connaissez l'importance de chaque détail qui fait la différence. Une chanson personnalisée est l'un de ces détails — celui dont on parle encore des années plus tard. <strong>Celle qui touche les mariés et leurs invités au plus profond.</strong>",
@@ -137,7 +137,7 @@
   "collab": {
     "eyebrow": "Une collaboration simple & valorisante",
     "title": "Aucune charge <em>pour vous.</em>",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646095/anniversaire_1_rh86nv.png",
+    "image": "/uploads/images/anniversaire.png",
     "imageAlt": "Célébration",
     "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [

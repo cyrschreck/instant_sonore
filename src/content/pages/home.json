@@ -11,21 +11,21 @@
     "title": "Quand les mots<br/>deviennent <em>musique.</em>",
     "tagline": "Une chanson unique pour les moments essentiels de votre vie.",
     "sub": "Ce qui compte mérite vraiment de durer.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646098/mains_et_note_illumine%CC%81e_bb4vg8.png",
+    "image": "/uploads/images/mains-et-note.png",
     "ctaPrimary": { "label": "Écouter une création", "href": "#ecouter" },
     "ctaGhost": { "label": "Premier échange", "href": "#contact" }
   },
   "concept": {
     "lead": "Il y a des moments dans une vie où quelque chose demande à être <em>dit</em>.",
     "body": "Quelque chose de profond, d'important, qui ne trouve pas toujours les mots. L'Instant Sonore transforme ce qui compte en musique — une chanson unique, à offrir, à garder, pour toujours.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646096/femme_qui_e%CC%81coute_main_sur_le_coeur_oeezpi.png",
+    "image": "/uploads/images/femme-ecoute.png",
     "imageAlt": "Femme à l'écoute, main sur le cœur"
   },
   "origine": {
     "eyebrow": "L'origine",
     "title": "Pourquoi <em>L'Instant Sonore</em> est né.",
     "quote": "Là où les mots s'arrêtent, je prends le relais. Là où les mots tremblent, la chanson parle.",
-    "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646092/notebook_csp3tv.webp",
+    "image": "/uploads/images/notebook.webp",
     "imageAlt": "Carnet et stylo, espace d'écriture",
     "paragraphs": [
       "Écrire pour les autres, c'est naturel pour moi depuis toujours. On me confie souvent les mots des moments importants — un discours d'anniversaire, un texte de mariage, une carte pour marquer une étape. <strong>Les mots justes arrivent, comme une évidence.</strong>",
@@ -45,7 +45,7 @@
     "items": [
       {
         "num": "I",
-        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646101/mariage_zcfzad.png",
+        "image": "/uploads/images/mariage.png",
         "imageAlt": "Mariage",
         "title": "Célébration",
         "sub": "Élan de vie",
@@ -58,7 +58,7 @@
       },
       {
         "num": "II",
-        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/bouquet_de_fleurs_deuil_mmmrzb.jpg",
+        "image": "/uploads/images/bouquet-deuil.jpg",
         "imageAlt": "Transition de vie",
         "title": "Transition",
         "sub": "Passage et renouveau",
@@ -71,7 +71,7 @@
       },
       {
         "num": "III",
-        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646097/retraite_jfahxn.png",
+        "image": "/uploads/images/retraite.png",
         "imageAlt": "Hommage et mémoire",
         "title": "Hommage",
         "sub": "Lien éternel & héritage",
@@ -201,7 +201,7 @@
     "cards": [
       {
         "href": "mariage.html",
-        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646106/mains_qui_se_tiennent_ml4cba.png",
+        "image": "/uploads/images/mains-tiennent.png",
         "imageAlt": "Mains qui se tiennent — mariage",
         "tag": "Wedding planners",
         "title": "Une chanson <em>qu'ils n'oublieront jamais.</em>",
@@ -209,7 +209,7 @@
       },
       {
         "href": "pompes-funebres.html",
-        "image": "https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646104/fleur_et_lanterne_q27nfu.jpg",
+        "image": "/uploads/images/fleur-lanterne.jpg",
         "imageAlt": "Fleur et lanterne — hommage",
         "tag": "Pompes funèbres",
         "title": "Une trace vivante,<br/><em>au-delà de la cérémonie.</em>",
