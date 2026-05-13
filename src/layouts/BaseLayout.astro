@@ -58,12 +58,26 @@ const ogImage = seo.ogImage || 'https://res.cloudinary.com/dhf3b3pyq/image/uploa
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 {jsonLd && <script type="application/ld+json" set:html={jsonLd}></script>}
+
+<!-- Netlify Identity Widget (pour le flow d'invitation Decap CMS) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class={bodyClass}>
 
 <slot />
 
 <script>
+// ── Netlify Identity → redirige vers /admin/ après acceptation de l'invitation ──
+if ((window as any).netlifyIdentity) {
+  (window as any).netlifyIdentity.on("init", (user: any) => {
+    if (!user) {
+      (window as any).netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+
 // ── Reveal on scroll ──
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });

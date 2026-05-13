@@ -1,0 +1,673 @@
+# ╔═══════════════════════════════════════════════════════════════╗
+# ║  Decap CMS — L'Instant Sonore                                ║
+# ║  Configuration de l'admin pour Carole Correvon               ║
+# ╚═══════════════════════════════════════════════════════════════╝
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Mode publication immédiate (pas de workflow de relecture)
+publish_mode: simple
+
+# Stockage local pour les images uploadées via Decap
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Affichage
+site_url: https://instantsonore.ch
+display_url: https://instantsonore.ch
+logo_url: https://res.cloudinary.com/dhf3b3pyq/image/upload/v1777646098/mains_et_note_illumine%CC%81e_bb4vg8.png
+
+locale: fr
+
+# ─────────────────────────────────────────────────────────────────
+#  Collections — ce que Carole peut éditer
+# ─────────────────────────────────────────────────────────────────
+
+collections:
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🛠 RÉGLAGES DU SITE (singleton — config globale)
+  # ═══════════════════════════════════════════════════════════════
+  - name: "settings"
+    label: "🛠 Réglages du site"
+    label_singular: "Réglage"
+    description: "Coordonnées et infos générales (utilisées partout sur le site)"
+    files:
+      - file: "src/content/settings/site.json"
+        label: "Coordonnées & infos générales"
+        name: "site"
+        fields:
+          - { label: "Nom du site", name: "name", widget: "string", default: "L'Instant Sonore" }
+          - { label: "Domaine", name: "domain", widget: "string", hint: "Ex: instantsonore.ch (sans https://)" }
+          - { label: "Téléphone (affiché)", name: "phone", widget: "string", hint: "Format suisse : 076 404 32 82" }
+          - { label: "Téléphone (lien)", name: "phoneIntl", widget: "string", hint: "Format international : +41764043282" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Lieu", name: "location", widget: "string", hint: "Ex: Echallens, Vaud, Suisse" }
+          - { label: "Année (copyright)", name: "year", widget: "string" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🎵 BIBLIOTHÈQUE DE CHANSONS (folder — 1 fichier par chanson)
+  # ═══════════════════════════════════════════════════════════════
+  - name: "songs"
+    label: "🎵 Bibliothèque de chansons"
+    label_singular: "Chanson"
+    description: "Chaque chanson peut être réutilisée sur plusieurs pages (accueil, mariage, pompes funèbres)."
+    folder: "src/content/songs"
+    format: "frontmatter"
+    extension: "md"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - { label: "Titre de la chanson", name: "title", widget: "string" }
+      - { label: "Contexte", name: "context", widget: "string", hint: "Ex: 'Hommage · Garder ce qui demeure au-delà de l'absence'" }
+      - { label: "URL du fichier MP3", name: "src", widget: "string", hint: "URL Cloudinary du fichier audio" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", required: false, value_type: "int", min: 1 }
+      - { label: "(corps optionnel)", name: "body", widget: "markdown", required: false, hint: "Notes internes ou paroles — non affiché actuellement sur le site" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🏠 PAGE D'ACCUEIL
+  # ═══════════════════════════════════════════════════════════════
+  - name: "page_home"
+    label: "🏠 Page d'accueil"
+    files:
+      - file: "src/content/pages/home.json"
+        label: "Page d'accueil"
+        name: "home"
+        fields:
+
+          # ─── SEO ────────────────────────────────────
+          - label: "📄 SEO (référencement)"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Title (titre de l'onglet)", name: "title", widget: "string" }
+              - { label: "Meta description", name: "description", widget: "text" }
+              - { label: "Mots-clés", name: "keywords", widget: "text" }
+              - { label: "OG Title (partage social)", name: "ogTitle", widget: "string" }
+              - { label: "OG Description (partage social)", name: "ogDescription", widget: "text" }
+
+          # ─── Hero ────────────────────────────────────
+          - label: "🎬 Hero (haut de page)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Petit mot au-dessus du titre", name: "eyebrow", widget: "string" }
+              - { label: "Titre principal", name: "title", widget: "string", hint: "Utilise <em>...</em> pour l'italique doré. <br/> pour un saut de ligne." }
+              - { label: "Tagline (sous le titre)", name: "tagline", widget: "string" }
+              - { label: "Sous-tagline (encore en-dessous)", name: "sub", widget: "string" }
+              - { label: "Image de fond", name: "image", widget: "image", hint: "URL Cloudinary ou upload" }
+              - label: "Bouton principal"
+                name: "ctaPrimary"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien (ancre)", name: "href", widget: "string", hint: "Ex: #ecouter" }
+              - label: "Bouton secondaire"
+                name: "ctaGhost"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien (ancre)", name: "href", widget: "string" }
+
+          # ─── Concept ─────────────────────────────────
+          - label: "💡 Concept"
+            name: "concept"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Phrase d'accroche (italique)", name: "lead", widget: "string", hint: "Ex: 'Il y a des moments dans une vie où…' (HTML autorisé)" }
+              - { label: "Paragraphe", name: "body", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte alternatif (accessibilité)", name: "imageAlt", widget: "string" }
+
+          # ─── Origine ─────────────────────────────────
+          - label: "📜 Origine"
+            name: "origine"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow (petit mot au-dessus)", name: "eyebrow", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé (<em>...</em>)" }
+              - { label: "Citation latérale", name: "quote", widget: "text" }
+              - { label: "Image (carnet)", name: "image", widget: "image" }
+              - { label: "Texte alternatif image", name: "imageAlt", widget: "string" }
+              - label: "Paragraphes de l'histoire"
+                name: "paragraphs"
+                widget: "list"
+                summary: "{{fields.0 | truncate(60)}}"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé (<strong>...</strong>, <em>...</em>)" }
+              - { label: "Citation forte (pull-quote)", name: "pullQuote", widget: "text" }
+              - { label: "Phrase de conclusion", name: "outro", widget: "text", hint: "HTML autorisé" }
+              - { label: "Remerciements (optionnel)", name: "thanks", widget: "text", required: false }
+
+          # ─── Piliers / Moments ───────────────────────
+          - label: "✦ Piliers (3 moments)"
+            name: "piliers"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre de section", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Les 3 piliers"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Numéro romain (I, II, III)", name: "num", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Texte alt", name: "imageAlt", widget: "string" }
+                  - { label: "Titre du pilier", name: "title", widget: "string" }
+                  - { label: "Sous-titre", name: "sub", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Tags (3 lignes)"
+                    name: "tags"
+                    widget: "list"
+                    field: { label: "Ligne", name: "tag", widget: "string" }
+
+          # ─── Écouter ─────────────────────────────────
+          - label: "🎧 Écouter (chansons)"
+            name: "ecouter"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Phrase d'intro (italique)", name: "lead", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - { label: "Note de bas (optionnel)", name: "note", widget: "text", required: false }
+              - label: "Chansons à afficher"
+                name: "songs"
+                widget: "relation"
+                collection: "songs"
+                value_field: "{{slug}}"
+                search_fields: ["title", "context"]
+                display_fields: ["title", "context"]
+                multiple: true
+                hint: "Choisis les chansons dans la bibliothèque (modifiables individuellement dans 🎵 Bibliothèque)"
+
+          # ─── Processus ──────────────────────────────
+          - label: "📋 Processus (étapes)"
+            name: "processus"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - label: "Étapes"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.num}} — {{fields.title}}"
+                fields:
+                  - { label: "Numéro (01, 02…)", name: "num", widget: "string" }
+                  - { label: "Titre de l'étape", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # ─── Carole ─────────────────────────────────
+          - label: "👤 Carole"
+            name: "carole"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Photo (optionnel)", name: "photo", widget: "image", required: false }
+              - { label: "Légende sous la photo", name: "photoCaption", widget: "string" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                summary: "{{fields.0 | truncate(60)}}"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
+              - { label: "Signature (italique dorée)", name: "signature", widget: "text" }
+
+          # ─── Tarifs ─────────────────────────────────
+          - label: "💰 Tarifs (3 formules)"
+            name: "tarifs"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - { label: "Intro (italique doré)", name: "intro", widget: "string", hint: "HTML autorisé (<sup>er</sup>...)" }
+              - { label: "Texte de pied (paiement)", name: "foot", widget: "text" }
+              - label: "Formules"
+                name: "formules"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Nom", name: "name", widget: "string", hint: "Ex: '<em>Instant</em> Unique'" }
+                  - { label: "Contexte", name: "context", widget: "string" }
+                  - { label: "Prix", name: "price", widget: "string", hint: "Ex: 'CHF 330' ou 'dès CHF 600'" }
+                  - { label: "Unité prix", name: "priceUnit", widget: "string", hint: "Ex: '/ chanson' ou '/ sur devis'" }
+                  - { label: "Mise en avant ?", name: "featured", widget: "boolean", default: false }
+                  - { label: "Étiquette (si mis en avant)", name: "tag", widget: "string", required: false, hint: "Ex: 'Le plus choisi'" }
+                  - label: "Inclusions"
+                    name: "includes"
+                    widget: "list"
+                    field: { label: "Inclusion", name: "item", widget: "string" }
+                  - label: "Bouton CTA"
+                    name: "cta"
+                    widget: "object"
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Lien", name: "href", widget: "string", default: "#contact" }
+
+          # ─── Pros gateway ────────────────────────────
+          - label: "🤝 Section Pros (passerelle)"
+            name: "prosGateway"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Cartes"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.tag}} — {{fields.title}}"
+                fields:
+                  - { label: "Lien (page cible)", name: "href", widget: "string", hint: "mariage.html ou pompes-funebres.html" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Texte alt", name: "imageAlt", widget: "string" }
+                  - { label: "Tag (catégorie pro)", name: "tag", widget: "string" }
+                  - { label: "Titre carte", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # ─── FAQ ────────────────────────────────────
+          - label: "❓ FAQ"
+            name: "faq"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Questions / Réponses"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.question | truncate(80)}}"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Réponse (HTML)", name: "answerHtml", widget: "text", hint: "Doit contenir des balises <p>...</p>. Tu peux utiliser <strong>, <em>, <a href=>..." }
+
+          # ─── Témoignage ─────────────────────────────
+          - label: "💬 Témoignage"
+            name: "temoignage"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Citation", name: "quote", widget: "text" }
+              - { label: "Attribution", name: "attribution", widget: "string" }
+
+          # ─── Contact ────────────────────────────────
+          - label: "📞 Contact"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Libellé du bouton d'envoi", name: "submitLabel", widget: "string" }
+              - { label: "Message de succès", name: "successMessage", widget: "string" }
+              - { label: "Mention confidentialité", name: "privacy", widget: "string" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # 💍 PAGE MARIAGE
+  # ═══════════════════════════════════════════════════════════════
+  - name: "page_mariage"
+    label: "💍 Page Mariage"
+    files:
+      - file: "src/content/pages/mariage.json"
+        label: "Page Mariage"
+        name: "mariage"
+        fields:
+
+          - label: "📄 SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Mots-clés", name: "keywords", widget: "text" }
+              - { label: "OG Title", name: "ogTitle", widget: "string" }
+              - { label: "OG Description", name: "ogDescription", widget: "text" }
+              - { label: "OG Image", name: "ogImage", widget: "image" }
+
+          - label: "🎬 Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre principal", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Tagline", name: "tagline", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Bouton principal"
+                name: "ctaPrimary"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+              - label: "Bouton secondaire"
+                name: "ctaGhost"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+
+          - { label: "🗣 Manifesto (citation)", name: "manifesto", widget: "text" }
+
+          - label: "🤔 Pourquoi"
+            name: "pourquoi"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte alt", name: "imageAlt", widget: "string" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
+              - { label: "Pull-quote", name: "pullQuote", widget: "text" }
+
+          - label: "✨ Apports (5 raisons)"
+            name: "apports"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Apports"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Icône", name: "icon", widget: "string", default: "✦" }
+                  - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Pleine largeur ?", name: "fullWidth", widget: "boolean", default: false, hint: "À cocher seulement pour le dernier élément" }
+
+          - label: "💡 Idées (5 façons)"
+            name: "idees"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Idées"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.num}} — {{fields.title}}"
+                fields:
+                  - { label: "Numéro romain (I, II...)", name: "num", widget: "string" }
+                  - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "🎧 Écouter"
+            name: "ecouter"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Chansons à afficher"
+                name: "songs"
+                widget: "relation"
+                collection: "songs"
+                value_field: "{{slug}}"
+                search_fields: ["title", "context"]
+                display_fields: ["title", "context"]
+                multiple: true
+              - { label: "Note de bas (optionnel)", name: "note", widget: "text", required: false }
+
+          - label: "📋 Processus"
+            name: "processus"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Étapes"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.num}} — {{fields.title}}"
+                fields:
+                  - { label: "Numéro", name: "num", widget: "string" }
+                  - { label: "Icône", name: "icon", widget: "string", default: "✦" }
+                  - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "💰 Tarifs (redirection)"
+            name: "tarifsRedirect"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Bouton CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+
+          - label: "🤝 Collaboration"
+            name: "collab"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte alt", name: "imageAlt", widget: "string" }
+              - { label: "Texte d'intro", name: "intro", widget: "text", hint: "HTML autorisé" }
+              - label: "Liste des bénéfices"
+                name: "list"
+                widget: "list"
+                field: { label: "Ligne", name: "item", widget: "text", hint: "HTML autorisé" }
+
+          - label: "👤 Carole (version mariage)"
+            name: "carole"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
+              - { label: "Citation finale (optionnel)", name: "quoteFinal", widget: "text", required: false }
+
+          - label: "📞 Contact"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Libellé du bouton", name: "submitLabel", widget: "string" }
+              - { label: "Sujet mailto (lien email direct)", name: "mailtoSubject", widget: "string" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🕊 PAGE POMPES FUNÈBRES
+  # ═══════════════════════════════════════════════════════════════
+  - name: "page_pompes"
+    label: "🕊 Page Pompes funèbres"
+    files:
+      - file: "src/content/pages/pompes.json"
+        label: "Page Pompes funèbres"
+        name: "pompes"
+        fields:
+
+          - label: "📄 SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Mots-clés", name: "keywords", widget: "text" }
+              - { label: "OG Title", name: "ogTitle", widget: "string" }
+              - { label: "OG Description", name: "ogDescription", widget: "text" }
+              - { label: "OG Image", name: "ogImage", widget: "image" }
+
+          - label: "🎬 Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre principal", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Tagline", name: "tagline", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Bouton principal"
+                name: "ctaPrimary"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+              - label: "Bouton secondaire"
+                name: "ctaGhost"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+
+          - { label: "🗣 Manifesto (citation)", name: "manifesto", widget: "text" }
+
+          - label: "🤔 Pourquoi"
+            name: "pourquoi"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte alt", name: "imageAlt", widget: "string" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
+              - { label: "Pull-quote", name: "pullQuote", widget: "text" }
+
+          - label: "✨ Apports (5 raisons)"
+            name: "apports"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Apports"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Icône", name: "icon", widget: "string", default: "✦" }
+                  - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Pleine largeur ?", name: "fullWidth", widget: "boolean", default: false }
+
+          - label: "🎧 Écouter"
+            name: "ecouter"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Chansons à afficher"
+                name: "songs"
+                widget: "relation"
+                collection: "songs"
+                value_field: "{{slug}}"
+                search_fields: ["title", "context"]
+                display_fields: ["title", "context"]
+                multiple: true
+
+          - label: "📋 Processus (4 étapes)"
+            name: "processus"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - { label: "Note d'urgence (optionnel)", name: "urgenceNote", widget: "text", required: false }
+              - label: "Étapes"
+                name: "steps"
+                widget: "list"
+                summary: "{{fields.num}} — {{fields.title}}"
+                fields:
+                  - { label: "Numéro", name: "num", widget: "string" }
+                  - { label: "Icône", name: "icon", widget: "string", default: "✦" }
+                  - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "💰 Tarifs (redirection)"
+            name: "tarifsRedirect"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - label: "Bouton CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
+
+          - label: "🤝 Collaboration"
+            name: "collab"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte alt", name: "imageAlt", widget: "string" }
+              - { label: "Texte d'intro", name: "intro", widget: "text", hint: "HTML autorisé" }
+              - label: "Liste des bénéfices"
+                name: "list"
+                widget: "list"
+                field: { label: "Ligne", name: "item", widget: "text", hint: "HTML autorisé" }
+
+          - label: "👤 Carole (version pompes funèbres)"
+            name: "carole"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
+
+          - label: "📞 Contact"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Libellé du bouton", name: "submitLabel", widget: "string" }
+              - { label: "Sujet mailto", name: "mailtoSubject", widget: "string" }

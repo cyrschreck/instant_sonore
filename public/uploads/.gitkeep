@@ -1,0 +1,3 @@
+# Ce fichier garde le dossier dans Git même quand il est vide.
+# Les nouvelles images uploadées par Carole via /admin/ seront stockées ici.
+# Les images existantes restent sur Cloudinary.
