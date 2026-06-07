@@ -104,7 +104,7 @@
       {
         "name": "<em>Instant</em> Unique",
         "context": "Un moment, une chanson",
-        "price": "CHF 330",
+        "price": "CHF 420",
         "priceUnit": "/ chanson",
         "featured": false,
         "tag": null,
@@ -123,7 +123,7 @@
       {
         "name": "<em>Instant</em> du Cœur",
         "context": "Pour choisir plus librement",
-        "price": "CHF 530",
+        "price": "CHF 650",
         "priceUnit": "/ chanson",
         "featured": true,
         "tag": "Le plus choisi",
@@ -142,7 +142,7 @@
       {
         "name": "<em>Instant</em> sur mesure",
         "context": "Tout est possible, rien n'est figé",
-        "price": "dès CHF 600",
+        "price": "dès CHF 650",
         "priceUnit": "/ sur devis",
         "featured": false,
         "tag": null,
