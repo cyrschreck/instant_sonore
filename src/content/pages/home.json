@@ -1,96 +1,21 @@
 {
-  "seo": {
-    "title": "L'Instant Sonore — Chanson personnalisée pour les moments essentiels | Carole Correvon, Vaud",
-    "description": "Une chanson unique sur mesure pour célébrer, transmettre, honorer. Mariage, hommage, fin de vie, mots non-dits. Création par Carole Correvon, Echallens (VD), Suisse romande.",
-    "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, Suisse romande, Vaud, Echallens, Carole Correvon",
-    "ogTitle": "L'Instant Sonore — Quand les mots deviennent musique",
-    "ogDescription": "Une chanson unique pour les moments essentiels de votre vie."
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Un premier échange,<br/><em>sans engagement.</em>",
+    "lead": "Simplement, humainement. Pour parler de votre intention, du moment à honorer, de ce qui demande à être dit.",
+    "submitLabel": "Envoyer le message",
+    "successMessage": "✦ Merci, votre message est arrivé. Je vous réponds très vite, avec attention.",
+    "privacy": "✦ Vos informations restent strictement confidentielles."
   },
-  "hero": {
-    "eyebrow": "Chanson personnalisée — Suisse romande",
-    "title": "Quand les mots<br/>deviennent <em>musique.</em>",
-    "tagline": "Une chanson unique pour les moments essentiels de votre vie.",
-    "sub": "Ce qui compte mérite vraiment de durer.",
-    "image": "/uploads/images/mains-et-note.png",
-    "ctaPrimary": { "label": "Écouter une création", "href": "#ecouter" },
-    "ctaGhost": { "label": "Premier échange", "href": "#contact" }
+  "temoignage": {
+    "quote": "Parce que parfois, une chanson dit ce que le cœur ne réussit pas à formuler seul.",
+    "attribution": "Carole Correvon · L'Instant Sonore"
   },
   "concept": {
     "lead": "Il y a des moments dans une vie où quelque chose demande à être <em>dit</em>.",
     "body": "Quelque chose de profond, d'important, qui ne trouve pas toujours les mots. L'Instant Sonore transforme ce qui compte en musique — une chanson unique, à offrir, à garder, pour toujours.",
-    "image": "/uploads/images/femme-ecoute.png",
+    "image": "/uploads/deuil-famille-2-4-3.png",
     "imageAlt": "Femme à l'écoute, main sur le cœur"
-  },
-  "origine": {
-    "eyebrow": "L'origine",
-    "title": "Pourquoi <em>L'Instant Sonore</em> est né.",
-    "quote": "Là où les mots s'arrêtent, je prends le relais. Là où les mots tremblent, la chanson parle.",
-    "image": "/uploads/images/notebook.webp",
-    "imageAlt": "Carnet et stylo, espace d'écriture",
-    "paragraphs": [
-      "Écrire pour les autres, c'est naturel pour moi depuis toujours. On me confie souvent les mots des moments importants — un discours d'anniversaire, un texte de mariage, une carte pour marquer une étape. <strong>Les mots justes arrivent, comme une évidence.</strong>",
-      "Puis la vie m'a bousculée. En l'espace d'une année, j'ai traversé sept deuils — perdant mon papa, et accompagnant de très près ceux qui me sont chers dans leurs propres pertes. Une succession de cérémonies, d'au revoir, de silences.",
-      "Dans ces moments intenses, j'ai observé combien il était difficile pour certains d'exprimer ce qu'ils ressentaient. Des mots retenus, des silences trop lourds.",
-      "Avant que mon papa nous quitte, j'ai pu lui lire un texte d'au revoir — en sa présence. Des mots qui l'ont profondément touché, et qui lui ont permis de partir plus serein. <strong>C'est là que j'ai compris quelque chose d'essentiel : les mots dits à temps libèrent.</strong>",
-      "Peu après, mon ami Cyr m'a montré comment une chanson pouvait aller encore plus loin. Nous l'avons testé ensemble. Quelque chose de bien plus puissant que les mots seuls s'est produit. <strong>J'en ai été bouleversée.</strong>"
-    ],
-    "pullQuote": "Quand les mots deviennent musique, quelque chose se libère — les émotions se déposent à l'extérieur, le cœur respire et peut s'ouvrir autrement.",
-    "outro": "C'est de là qu'est né L'Instant Sonore. De cette conviction que les mots, quand ils deviennent musique, touchent autrement — <strong>ils apaisent, ils libèrent, ils restent.</strong>",
-    "thanks": "Un merci tout particulier à Cyr, spécialiste en communication, sans qui L'Instant Sonore n'aurait peut-être jamais vu le jour."
-  },
-  "piliers": {
-    "eyebrow": "Pour quels moments",
-    "title": "Trois <em>moments.</em>",
-    "subtitle": "L'Instant Sonore accompagne les étapes essentielles d'une vie. Celles que l'on célèbre et celles que l'on traverse.",
-    "items": [
-      {
-        "num": "I",
-        "image": "/uploads/images/mariage.png",
-        "imageAlt": "Mariage",
-        "title": "Célébration",
-        "sub": "Élan de vie",
-        "description": "Exprimer l'amour, la joie, l'importance d'un lien. Une chanson pour marquer un moment heureux et le rendre inoubliable.",
-        "tags": [
-          "Mariage · cérémonie · demande",
-          "Naissance · anniversaire",
-          "Message d'amour · reconnaissance"
-        ]
-      },
-      {
-        "num": "II",
-        "image": "/uploads/images/bouquet-deuil.jpg",
-        "imageAlt": "Transition de vie",
-        "title": "Transition",
-        "sub": "Passage et renouveau",
-        "description": "Traverser une étape, déposer ce qui doit l'être, marquer un tournant. Une chanson pour donner du sens à ce qui se transforme.",
-        "tags": [
-          "Retraite · changement",
-          "Mots non-dits",
-          "Réconciliation"
-        ]
-      },
-      {
-        "num": "III",
-        "image": "/uploads/images/retraite.png",
-        "imageAlt": "Hommage et mémoire",
-        "title": "Hommage",
-        "sub": "Lien éternel & héritage",
-        "description": "Honorer une personne, dire au revoir autrement, garder ce qui reste au-delà de l'absence.",
-        "tags": [
-          "Deuil · cérémonie",
-          "Fin de vie · héritage sonore",
-          "Dernier message"
-        ]
-      }
-    ]
-  },
-  "ecouter": {
-    "eyebrow": "Écouter",
-    "lead": "Chaque écoute vous dira plus que tous les mots.",
-    "title": "Écouter <em>quelques créations.</em>",
-    "subtitle": "Chaque chanson est unique — ces extraits illustrent différents styles et contextes.",
-    "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme.",
-    "songs": ["quand-les-mots", "ce-qui-reste", "50-soleils", "demande-complice"]
   },
   "processus": {
     "eyebrow": "Le processus",
@@ -123,18 +48,51 @@
       }
     ]
   },
-  "carole": {
-    "eyebrow": "Qui je suis",
-    "title": "Écouter,<br/>ressentir, <em>traduire.</em>",
-    "photo": null,
-    "photoCaption": "Carole Correvon · Echallens",
-    "paragraphs": [
-      "<strong>Je suis Carole Correvon</strong> — infirmière de première formation et thérapeute facilitatrice de changement depuis de nombreuses années. Je vis à Echallens, dans le canton de Vaud.",
-      "Mon parcours m'a appris à être présente, observatrice et à écouter ce qui se dit au-delà des mots, à percevoir ce qui se passe vraiment chez l'autre. Accompagner, soutenir, cheminer avec l'autre : c'est le cœur de mon travail depuis toujours.",
-      "J'ai aussi un côté profondément créatif et intuitif. Écrire pour les autres a toujours été naturel. Et dans mon travail de thérapeute, on me dit souvent que je mets <strong>des mots justes sur ce que les gens n'arrivent pas à verbaliser eux-mêmes</strong>. C'est cette double sensibilité — l'écoute profonde et le mot juste — que j'apporte aujourd'hui à L'Instant Sonore.",
-      "Je ne cherche pas à analyser ni à réparer. Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la personne vit, ressent et souhaite exprimer."
-    ],
-    "signature": "Je suis là pour ceux qui veulent transmettre un message sans trop savoir comment le faire."
+  "piliers": {
+    "eyebrow": "Pour quels moments",
+    "title": "Trois <em>moments.</em>",
+    "subtitle": "L'Instant Sonore accompagne les étapes essentielles d'une vie. Celles que l'on célèbre et celles que l'on traverse.",
+    "items": [
+      {
+        "num": "I",
+        "image": "/uploads/mariée-émue-4-5-.png",
+        "imageAlt": "Mariage",
+        "title": "Célébration",
+        "sub": "Élan de vie",
+        "description": "Exprimer l'amour, la joie, l'importance d'un lien. Une chanson pour marquer un moment heureux et le rendre inoubliable.",
+        "tags": [
+          "Mariage · cérémonie · demande",
+          "Naissance · anniversaire",
+          "Message d'amour · reconnaissance"
+        ]
+      },
+      {
+        "num": "II",
+        "image": "/uploads/retraite-transition.-4-5-png.png",
+        "imageAlt": "Transition de vie",
+        "title": "Transition",
+        "sub": "Passage et renouveau",
+        "description": "Traverser une étape, déposer ce qui doit l'être, marquer un tournant. Une chanson pour donner du sens à ce qui se transforme.",
+        "tags": [
+          "Retraite · changement",
+          "Mots non-dits",
+          "Réconciliation"
+        ]
+      },
+      {
+        "num": "III",
+        "image": "/uploads/deuil-tableau-4-3.png",
+        "imageAlt": "Hommage et mémoire",
+        "title": "Hommage",
+        "sub": "Lien éternel & héritage",
+        "description": "Honorer une personne, dire au revoir autrement, garder ce qui reste au-delà de l'absence.",
+        "tags": [
+          "Deuil · cérémonie",
+          "Fin de vie · héritage sonore",
+          "Dernier message"
+        ]
+      }
+    ]
   },
   "tarifs": {
     "eyebrow": "L'offre",
@@ -157,7 +115,10 @@
           "Envoi MP3",
           "Envoi paroles de la chanson"
         ],
-        "cta": { "label": "Choisir cette formule", "href": "#contact" }
+        "cta": {
+          "label": "Choisir cette formule",
+          "href": "#contact"
+        }
       },
       {
         "name": "<em>Instant</em> du Cœur",
@@ -173,7 +134,10 @@
           "2 adaptations selon vos souhaits",
           "Envoi MP3 et paroles de la chanson choisie"
         ],
-        "cta": { "label": "Choisir cette formule", "href": "#contact" }
+        "cta": {
+          "label": "Choisir cette formule",
+          "href": "#contact"
+        }
       },
       {
         "name": "<em>Instant</em> sur mesure",
@@ -190,32 +154,25 @@
           "Présence, flexibilité et accompagnement humain",
           "Envoi MP3 et paroles de chaque chanson"
         ],
-        "cta": { "label": "Demander un devis", "href": "#contact" }
+        "cta": {
+          "label": "Demander un devis",
+          "href": "#contact"
+        }
       }
     ]
   },
-  "prosGateway": {
-    "eyebrow": "Pour les professionnels",
-    "title": "Une dimension <em>humaine</em><br/>en plus, sans modifier votre pratique.",
-    "subtitle": "L'Instant Sonore peut s'intégrer naturellement dans votre accompagnement, comme un complément précieux à ce que vous offrez déjà à vos clients.",
-    "cards": [
-      {
-        "href": "mariage.html",
-        "image": "/uploads/images/mains-tiennent.png",
-        "imageAlt": "Mains qui se tiennent — mariage",
-        "tag": "Wedding planners",
-        "title": "Une chanson <em>qu'ils n'oublieront jamais.</em>",
-        "description": "Surprise lors de la cérémonie, déclaration, cadeau d'invités — un moment unique au cœur du mariage que vous orchestrez."
-      },
-      {
-        "href": "pompes-funebres.html",
-        "image": "/uploads/images/fleur-lanterne.jpg",
-        "imageAlt": "Fleur et lanterne — hommage",
-        "tag": "Pompes funèbres",
-        "title": "Une trace vivante,<br/><em>au-delà de la cérémonie.</em>",
-        "description": "Un complément émotionnel fort pour les familles en deuil — une chanson sur mesure, livrable en 48h pour les urgences."
-      }
-    ]
+  "carole": {
+    "eyebrow": "Qui je suis",
+    "title": "Écouter,<br/>ressentir, <em>traduire.</em>",
+    "photo": null,
+    "photoCaption": "Carole Correvon · Echallens",
+    "paragraphs": [
+      "<strong>Je suis Carole Correvon</strong> — infirmière de première formation et thérapeute facilitatrice de changement depuis de nombreuses années. Je vis à Echallens, dans le canton de Vaud.",
+      "Mon parcours m'a appris à être présente, observatrice et à écouter ce qui se dit au-delà des mots, à percevoir ce qui se passe vraiment chez l'autre. Accompagner, soutenir, cheminer avec l'autre : c'est le cœur de mon travail depuis toujours.",
+      "J'ai aussi un côté profondément créatif et intuitif. Écrire pour les autres a toujours été naturel. Et dans mon travail de thérapeute, on me dit souvent que je mets <strong>des mots justes sur ce que les gens n'arrivent pas à verbaliser eux-mêmes</strong>. C'est cette double sensibilité — l'écoute profonde et le mot juste — que j'apporte aujourd'hui à L'Instant Sonore.",
+      "Je ne cherche pas à analyser ni à réparer. Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la personne vit, ressent et souhaite exprimer."
+    ],
+    "signature": "Je suis là pour ceux qui veulent transmettre un message sans trop savoir comment le faire."
   },
   "faq": {
     "eyebrow": "Questions fréquentes",
@@ -256,16 +213,79 @@
       }
     ]
   },
-  "temoignage": {
-    "quote": "Parce que parfois, une chanson dit ce que le cœur ne réussit pas à formuler seul.",
-    "attribution": "Carole Correvon · L'Instant Sonore"
+  "hero": {
+    "eyebrow": "Chanson personnalisée — Suisse romande",
+    "title": "Quand les mots<br/>deviennent <em>musique.</em>",
+    "tagline": "Une chanson unique pour les moments essentiels de votre vie.",
+    "sub": "Ce qui compte mérite vraiment de durer.",
+    "image": "/uploads/images/mains-et-note.png",
+    "ctaPrimary": {
+      "label": "Écouter une création",
+      "href": "#ecouter"
+    },
+    "ctaGhost": {
+      "label": "Premier échange",
+      "href": "#contact"
+    }
   },
-  "contact": {
-    "eyebrow": "Contact",
-    "title": "Un premier échange,<br/><em>sans engagement.</em>",
-    "lead": "Simplement, humainement. Pour parler de votre intention, du moment à honorer, de ce qui demande à être dit.",
-    "submitLabel": "Envoyer le message",
-    "successMessage": "✦ Merci, votre message est arrivé. Je vous réponds très vite, avec attention.",
-    "privacy": "✦ Vos informations restent strictement confidentielles."
+  "seo": {
+    "title": "L'Instant Sonore — Chanson personnalisée pour les moments essentiels | Carole Correvon, Vaud",
+    "description": "Une chanson unique sur mesure pour célébrer, transmettre, honorer. Mariage, hommage, fin de vie, mots non-dits. Création par Carole Correvon, Echallens (VD), Suisse romande.",
+    "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, Suisse romande, Vaud, Echallens, Carole Correvon",
+    "ogTitle": "L'Instant Sonore — Quand les mots deviennent musique",
+    "ogDescription": "Une chanson unique pour les moments essentiels de votre vie."
+  },
+  "ecouter": {
+    "eyebrow": "Écouter",
+    "lead": "Chaque écoute vous dira plus que tous les mots.",
+    "title": "Écouter <em>quelques créations.</em>",
+    "subtitle": "Chaque chanson est unique — ces extraits illustrent différents styles et contextes.",
+    "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme.",
+    "songs": [
+      "quand-les-mots",
+      "ce-qui-reste",
+      "50-soleils",
+      "demande-complice"
+    ]
+  },
+  "prosGateway": {
+    "eyebrow": "Pour les professionnels",
+    "title": "Une dimension <em>humaine</em><br/>en plus, sans modifier votre pratique.",
+    "subtitle": "L'Instant Sonore peut s'intégrer naturellement dans votre accompagnement, comme un complément précieux à ce que vous offrez déjà à vos clients.",
+    "cards": [
+      {
+        "href": "mariage.html",
+        "image": "/uploads/images/mains-tiennent.png",
+        "imageAlt": "Mains qui se tiennent — mariage",
+        "tag": "Wedding planners",
+        "title": "Une chanson <em>qu'ils n'oublieront jamais.</em>",
+        "description": "Surprise lors de la cérémonie, déclaration, cadeau d'invités — un moment unique au cœur du mariage que vous orchestrez."
+      },
+      {
+        "href": "pompes-funebres.html",
+        "image": "/uploads/images/fleur-lanterne.jpg",
+        "imageAlt": "Fleur et lanterne — hommage",
+        "tag": "Pompes funèbres",
+        "title": "Une trace vivante,<br/><em>au-delà de la cérémonie.</em>",
+        "description": "Un complément émotionnel fort pour les familles en deuil — une chanson sur mesure, livrable en 48h pour les urgences."
+      }
+    ]
+  },
+  "origine": {
+    "paragraphs": [
+      "Écrire pour les autres, c'est naturel pour moi depuis toujours. On me confie souvent les mots des moments importants — un discours d'anniversaire, un texte de mariage, une carte pour marquer une étape. <strong>Les mots justes arrivent, comme une évidence.</strong>",
+      "Puis la vie m'a bousculée. En l'espace d'une année, j'ai traversé sept deuils — perdant mon papa, et accompagnant de très près ceux qui me sont chers dans leurs propres pertes. Une succession de cérémonies, d'au revoir, de silences.",
+      "Dans ces moments intenses, j'ai observé combien il était difficile pour certains d'exprimer ce qu'ils ressentaient. Des mots retenus, des silences trop lourds.",
+      "Avant que mon papa nous quitte, j'ai pu lui lire un texte d'au revoir — en sa présence. Des mots qui l'ont profondément touché, et qui lui ont permis de partir plus serein. <strong>C'est là que j'ai compris quelque chose d'essentiel : les mots dits à temps libèrent.</strong>",
+      "Peu après, mon ami Cyr m'a montré comment une chanson pouvait aller encore plus loin. Nous l'avons testé ensemble. Quelque chose de bien plus puissant que les mots seuls s'est produit. <strong>J'en ai été bouleversée.</strong>"
+    ],
+    "thanks": "Un merci tout particulier à Cyr, spécialiste en communication, sans qui L'Instant Sonore n'aurait peut-être jamais vu le jour.",
+    "eyebrow": "L'origine",
+    "outro": "C'est de là qu'est né L'Instant Sonore. De cette conviction que les mots, quand ils deviennent musique, touchent autrement — <strong>ils apaisent, ils libèrent, ils restent.</strong>",
+    "imageAlt": "Carnet et stylo, espace d'écriture",
+    "pullQuote": "Quand les mots deviennent musique, quelque chose se libère — les émotions se déposent à l'extérieur, le cœur respire et peut s'ouvrir autrement.",
+    "title": "Pourquoi <em>L'Instant Sonore</em> est né.",
+    "image": "/uploads/instant-sonore-est-né-femme-qui-écrit-casque-4-5.png",
+    "quote": "Là où les mots s'arrêtent, je prends le relais. Là où les mots tremblent, la chanson parle."
   }
 }
