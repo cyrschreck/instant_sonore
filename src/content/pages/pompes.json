@@ -1,32 +1,11 @@
 {
-  "seo": {
-    "title": "Pompes funèbres — L'Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
-    "description": "Pour les pompes funèbres de Suisse romande : une trace vivante en complément des fleurs. Chanson personnalisée pour cérémonie d'adieu, deuil, hommage. Livraison 48h pour les urgences. Carole Correvon, Echallens (VD).",
-    "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
-    "ogTitle": "Pompes funèbres — L'Instant Sonore",
-    "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
-    "ogImage": "/uploads/images/bouquet-deuil.jpg"
-  },
-  "hero": {
-    "eyebrow": "Pour les pompes funèbres — Suisse romande",
-    "title": "Un hommage qui demeure <em>bien au-delà de la cérémonie.</em>",
-    "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
-    "image": "/uploads/images/fleur-lanterne.jpg",
-    "ctaPrimary": { "label": "Découvrir l'apport", "href": "#apports" },
-    "ctaGhost": { "label": "Devenir partenaire", "href": "#contact" }
-  },
   "manifesto": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
-  "pourquoi": {
-    "eyebrow": "Pourquoi ce partenariat vous concerne",
-    "title": "Vous accompagnez des familles dans <em>l'un des moments les plus profonds</em> de l'existence.",
-    "image": "/uploads/images/bouquet-deuil.jpg",
-    "imageAlt": "Bouquet en hommage",
-    "paragraphs": [
-      "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
-      "<strong>L'Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
-      "Une chanson créée sur mesure à partir des souvenirs et de l'histoire unique de la personne honorée, offerte à ceux qui restent."
-    ],
-    "pullQuote": "Une trace vivante — quelque chose qui demeure bien au-delà de la cérémonie."
+  "contact": {
+    "eyebrow": "Devenir partenaire",
+    "title": "Envie d'en <em>savoir plus ?</em>",
+    "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
+    "submitLabel": "Demander un échange",
+    "mailtoSubject": "Partenariat pompes funèbres — L'Instant Sonore"
   },
   "apports": {
     "eyebrow": "Ce que L'Instant Sonore apporte à vos familles",
@@ -65,11 +44,27 @@
       }
     ]
   },
-  "ecouter": {
-    "eyebrow": "Écouter",
-    "title": "Quelques créations<br/>dans <em>l'esprit hommage.</em>",
-    "subtitle": "Chaque chanson est unique. Ces extraits illustrent la dimension d'apaisement et de transmission qu'on peut traduire en musique.",
-    "songs": ["ce-qui-reste", "je-suis-la", "un-parrain-precieux"]
+  "collab": {
+    "eyebrow": "Une collaboration simple & sans contrainte",
+    "title": "Aucune charge <em>pour vous.</em>",
+    "image": "/uploads/images/mains-tiennent.png",
+    "imageAlt": "Mains qui se tiennent",
+    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
+    "list": [
+      "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
+      "Un service qui <strong>valorise votre accompagnement</strong> et témoigne de votre attention aux familles",
+      "Votre implication reste simple — <strong>je prends le relais avec soin</strong>",
+      "<strong>Adapté à chaque famille</strong>, quelle que soit la situation"
+    ]
+  },
+  "tarifsRedirect": {
+    "eyebrow": "L'offre",
+    "title": "Les tarifs sont ceux affichés sur <em>la page principale.</em>",
+    "subtitle": "Dans le cadre d'un partenariat, nous convenons ensemble des modalités de collaboration.",
+    "cta": {
+      "label": "Voir les tarifs",
+      "href": "index.html#tarifs"
+    }
   },
   "processus": {
     "eyebrow": "Comment ça fonctionne",
@@ -103,25 +98,6 @@
       }
     ]
   },
-  "tarifsRedirect": {
-    "eyebrow": "L'offre",
-    "title": "Les tarifs sont ceux affichés sur <em>la page principale.</em>",
-    "subtitle": "Dans le cadre d'un partenariat, nous convenons ensemble des modalités de collaboration.",
-    "cta": { "label": "Voir les tarifs", "href": "index.html#tarifs" }
-  },
-  "collab": {
-    "eyebrow": "Une collaboration simple & sans contrainte",
-    "title": "Aucune charge <em>pour vous.</em>",
-    "image": "/uploads/images/mains-tiennent.png",
-    "imageAlt": "Mains qui se tiennent",
-    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
-    "list": [
-      "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
-      "Un service qui <strong>valorise votre accompagnement</strong> et témoigne de votre attention aux familles",
-      "Votre implication reste simple — <strong>je prends le relais avec soin</strong>",
-      "<strong>Adapté à chaque famille</strong>, quelle que soit la situation"
-    ]
-  },
   "carole": {
     "eyebrow": "Qui je suis",
     "title": "Carole Correvon —<br/><em>là où l'écoute se transforme en musique.</em>",
@@ -131,11 +107,48 @@
       "Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la famille vit, ressent et souhaite exprimer. <strong>Car là où les mots peinent à sortir, la musique libère</strong> — elle réveille les émotions, ouvre le cœur, et facilite le chemin du deuil."
     ]
   },
-  "contact": {
-    "eyebrow": "Devenir partenaire",
-    "title": "Envie d'en <em>savoir plus ?</em>",
-    "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
-    "submitLabel": "Demander un échange",
-    "mailtoSubject": "Partenariat pompes funèbres — L'Instant Sonore"
+  "pourquoi": {
+    "eyebrow": "Pourquoi ce partenariat vous concerne",
+    "title": "Vous accompagnez des familles dans <em>l'un des moments les plus profonds</em> de l'existence.",
+    "image": "/uploads/deuil-femme-qui-regarde-tableau-4-3.png",
+    "imageAlt": "Bouquet en hommage",
+    "paragraphs": [
+      "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
+      "<strong>L'Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
+      "Une chanson créée sur mesure à partir des souvenirs et de l'histoire unique de la personne honorée, offerte à ceux qui restent."
+    ],
+    "pullQuote": "Une trace vivante — quelque chose qui demeure bien au-delà de la cérémonie."
+  },
+  "hero": {
+    "eyebrow": "Pour les pompes funèbres — Suisse romande",
+    "title": "Un hommage qui demeure <em>bien au-delà de la cérémonie.</em>",
+    "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
+    "image": "/uploads/deuil-famille.4-3-png.png",
+    "ctaPrimary": {
+      "label": "Découvrir l'apport",
+      "href": "#apports"
+    },
+    "ctaGhost": {
+      "label": "Devenir partenaire",
+      "href": "#contact"
+    }
+  },
+  "seo": {
+    "title": "Pompes funèbres — L'Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
+    "description": "Pour les pompes funèbres de Suisse romande : une trace vivante en complément des fleurs. Chanson personnalisée pour cérémonie d'adieu, deuil, hommage. Livraison 48h pour les urgences. Carole Correvon, Echallens (VD).",
+    "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
+    "ogTitle": "Pompes funèbres — L'Instant Sonore",
+    "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
+    "ogImage": "/uploads/images/bouquet-deuil.jpg"
+  },
+  "ecouter": {
+    "eyebrow": "Écouter",
+    "title": "Quelques créations<br/>dans <em>l'esprit hommage.</em>",
+    "subtitle": "Chaque chanson est unique. Ces extraits illustrent la dimension d'apaisement et de transmission qu'on peut traduire en musique.",
+    "songs": [
+      "ce-qui-reste",
+      "je-suis-la",
+      "un-parrain-precieux"
+    ]
   }
 }
