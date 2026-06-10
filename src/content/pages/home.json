@@ -231,7 +231,7 @@
   "seo": {
     "title": "L'Instant Sonore — Chanson personnalisée pour les moments essentiels | Carole Correvon, Vaud",
     "description": "Une chanson unique sur mesure pour célébrer, transmettre, honorer. Mariage, hommage, fin de vie, mots non-dits. Création par Carole Correvon, Echallens (VD), Suisse romande.",
-    "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, Suisse romande, Vaud, Echallens, Carole Correvon",
+    "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, cadeau de naissance, cadeau anniversaire, Suisse romande, Vaud, Echallens, Carole Correvon",
     "ogTitle": "L'Instant Sonore — Quand les mots deviennent musique",
     "ogDescription": "Une chanson unique pour les moments essentiels de votre vie."
   },
@@ -245,7 +245,8 @@
       "quand-les-mots",
       "ce-qui-reste",
       "50-soleils",
-      "demande-complice"
+      "demande-complice",
+      "un-parrain-precieux"
     ]
   },
   "prosGateway": {
