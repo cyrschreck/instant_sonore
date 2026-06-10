@@ -2,7 +2,7 @@
 title: Merci Peter Mandel
 context: Une chanson de gratitude célébrant la vie, l'héritage et la lumière
   transmis par Peter Mandel.
-src: https://suno.com/s/ZcMNkRZcasrp8Dkh
+src: à mettre
 order: 6
 ---
 ### Qui était Peter Mandel ?
@@ -21,10 +21,10 @@ Pendant plusieurs semaines, souvenirs, anecdotes et témoignages ont été rasse
 
 Cette chanson a ensuite été adaptée en plusieurs langues :
 
-🇫🇷 Français
-🇩🇪 Allemand
-🇮🇹 Italien
-🇬🇧 Anglais
+🇫🇷 Français\
+🇩🇪 Allemand\
+🇮🇹 Italien\
+🇬🇧 Anglais\
 🇨🇳 Chinois
 
 afin que son message puisse continuer à voyager au-delà des frontières.
