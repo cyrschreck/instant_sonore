@@ -3,6 +3,7 @@ title: Merci Peter Mandel
 context: Une chanson de gratitude célébrant la vie, l'héritage et la lumière
   transmis par Peter Mandel.
 src: https://suno.com/s/ZcMNkRZcasrp8Dkh
+order: 6
 ---
 ### Qui était Peter Mandel ?
 
