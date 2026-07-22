@@ -1,9 +1,8 @@
 ---
-title: Merci Peter Mandel
-context: Une chanson de gratitude célébrant la vie, l'héritage et la lumière
-  transmis par Peter Mandel.
+title: Merci Peter Mandel - chanson à télécharger
+context: Hommage a un homme qui a transformé des vies
 src: à mettre
-order: 6
+order: 4
 ---
 ### Qui était Peter Mandel ?
 
