@@ -1,9 +1,11 @@
 {
-  "name": "L'Instant Sonore",
+  "name": "Instant Sonore",
   "domain": "instantsonore.ch",
   "phone": "076 404 32 82",
   "phoneIntl": "+41764043282",
   "email": "carole@instantsonore.ch",
   "location": "Echallens, Vaud, Suisse",
-  "year": "2026"
+  "year": "2026",
+  "facebook": "https://www.facebook.com/profile.php?id=61593439709564",
+  "instagram": "https://www.instagram.com/instantsonore.ch/"
 }

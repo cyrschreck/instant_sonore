@@ -24,7 +24,7 @@ const jsonLd = JSON.stringify({
       "url": `https://${site.domain}/`,
       "telephone": site.phoneIntl,
       "email": site.email,
-      "priceRange": "CHF 330 – Sur devis",
+      "priceRange": "CHF 420 – Sur devis",
       "founder": { "@type": "Person", "name": "Carole Correvon", "jobTitle": "Auteure-compositrice, thérapeute facilitatrice de changement" },
       "address": { "@type": "PostalAddress", "addressLocality": "Echallens", "addressRegion": "Vaud", "postalCode": "1040", "addressCountry": "CH" },
       "areaServed": [{ "@type": "AdministrativeArea", "name": "Suisse romande" }, { "@type": "Country", "name": "Suisse" }],
@@ -36,7 +36,7 @@ const jsonLd = JSON.stringify({
       "provider": { "@id": `https://${site.domain}/#business` },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Formules L'Instant Sonore",
+        "name": "Formules Instant Sonore",
         "itemListElement": home.tarifs.formules.map((f: any) => ({
           "@type": "Offer",
           "name": f.name.replace(/<[^>]+>/g, '') + ' — ' + f.context,
@@ -64,11 +64,12 @@ const jsonLd = JSON.stringify({
 <!-- ─── NAV ──────────────────────────────────────────── -->
 <nav class="nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="#" class="nav-brand" aria-label="L'Instant Sonore — retour en haut">L'Instant<span>✦</span>Sonore</a>
+    <a href="#" class="nav-brand" aria-label="Instant Sonore — retour en haut">Instant<span>✦</span>Sonore</a>
     <ul class="nav-sections" role="list">
       <li><a href="#origine" class="nav-section-link" data-section="origine">Origine</a></li>
       <li><a href="#moments" class="nav-section-link" data-section="moments">Moments</a></li>
       <li><a href="#ecouter" class="nav-section-link" data-section="ecouter">Écouter</a></li>
+      <li><a href="#carole" class="nav-section-link" data-section="carole">Qui suis-je</a></li>
       <li><a href="#tarifs" class="nav-section-link" data-section="tarifs">Tarifs</a></li>
       <li><a href="#faq" class="nav-section-link" data-section="faq">Questions</a></li>
     </ul>
@@ -79,13 +80,13 @@ const jsonLd = JSON.stringify({
           <span class="nav-pro-trigger-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="nav-pro-dropdown" id="navProDropdown" role="menu">
-          <a href="mariage.html" role="menuitem">
-            <span class="nav-pro-dropdown-title">Wedding planners</span>
-            <span class="nav-pro-dropdown-sub">Mariages, demandes, cérémonies</span>
-          </a>
           <a href="pompes-funebres.html" role="menuitem">
             <span class="nav-pro-dropdown-title">Pompes funèbres</span>
             <span class="nav-pro-dropdown-sub">Hommage, cérémonie, deuil</span>
+          </a>
+          <a href="mariage.html" role="menuitem">
+            <span class="nav-pro-dropdown-title">Wedding planners</span>
+            <span class="nav-pro-dropdown-sub">Mariages, demandes, cérémonies</span>
           </a>
         </div>
       </div>
@@ -105,8 +106,8 @@ const jsonLd = JSON.stringify({
       <li><a href="#carole">Qui je suis</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#faq">Questions fréquentes</a></li>
-      <li class="nav-overlay-divider"><a href="mariage.html">✦ Wedding planners</a></li>
       <li class="nav-overlay-divider"><a href="pompes-funebres.html">✦ Pompes funèbres</a></li>
+      <li class="nav-overlay-divider"><a href="mariage.html">✦ Wedding planners</a></li>
     </ul>
     <a href="#contact" class="nav-overlay-cta">Premier échange →</a>
     <div class="nav-overlay-foot">
@@ -191,6 +192,32 @@ const jsonLd = JSON.stringify({
           <ul class="pilier-list">
             {item.tags.map((tag: string) => <li>{tag}</li>)}
           </ul>
+          {item.songs && item.songs.length > 0 && (
+            <div class="pilier-songs">
+              <div class="pilier-songs-label">À écouter</div>
+              {item.songs.map((slug: string) => {
+                const song = songsBySlug[slug];
+                if (!song) return null;
+                return (
+                  <div class="player player-mini" data-src={song.src}>
+                    <div class="player-head">
+                      <button class="player-btn" aria-label={`Écouter ${song.title}`}>
+                        <span class="player-btn-icon">
+                          <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.5v13l11-6.5z"/></svg>
+                          <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+                        </span>
+                      </button>
+                      <div class="player-text">
+                        <div class="player-title">{song.title}</div>
+                      </div>
+                      <div class="player-time">--:--</div>
+                    </div>
+                    <div class="player-progress"><div class="player-progress-bar"></div><button class="player-seek" aria-label="Aller à"></button></div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </article>
     ))}
@@ -199,7 +226,7 @@ const jsonLd = JSON.stringify({
 
 <!-- ─── ÉCOUTER ──────────────────────────────────────── -->
 <section class="ecouter" id="ecouter">
-  <img class="ecouter-decor" src="/uploads/images/disque.png" alt="" loading="lazy" />
+  <img class="ecouter-decor" src={home.ecouter.decorImage || '/uploads/images/disque.png'} alt="" loading="lazy" />
   <div class="ecouter-head">
     <span class="eyebrow">{home.ecouter.eyebrow}</span>
     <p class="ecouter-lead">{home.ecouter.lead}</p>
@@ -235,7 +262,7 @@ const jsonLd = JSON.stringify({
 
 <!-- ─── PROCESSUS ────────────────────────────────────── -->
 <section class="processus" id="processus">
-  <img class="processus-decor" src="/uploads/images/livre-ecouteur.png" alt="" loading="lazy" />
+  <img class="processus-decor" src={home.processus.decorImage || '/uploads/images/livre-ecouteur.png'} alt="" loading="lazy" />
   <div class="processus-head">
     <span class="eyebrow">{home.processus.eyebrow}</span>
     <h2 set:html={home.processus.title}></h2>
@@ -365,7 +392,7 @@ const jsonLd = JSON.stringify({
           data-site-phone={site.phone}
           data-site-phone-intl={site.phoneIntl}>
       <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI" />
-      <input type="hidden" name="from_name" value="L'Instant Sonore — Site web" />
+      <input type="hidden" name="from_name" value="Instant Sonore — Site web" />
       <input type="hidden" name="subject" value={`Nouveau message depuis ${site.domain}`} />
       <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -416,16 +443,23 @@ const jsonLd = JSON.stringify({
 
 <!-- ─── FOOTER ───────────────────────────────────────── -->
 <footer class="footer">
-  <div class="footer-brand">L'Instant Sonore — ✦ — quand les mots deviennent musique</div>
+  <div class="footer-brand">Instant Sonore — ✦ — quand les mots deviennent musique</div>
   <nav class="footer-nav" aria-label="Pied de page">
     <a href="#origine">L'origine</a>
     <a href="#moments">Les moments</a>
     <a href="#ecouter">Écouter</a>
+    <a href="#carole">Qui je suis</a>
     <a href="#tarifs">Tarifs</a>
     <a href="#faq">FAQ</a>
-    <a href="mariage.html">Wedding planners</a>
     <a href="pompes-funebres.html">Pompes funèbres</a>
+    <a href="mariage.html">Wedding planners</a>
   </nav>
+  {(site.facebook || site.instagram) && (
+    <div class="footer-social">
+      {site.facebook && <a href={site.facebook} target="_blank" rel="noopener">Facebook</a>}
+      {site.instagram && <a href={site.instagram} target="_blank" rel="noopener">Instagram</a>}
+    </div>
+  )}
   <div class="footer-meta">
     © {site.year} Carole Correvon · {site.location} · <a href={`https://${site.domain}`}>{site.domain}</a>
   </div>

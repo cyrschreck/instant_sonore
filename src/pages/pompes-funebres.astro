@@ -15,7 +15,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 
 <nav class="nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand" aria-label="L'Instant Sonore — retour à l'accueil">L'Instant<span>✦</span>Sonore</a>
+    <a href="index.html" class="nav-brand" aria-label="Instant Sonore — retour à l'accueil">Instant<span>✦</span>Sonore</a>
     <ul class="nav-sections" role="list">
       <li><a href="#pourquoi" class="nav-section-link" data-section="pourquoi">Pourquoi</a></li>
       <li><a href="#apports" class="nav-section-link" data-section="apports">Apports</a></li>
@@ -100,7 +100,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 </section>
 
 <section class="ecouter" id="ecouter">
-  <img class="ecouter-decor" src="/uploads/images/disque.png" alt="" loading="lazy" />
+  <img class="ecouter-decor" src={p.ecouter.decorImage || '/uploads/images/disque.png'} alt="" loading="lazy" />
   <div class="ecouter-head">
     <span class="eyebrow">{p.ecouter.eyebrow}</span>
     <h2 set:html={p.ecouter.title}></h2>
@@ -138,7 +138,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
     <h2 set:html={p.processus.title}></h2>
     <p>{p.processus.subtitle}</p>
   </div>
-  <div class="processus-3">
+  <div class="processus-3 processus-2col">
     {p.processus.steps.map((step: any) => (
       <div class="process-step">
         <span class="process-step-num">{step.num}</span>
@@ -198,7 +198,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
           data-site-phone={site.phone}
           data-site-phone-intl={site.phoneIntl}>
       <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI" />
-      <input type="hidden" name="from_name" value="L'Instant Sonore — Pompes funèbres" />
+      <input type="hidden" name="from_name" value="Instant Sonore — Pompes funèbres" />
       <input type="hidden" name="subject" value={`Nouvelle demande pompes funèbres — ${site.domain}`} />
       <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div class="form-grid">
@@ -241,7 +241,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 </section>
 
 <footer class="footer">
-  <div class="footer-brand">L'Instant Sonore — ✦ — quand les mots deviennent musique</div>
+  <div class="footer-brand">Instant Sonore — ✦ — quand les mots deviennent musique</div>
   <nav class="footer-nav" aria-label="Pied de page">
     <a href="index.html">Accueil</a>
     <a href="index.html#origine">L'origine</a>
@@ -249,6 +249,12 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
     <a href="#ecouter">Écouter</a>
     <a href="mariage.html">Wedding planners</a>
   </nav>
+  {(site.facebook || site.instagram) && (
+    <div class="footer-social">
+      {site.facebook && <a href={site.facebook} target="_blank" rel="noopener">Facebook</a>}
+      {site.instagram && <a href={site.instagram} target="_blank" rel="noopener">Instagram</a>}
+    </div>
+  )}
   <div class="footer-meta">© {site.year} Carole Correvon · {site.location} · <a href={`https://${site.domain}`}>{site.domain}</a></div>
 </footer>
 

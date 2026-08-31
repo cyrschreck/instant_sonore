@@ -5,10 +5,10 @@
     "title": "Envie d'en <em>savoir plus ?</em>",
     "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
     "submitLabel": "Demander un échange",
-    "mailtoSubject": "Partenariat pompes funèbres — L'Instant Sonore"
+    "mailtoSubject": "Partenariat pompes funèbres — Instant Sonore"
   },
   "apports": {
-    "eyebrow": "Ce que L'Instant Sonore apporte à vos familles",
+    "eyebrow": "Ce que Instant Sonore apporte à vos familles",
     "title": "Cinq raisons d'<em>en parler.</em>",
     "subtitle": "Cinq dimensions concrètes qui enrichissent votre accompagnement — sans le modifier.",
     "items": [
@@ -49,7 +49,7 @@
     "title": "Aucune charge <em>pour vous.</em>",
     "image": "/uploads/images/mains-tiennent.png",
     "imageAlt": "Mains qui se tiennent",
-    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
+    "intro": "Proposer Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [
       "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
       "Un service qui <strong>valorise votre accompagnement</strong> et témoigne de votre attention aux familles",
@@ -70,7 +70,7 @@
     "eyebrow": "Comment ça fonctionne",
     "title": "Quatre étapes, un accompagnement <em>partagé.</em>",
     "subtitle": "Votre rôle : mentionner la possibilité à la famille, en transmettre le contact. Je prends ensuite le relais.",
-    "urgenceNote": "✦ Pour les cérémonies imminentes — une livraison en 48h est possible. Appelez-moi directement, je m'organise.",
+    "urgenceNote": "✦ Besoin de votre chanson dans un délai court ? Une livraison en 48h est possible. Appelez-moi directement, je m'organise :",
     "steps": [
       {
         "num": "01",
@@ -100,11 +100,12 @@
   },
   "carole": {
     "eyebrow": "Qui je suis",
-    "title": "Carole Correvon —<br/><em>là où l'écoute se transforme en musique.</em>",
+    "title": "Carole Correvon —<br/><em>de l'écoute à la chanson.</em>",
     "paragraphs": [
-      "Je suis infirmière de formation et thérapeute facilitatrice de changement depuis de nombreuses années. Mon parcours m'a appris à être présente, observatrice et à écouter ce qui se dit au-delà des mots — à percevoir ce qui se passe vraiment chez l'autre. Accompagner, soutenir, cheminer avec l'autre : c'est <strong>le cœur de mon travail depuis toujours</strong>.",
-      "En 2024, j'ai traversé sept deuils en une année — une succession de pertes, de cérémonies, d'au revoir. J'ai vu combien il était difficile pour certains d'exprimer ce qu'ils ressentaient vraiment. <strong>C'est de là qu'est né L'Instant Sonore.</strong>",
-      "Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la famille vit, ressent et souhaite exprimer. <strong>Car là où les mots peinent à sortir, la musique libère</strong> — elle réveille les émotions, ouvre le cœur, et facilite le chemin du deuil."
+      "Infirmière de formation et thérapeute facilitatrice de changement depuis de nombreuses années, j'ai appris à écouter au-delà des mots, à accueillir les émotions et à percevoir ce qui se vit en profondeur chez l'autre. Accompagner, soutenir et cheminer avec les personnes dans des moments sensibles fait partie du <strong>cœur de mon parcours</strong>.",
+      "En 2024, j'ai traversé plusieurs deuils en peu de temps. En cherchant, pour la cérémonie de mon papa, une chanson qui puisse vraiment lui ressembler et honorer son histoire, j'ai mesuré combien il est parfois difficile de trouver les mots justes. <strong>C'est de cette expérience qu'est né Instant Sonore.</strong>",
+      "Aujourd'hui, mon rôle est de recueillir avec délicatesse ce que la famille souhaite transmettre — les souvenirs, les émotions, l'essentiel d'une vie — puis de le traduire en une chanson unique, fidèle à la personne honorée et à ceux qui restent.",
+      "Là où les mots manquent parfois, la chanson devient une autre manière d'honorer, de transmettre et de garder un lien vivant."
     ]
   },
   "pourquoi": {
@@ -114,7 +115,7 @@
     "imageAlt": "Bouquet en hommage",
     "paragraphs": [
       "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
-      "<strong>L'Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
+      "<strong>Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
       "Une chanson créée sur mesure à partir des souvenirs et de l'histoire unique de la personne honorée, offerte à ceux qui restent."
     ],
     "pullQuote": "Une trace vivante — quelque chose qui demeure bien au-delà de la cérémonie."
@@ -125,7 +126,7 @@
     "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
     "image": "/uploads/deuil-famille.4-3-png.png",
     "ctaPrimary": {
-      "label": "Découvrir l'apport",
+      "label": "Découvrir le concept",
       "href": "#apports"
     },
     "ctaGhost": {
@@ -134,10 +135,10 @@
     }
   },
   "seo": {
-    "title": "Pompes funèbres — L'Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
+    "title": "Pompes funèbres — Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
     "description": "Pour les pompes funèbres de Suisse romande : une trace vivante en complément des fleurs. Chanson personnalisée pour cérémonie d'adieu, deuil, hommage. Livraison 48h pour les urgences. Carole Correvon, Echallens (VD).",
     "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
-    "ogTitle": "Pompes funèbres — L'Instant Sonore",
+    "ogTitle": "Pompes funèbres — Instant Sonore",
     "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
     "ogImage": "/uploads/images/bouquet-deuil.jpg"
   },

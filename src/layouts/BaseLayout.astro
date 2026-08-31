@@ -84,7 +84,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 document.querySelectorAll('section > *:not(.reveal)').forEach((el, i) => {
   el.classList.add('reveal');
-  (el as HTMLElement).style.transitionDelay = (i * 60) + 'ms';
+  (el as HTMLElement).style.transitionDelay = (Math.min(i, 6) * 30) + 'ms';
   revealObserver.observe(el);
 });
 

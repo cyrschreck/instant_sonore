@@ -18,7 +18,9 @@ const settings = defineCollection({
     phoneIntl: z.string(),
     email: z.string(),
     location: z.string(),
-    year: z.string()
+    year: z.string(),
+    facebook: z.string().optional(),
+    instagram: z.string().optional()
   })
 });
 
@@ -79,7 +81,8 @@ const homeSchema = z.object({
       title: z.string(),
       sub: z.string(),
       description: z.string(),
-      tags: z.array(z.string())
+      tags: z.array(z.string()),
+      songs: z.array(z.string()).optional().describe('slugs vers /src/content/songs/')
     }))
   }),
   ecouter: z.object({
@@ -88,11 +91,13 @@ const homeSchema = z.object({
     title: z.string(),
     subtitle: z.string(),
     note: z.string().optional(),
+    decorImage: imgSchema.optional(),
     songs: z.array(z.string()).describe('slugs vers /src/content/songs/')
   }),
   processus: z.object({
     eyebrow: z.string(),
     title: z.string(),
+    decorImage: imgSchema.optional(),
     steps: z.array(z.object({
       num: z.string(),
       title: z.string(),
@@ -213,7 +218,8 @@ const mariageSchema = z.object({
     title: z.string(),
     subtitle: z.string(),
     songs: z.array(z.string()),
-    note: z.string().optional()
+    note: z.string().optional(),
+    decorImage: imgSchema.optional()
   }),
   processus: z.object({
     eyebrow: z.string(),
@@ -297,7 +303,8 @@ const pompesSchema = z.object({
     eyebrow: z.string(),
     title: z.string(),
     subtitle: z.string(),
-    songs: z.array(z.string())
+    songs: z.array(z.string()),
+    decorImage: imgSchema.optional()
   }),
   processus: z.object({
     eyebrow: z.string(),

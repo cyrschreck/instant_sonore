@@ -1,5 +1,5 @@
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  Decap CMS — L'Instant Sonore                                ║
+# ║  Decap CMS — Instant Sonore                                  ║
 # ║  Configuration de l'admin pour Carole Correvon               ║
 # ╚═══════════════════════════════════════════════════════════════╝
 
@@ -39,13 +39,15 @@ collections:
         label: "Coordonnées & infos générales"
         name: "site"
         fields:
-          - { label: "Nom du site", name: "name", widget: "string", default: "L'Instant Sonore" }
+          - { label: "Nom du site", name: "name", widget: "string", default: "Instant Sonore" }
           - { label: "Domaine", name: "domain", widget: "string", hint: "Ex: instantsonore.ch (sans https://)" }
           - { label: "Téléphone (affiché)", name: "phone", widget: "string", hint: "Format suisse : 076 404 32 82" }
           - { label: "Téléphone (lien)", name: "phoneIntl", widget: "string", hint: "Format international : +41764043282" }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Lieu", name: "location", widget: "string", hint: "Ex: Echallens, Vaud, Suisse" }
           - { label: "Année (copyright)", name: "year", widget: "string" }
+          - { label: "Page Facebook (URL)", name: "facebook", widget: "string", required: false, hint: "Lien complet vers la page Facebook — affiché dans le pied de page" }
+          - { label: "Page Instagram (URL)", name: "instagram", widget: "string", required: false, hint: "Lien complet vers le profil Instagram — affiché dans le pied de page" }
 
   # ═══════════════════════════════════════════════════════════════
   # 🎵 BIBLIOTHÈQUE DE CHANSONS (folder — 1 fichier par chanson)
@@ -169,6 +171,16 @@ collections:
                     name: "tags"
                     widget: "list"
                     field: { label: "Ligne", name: "tag", widget: "string" }
+                  - label: "Chansons à écouter (3-4 max)"
+                    name: "songs"
+                    widget: "relation"
+                    collection: "songs"
+                    value_field: "{{slug}}"
+                    search_fields: ["title", "context"]
+                    display_fields: ["title", "context"]
+                    multiple: true
+                    required: false
+                    hint: "Mini-lecteurs affichés sous la catégorie — choisis dans 🎵 Bibliothèque"
 
           # ─── Écouter ─────────────────────────────────
           - label: "🎧 Écouter (chansons)"
@@ -181,6 +193,7 @@ collections:
               - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
               - { label: "Sous-titre", name: "subtitle", widget: "text" }
               - { label: "Note de bas (optionnel)", name: "note", widget: "text", required: false }
+              - { label: "Image décorative (coin bas-droit)", name: "decorImage", widget: "image", required: false, hint: "Visible sur grand écran uniquement" }
               - label: "Chansons à afficher"
                 name: "songs"
                 widget: "relation"
@@ -199,6 +212,7 @@ collections:
             fields:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Image décorative (coin bas-gauche)", name: "decorImage", widget: "image", required: false, hint: "Visible sur grand écran uniquement" }
               - label: "Étapes"
                 name: "steps"
                 widget: "list"
@@ -431,6 +445,7 @@ collections:
                 display_fields: ["title", "context"]
                 multiple: true
               - { label: "Note de bas (optionnel)", name: "note", widget: "text", required: false }
+              - { label: "Image décorative (coin bas-droit)", name: "decorImage", widget: "image", required: false, hint: "Visible sur grand écran uniquement" }
 
           - label: "📋 Processus"
             name: "processus"
@@ -599,6 +614,7 @@ collections:
                 search_fields: ["title", "context"]
                 display_fields: ["title", "context"]
                 multiple: true
+              - { label: "Image décorative (coin bas-droit)", name: "decorImage", widget: "image", required: false, hint: "Visible sur grand écran uniquement" }
 
           - label: "📋 Processus (4 étapes)"
             name: "processus"

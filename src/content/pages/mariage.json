@@ -5,10 +5,10 @@
     "title": "Envie d'en <em>discuter ?</em>",
     "lead": "Je suis disponible pour un premier échange — par téléphone ou email, selon votre préférence. Aucun engagement.",
     "submitLabel": "Demander un échange",
-    "mailtoSubject": "Partenariat mariage — L'Instant Sonore"
+    "mailtoSubject": "Partenariat mariage — Instant Sonore"
   },
   "apports": {
-    "eyebrow": "Ce que L'Instant Sonore apporte à vos clients",
+    "eyebrow": "Ce que Instant Sonore apporte à vos clients",
     "title": "Cinq raisons d'<em>en parler.</em>",
     "subtitle": "Cinq scénarios qui valorisent votre accompagnement et créent un moment dont on se souviendra.",
     "items": [
@@ -49,7 +49,7 @@
     "title": "Aucune charge <em>pour vous.</em>",
     "image": "/uploads/images/anniversaire.png",
     "imageAlt": "Célébration",
-    "intro": "Proposer L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
+    "intro": "Proposer Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [
       "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
       "Un service qui <strong>valorise votre réputation</strong> et fidélise vos clients",
@@ -95,7 +95,7 @@
     "eyebrow": "Qui je suis",
     "title": "Carole Correvon —<br/><em>là où les mots deviennent musique.</em>",
     "paragraphs": [
-      "Je suis Carole Correvon — thérapeute facilitatrice de changement et créatrice de L'Instant Sonore. Mon expertise n'est pas l'organisation d'un mariage — c'est <strong>l'écoute, le mot juste, et la capacité à traduire ce que les gens veulent dire en quelque chose d'unique</strong>. Avec L'Instant Sonore, ces mots deviennent musique.",
+      "Je suis Carole Correvon — thérapeute facilitatrice de changement et créatrice de Instant Sonore. Mon expertise n'est pas l'organisation d'un mariage — c'est <strong>l'écoute, le mot juste, et la capacité à traduire ce que les gens veulent dire en quelque chose d'unique</strong>. Avec Instant Sonore, ces mots deviennent musique.",
       "Je suis profondément sensible à ce qui se vit au-delà des mots — aux élans du cœur, à ce qui cherche à se dire dans les grands moments de vie."
     ],
     "quoteFinal": "Chaque couple a une histoire unique. La chanson est là pour qu'elle soit entendue."
@@ -139,7 +139,7 @@
     "imageAlt": "Mains qui se tiennent",
     "paragraphs": [
       "Vous connaissez l'importance de chaque détail qui fait la différence. Une chanson personnalisée est l'un de ces détails — celui dont on parle encore des années plus tard. <strong>Celle qui touche les mariés et leurs invités au plus profond.</strong>",
-      "L'Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — vous mentionnez la possibilité, je prends le relais."
+      "Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — vous mentionnez la possibilité, je prends le relais."
     ],
     "pullQuote": "Un moment que les invités retiennent. Une chanson que les mariés gardent toute leur vie."
   },
@@ -158,10 +158,10 @@
     }
   },
   "seo": {
-    "title": "Wedding planners — L'Instant Sonore | Une chanson sur mesure pour rendre un mariage inoubliable",
+    "title": "Wedding planners — Instant Sonore | Une chanson sur mesure pour rendre un mariage inoubliable",
     "description": "Pour les wedding planners de Suisse romande : enrichissez votre offre d'une chanson personnalisée — surprise lors de la cérémonie, déclaration, cadeau d'invités. Création par Carole Correvon, Echallens (VD).",
     "keywords": "chanson personnalisée mariage, chanson sur mesure cérémonie, demande mariage chanson, wedding planner Suisse romande, surprise mariage musical, Carole Correvon",
-    "ogTitle": "Wedding planners — L'Instant Sonore",
+    "ogTitle": "Wedding planners — Instant Sonore",
     "ogDescription": "La chanson est le cadeau que les mariés n'attendaient pas — et qu'ils n'oublieront jamais.",
     "ogImage": "/uploads/images/mariage.png"
   },
