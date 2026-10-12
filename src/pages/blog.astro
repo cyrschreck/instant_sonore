@@ -34,9 +34,15 @@ const seo = {
 </header>
 
 <section class="blog-list" aria-label="Tous les articles">
+  <div class="blog-filters" role="group" aria-label="Filtrer par public">
+    <button type="button" class="blog-filter" data-filter="" aria-pressed="true">Tous</button>
+    {Object.entries(audiences).filter(([key]) => posts.some((p) => p.data.audience === key)).map(([key, label]) => (
+      <button type="button" class="blog-filter" data-filter={key} aria-pressed="false">{label.replace('Pour les ', '')}</button>
+    ))}
+  </div>
   <div class="blog-grid">
     {posts.map((p) => (
-      <a href={`/blog/${p.slug}`} class="blog-card">
+      <a href={`/blog/${p.slug}`} class="blog-card" data-audience={p.data.audience}>
         <div class="blog-card-image"><img src={p.data.cover} alt="" loading="lazy" /></div>
         <div class="blog-card-body">
           <span class="blog-card-tag">{audiences[p.data.audience]}</span>
@@ -50,5 +56,16 @@ const seo = {
 </section>
 
 <SiteFooter site={site} current="blog" />
+
+<script>
+// Filtre des articles par public (familles, pompes funèbres…)
+const buttons = document.querySelectorAll<HTMLButtonElement>('.blog-filter');
+const cards = document.querySelectorAll<HTMLElement>('.blog-list .blog-card');
+buttons.forEach((btn) => btn.addEventListener('click', () => {
+  const f = btn.dataset.filter || '';
+  buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+  cards.forEach((c) => { c.hidden = Boolean(f) && c.dataset.audience !== f; });
+}));
+</script>
 
 </BaseLayout>

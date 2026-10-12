@@ -1,5 +1,5 @@
 ---
-title: "Accompagnement en fin de vie : offrir une trace sonore aux personnes accompagnées"
+title: "Fin de vie : offrir une trace sonore aux personnes accompagnées"
 description: "Bénévoles, soignants, groupes d'accompagnement : comment une chanson écrite avec la personne en fin de vie peut devenir un message durable pour ses proches."
 date: 2026-10-12
 audience: prescripteurs

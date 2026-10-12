@@ -1,5 +1,5 @@
 ---
-title: "Une chanson personnalisée pour des obsèques : comment ça se passe en 48 heures"
+title: "Chanson personnalisée pour des obsèques : comment ça se passe en 48 h"
 description: "Entre le décès et la cérémonie, il reste souvent peu de jours. Voici comment se déroule la création d'une chanson d'hommage sur mesure, livrable en 48 h."
 date: 2026-10-12
 audience: familles

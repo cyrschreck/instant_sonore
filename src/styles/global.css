@@ -3711,3 +3711,33 @@ section[id] { scroll-margin-top: 70px; }
   .article-body th, .article-body td { padding: .6rem .45rem; font-size: .85rem; }
   .article-body td:last-child { white-space: normal; }
 }
+
+/* Filtres de la page blog */
+.blog-filters {
+  max-width: 1180px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.blog-filter {
+  padding: .55rem 1.1rem;
+  border: 1px solid var(--gold-pale);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+.blog-filter:first-letter { text-transform: uppercase; }
+.blog-filter:hover { border-color: var(--gold); }
+.blog-filter[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--ivory); }
+.blog-card[hidden] { display: none; }

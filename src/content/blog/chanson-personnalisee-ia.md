@@ -1,5 +1,5 @@
 ---
-title: "Chanson personnalisée et IA : ce que fait (et ne fait pas) l'intelligence artificielle chez Instant Sonore"
+title: "Chanson personnalisée et IA : qui fait quoi chez Instant Sonore ?"
 description: "Écoute, écriture, mise en musique : en toute transparence, la place de l'intelligence artificielle chez Instant Sonore, et ce qui reste humain."
 date: 2026-10-12
 audience: familles

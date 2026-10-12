@@ -1,5 +1,5 @@
 ---
-title: "Quelle musique pour un enterrement ? Repères, idées et l'option d'une chanson écrite pour lui"
+title: "Quelle musique pour un enterrement ? Repères et idées"
 description: "Entrée, recueillement, sortie : comment choisir la musique d'un enterrement, et quand une chanson écrite pour la personne a sa place."
 date: 2026-10-12
 audience: familles
