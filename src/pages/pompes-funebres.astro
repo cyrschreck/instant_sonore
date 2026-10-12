@@ -1,6 +1,7 @@
 ---
 import { getEntry, getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FooterResources from '../components/FooterResources.astro';
 
 const siteEntry = await getEntry('settings', 'site');
 const site = siteEntry!.data;
@@ -15,7 +16,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 
 <nav class="nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand" aria-label="Instant Sonore — retour à l'accueil">Instant<span>✦</span>Sonore</a>
+    <a href="/" class="nav-brand" aria-label="Instant Sonore — retour à l'accueil">Instant<span>✦</span>Sonore</a>
     <ul class="nav-sections" role="list">
       <li><a href="#pourquoi" class="nav-section-link" data-section="pourquoi">Pourquoi</a></li>
       <li><a href="#apports" class="nav-section-link" data-section="apports">Apports</a></li>
@@ -24,7 +25,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
       <li><a href="#tarifs" class="nav-section-link" data-section="tarifs">Tarifs</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="index.html" class="nav-link-back"><span class="nav-link-back-icon">←</span> Accueil</a>
+      <a href="/" class="nav-link-back"><span class="nav-link-back-icon">←</span> Accueil</a>
       <a href="#contact" class="nav-cta">Devenir partenaire</a>
       <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay"><span></span><span></span><span></span></button>
     </div>
@@ -39,7 +40,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
       <li><a href="#ecouter">Écouter les créations</a></li>
       <li><a href="#processus">Comment ça fonctionne</a></li>
       <li><a href="#tarifs">L'offre</a></li>
-      <li class="nav-overlay-divider"><a href="index.html">← Retour à l'accueil</a></li>
+      <li class="nav-overlay-divider"><a href="/">← Retour à l'accueil</a></li>
     </ul>
     <a href="#contact" class="nav-overlay-cta">Devenir partenaire →</a>
     <div class="nav-overlay-foot">
@@ -52,8 +53,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 <header class="hero">
   <div class="hero-image"><img src={p.hero.image} alt="" loading="eager" /></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">{p.hero.eyebrow}</div>
-    <h1 set:html={p.hero.title}></h1>
+    <h1><span class="hero-eyebrow">{p.hero.eyebrow}</span> <span class="hero-title" set:html={p.hero.title}></span></h1>
     <p class="hero-tagline">{p.hero.tagline}</p>
     <div class="hero-actions">
       <a href={p.hero.ctaPrimary.href} class="btn btn-primary">{p.hero.ctaPrimary.label} <span class="btn-arrow">→</span></a>
@@ -100,7 +100,7 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 </section>
 
 <section class="ecouter" id="ecouter">
-  <img class="ecouter-decor" src={p.ecouter.decorImage || '/uploads/images/disque.png'} alt="" loading="lazy" />
+  <img class="ecouter-decor" src={p.ecouter.decorImage || '/uploads/web/disque.webp'} alt="" loading="lazy" />
   <div class="ecouter-head">
     <span class="eyebrow">{p.ecouter.eyebrow}</span>
     <h2 set:html={p.ecouter.title}></h2>
@@ -192,15 +192,14 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
     <h2 set:html={p.contact.title}></h2>
     <p class="contact-lead">{p.contact.lead}</p>
 
-    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate
+    <form class="contact-form" id="contactForm" name="contact-pompes-funebres" action="/" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate
           data-success-message="✦ Merci, votre demande est arrivée. Je vous recontacte très vite."
           data-site-email={site.email}
           data-site-phone={site.phone}
           data-site-phone-intl={site.phoneIntl}>
-      <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI" />
-      <input type="hidden" name="from_name" value="Instant Sonore — Pompes funèbres" />
+      <input type="hidden" name="form-name" value="contact-pompes-funebres" />
       <input type="hidden" name="subject" value={`Nouvelle demande pompes funèbres — ${site.domain}`} />
-      <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="text" name="bot-field" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div class="form-grid">
         <div class="form-field">
           <label for="cf-name">Prénom & nom <span class="form-required" aria-hidden="true">*</span></label>
@@ -243,12 +242,13 @@ const songsBySlug = Object.fromEntries(allSongs.map(s => [s.slug, s.data]));
 <footer class="footer">
   <div class="footer-brand">Instant Sonore — ✦ — quand les mots deviennent musique</div>
   <nav class="footer-nav" aria-label="Pied de page">
-    <a href="index.html">Accueil</a>
-    <a href="index.html#origine">L'origine</a>
-    <a href="index.html#tarifs">Tarifs</a>
+    <a href="/">Accueil</a>
+    <a href="/#origine">L'origine</a>
+    <a href="/#tarifs">Tarifs</a>
     <a href="#ecouter">Écouter</a>
-    <a href="mariage.html">Wedding planners</a>
+    <a href="/mariage">Wedding planners</a>
   </nav>
+  <FooterResources />
   {(site.facebook || site.instagram) && (
     <div class="footer-social">
       {site.facebook && <a href={site.facebook} target="_blank" rel="noopener">Facebook</a>}

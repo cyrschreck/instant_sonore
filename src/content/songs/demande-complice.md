@@ -1,6 +1,12 @@
 ---
-title: "Demande complice"
-context: "Mariage · La demande en chanson, humour et tendresse"
-src: "/uploads/audio/demande-complice.mp3"
-order: 5
+title: Demande complice
+category: celebration
+context: Une demande en mariage racontée en musique, entre tendresse, complicité et humour.
+keywords:
+  - Mariage
+  - Amour
+  - Complicité
+  - Humour
+src: /uploads/audio/demande-complice.mp3
+order: 4
 ---

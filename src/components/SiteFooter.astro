@@ -1,0 +1,34 @@
+---
+import FooterResources from './FooterResources.astro';
+
+export interface Props {
+  site: { year: string; location: string; domain: string; facebook?: string; instagram?: string };
+  current?: 'home' | 'ecouter' | 'blog';
+}
+const { site, current = 'home' } = Astro.props;
+const h = (id: string) => (current === 'home' ? `#${id}` : `/#${id}`);
+---
+<footer class="footer">
+  <div class="footer-brand">Instant Sonore — ✦ — quand les mots deviennent musique</div>
+  <nav class="footer-nav" aria-label="Pied de page">
+    <a href={h('origine')}>L'origine</a>
+    <a href={h('moments')}>Les moments</a>
+    <a href="/ecouter">Écouter</a>
+    <a href="/blog">Articles</a>
+    <a href={h('carole')}>Qui je suis</a>
+    <a href={h('tarifs')}>Tarifs</a>
+    <a href={h('faq')}>FAQ</a>
+    <a href="/pompes-funebres">Pompes funèbres</a>
+    <a href="/mariage">Wedding planners</a>
+  </nav>
+  <FooterResources />
+  {(site.facebook || site.instagram) && (
+    <div class="footer-social">
+      {site.facebook && <a href={site.facebook} target="_blank" rel="noopener">Facebook</a>}
+      {site.instagram && <a href={site.instagram} target="_blank" rel="noopener">Instagram</a>}
+    </div>
+  )}
+  <div class="footer-meta">
+    © {site.year} Carole Correvon · {site.location} · <a href={`https://${site.domain}`}>{site.domain}</a>
+  </div>
+</footer>

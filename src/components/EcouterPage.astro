@@ -1,0 +1,150 @@
+---
+// Page Écouter, partagée par /ecouter et /ecouter/{hommages,transitions,celebrations}.
+// Les sous-URL affichent la même page, positionnée directement sur l'univers demandé.
+import { getEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from './SiteNav.astro';
+import SiteFooter from './SiteFooter.astro';
+import SongCard from './SongCard.astro';
+
+export interface Props {
+  focus?: 'hommages' | 'transitions' | 'celebrations';
+}
+const { focus } = Astro.props;
+
+const site = (await getEntry('settings', 'site'))!.data;
+const page = (await getEntry('pages', 'ecouter'))!.data as any;
+
+const allSongs = await getCollection('songs');
+const songsFor = (category: string) =>
+  allSongs
+    .filter((s) => s.data.category === category)
+    .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const focused = focus ? page.univers.find((u: any) => u.id === focus) : null;
+const seo = {
+  ...page.seo,
+  canonical: `https://${site.domain}/ecouter`,
+  ...(focused && {
+    ogTitle: `${focused.shareTitle} — Instant Sonore`,
+    ogDescription: focused.description
+  })
+};
+
+// Données structurées : les chansons comme enregistrements musicaux, par univers
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Créations Instant Sonore',
+  itemListElement: page.univers.flatMap((u: any) => songsFor(u.category)).map((song: any, i: number) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'MusicRecording',
+      name: song.data.title,
+      description: song.data.context,
+      keywords: (song.data.keywords || []).join(', '),
+      inLanguage: 'fr',
+      url: `https://${site.domain}/ecouter#chanson-${song.slug}`,
+      creator: { '@type': 'Person', '@id': `https://${site.domain}/#carole`, name: 'Carole Correvon' },
+      audio: { '@type': 'AudioObject', contentUrl: `https://${site.domain}${song.data.src}`, encodingFormat: 'audio/mpeg' }
+    }
+  }))
+});
+---
+<BaseLayout seo={seo} site={site} jsonLd={jsonLd} bodyClass="page-ecouter">
+
+<SiteNav site={site} current="ecouter" />
+
+<header class="ecouter-page-head" data-focus={focus}>
+  <div class="ecouter-page-image">
+    <img src={page.header.image} alt={page.header.imageAlt} loading="eager" />
+  </div>
+  <div class="ecouter-page-intro">
+    <span class="eyebrow">{page.header.eyebrow}</span>
+    <h1 set:html={page.header.title}></h1>
+    <p class="ecouter-lead">{page.header.lead}</p>
+    <nav class="univers-nav" aria-label="Choisir un univers">
+      {page.univers.map((u: any) => (
+        <a href={`/ecouter/${u.id}`} class="univers-btn" data-univers={u.id} aria-current={u.id === focus ? 'true' : undefined}>
+          {u.title}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+{page.univers.map((u: any) => {
+  const songs = songsFor(u.category);
+  return (
+    <section class="univers" id={u.id} aria-labelledby={`${u.id}-title`}>
+      <div class="univers-head">
+        <span class="univers-num">— ✦ {u.num} —</span>
+        <h2 id={`${u.id}-title`}>{u.title}</h2>
+        <div class="univers-sub">{u.sub}</div>
+        <p>{u.description}</p>
+      </div>
+      <div class="univers-songs">
+        {songs.map((song) => <SongCard song={song} />)}
+      </div>
+    </section>
+  );
+})}
+
+<section class="ecouter-page-cta">
+  <div class="container-narrow">
+    {page.note && <p class="ecouter-note">{page.note}</p>}
+    <h2 set:html={page.cta.title}></h2>
+    <p>{page.cta.text}</p>
+    <a href={page.cta.button.href} class="btn btn-primary">{page.cta.button.label} <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<SiteFooter site={site} current="ecouter" />
+
+<script>
+// Liens partageables : /ecouter/hommages ouvre la page sur le bon univers,
+// et un clic sur un bouton met à jour l'URL sans recharger.
+const ids = ['hommages', 'transitions', 'celebrations'];
+const scrollToUnivers = (id: string, smooth: boolean) => {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const top = target.getBoundingClientRect().top + window.scrollY - 70;
+  window.scrollTo({ top, behavior: smooth ? 'smooth' : 'instant' });
+};
+const setCurrent = (id: string | null) => {
+  document.querySelectorAll<HTMLAnchorElement>('.univers-btn').forEach((b) => {
+    if (b.dataset.univers === id) b.setAttribute('aria-current', 'true');
+    else b.removeAttribute('aria-current');
+  });
+};
+
+const fromPath = location.pathname.replace(/\.html$/, '').split('/').pop() || '';
+const initial = ids.includes(fromPath) ? fromPath : location.hash.slice(1);
+if (ids.includes(initial)) {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  scrollToUnivers(initial, false);
+  // Repositionner une fois les images et polices chargées (la hauteur de l'en-tête peut changer).
+  if (document.readyState === 'complete') requestAnimationFrame(() => scrollToUnivers(initial, false));
+  else window.addEventListener('load', () => scrollToUnivers(initial, false), { once: true });
+}
+
+document.querySelectorAll<HTMLAnchorElement>('.univers-btn').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const id = btn.dataset.univers;
+    if (!id) return;
+    e.preventDefault();
+    history.pushState({ univers: id }, '', `/ecouter/${id}`);
+    setCurrent(id);
+    scrollToUnivers(id, true);
+  });
+});
+
+window.addEventListener('popstate', () => {
+  const id = location.pathname.split('/').pop() || '';
+  if (ids.includes(id)) { setCurrent(id); scrollToUnivers(id, true); }
+  else { setCurrent(null); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+});
+</script>
+
+</BaseLayout>

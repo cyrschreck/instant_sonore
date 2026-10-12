@@ -1,0 +1,134 @@
+---
+import fs from 'node:fs';
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SongCard from '../../components/SongCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+const { data } = post;
+const site = (await getEntry('settings', 'site'))!.data;
+const { Content } = await render(post);
+
+const words = (post.body || '').split(/\s+/).filter(Boolean).length;
+const readingMinutes = Math.max(1, Math.round(words / 200));
+const fmt = (d: Date) => d.toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const allSongs = await getCollection('songs');
+const songs = (data.relatedSongs || [])
+  .map((slug) => allSongs.find((s) => s.slug === slug))
+  .filter(Boolean) as CollectionEntry<'songs'>[];
+
+// Appel à l'action selon le public visé
+const defaultCta: Record<string, { label: string; href: string; text: string }> = {
+  'familles': { label: 'Premier échange, sans engagement', href: '/#contact', text: "Vous portez une histoire, un hommage, des mots qui ne sortent pas ? Parlons-en simplement, par téléphone ou par e-mail." },
+  'pompes-funebres': { label: 'Découvrir le partenariat', href: '/pompes-funebres', text: "Une chanson d'hommage sur mesure, livrable en 48 h, à proposer aux familles que vous accompagnez." },
+  'wedding-planners': { label: 'Découvrir le partenariat', href: '/mariage', text: "Une chanson écrite pour vos mariés, sans travail supplémentaire pour vous." },
+  'prescripteurs': { label: 'Prendre contact', href: '/#contact', text: "Vous accompagnez des personnes ou des familles ? Échangeons sur la manière dont une chanson peut s'inscrire dans votre accompagnement." }
+};
+const cta = { ...defaultCta[data.audience], ...(data.cta || {}) };
+
+const others = (await getCollection('blog', ({ data: d }) => !d.draft))
+  .filter((p) => p.slug !== post.slug)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const url = `https://${site.domain}/blog/${post.slug}`;
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      headline: data.title,
+      description: data.description,
+      datePublished: data.date.toISOString().slice(0, 10),
+      dateModified: (data.updated || data.date).toISOString().slice(0, 10),
+      image: new URL(encodeURI(data.cover), `https://${site.domain}`).href,
+      inLanguage: 'fr-CH',
+      mainEntityOfPage: url,
+      author: { '@type': 'Person', '@id': `https://${site.domain}/#carole`, name: 'Carole Correvon' },
+      publisher: { '@id': `https://${site.domain}/#business` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: `https://${site.domain}/` },
+        { '@type': 'ListItem', position: 2, name: 'Articles', item: `https://${site.domain}/blog` },
+        { '@type': 'ListItem', position: 3, name: data.title, item: url }
+      ]
+    }
+  ]
+});
+const seo = {
+  title: `${data.title} | Instant Sonore`,
+  description: data.description,
+  ogTitle: data.title,
+  ogDescription: data.description,
+  // Image de partage JPG 1200×630 si elle existe (WebP mal lu par LinkedIn et certaines messageries)
+  ogImage: fs.existsSync(`public/uploads/og/blog-${post.slug}.jpg`) ? `/uploads/og/blog-${post.slug}.jpg` : undefined
+};
+---
+<BaseLayout seo={seo} site={site} jsonLd={jsonLd} ogType="article" bodyClass="page-article">
+
+<SiteNav site={site} current="blog" />
+
+<article class="article">
+  <header class="article-head">
+    <div class="article-cover">
+      <img src={data.cover} alt={data.coverAlt} loading="eager" />
+    </div>
+    <div class="article-intro">
+      <nav class="article-breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <a href="/blog">Articles</a></nav>
+      <h1>{data.title}</h1>
+      <p class="article-meta">
+        Par Carole Correvon · <time datetime={data.date.toISOString().slice(0, 10)}>{fmt(data.date)}</time> · {readingMinutes} min de lecture
+      </p>
+    </div>
+  </header>
+
+  <div class="article-body">
+    <Content />
+  </div>
+
+  {songs.length > 0 && (
+    <section class="article-songs" aria-labelledby="article-songs-title">
+      <h2 id="article-songs-title">À écouter</h2>
+      <div class="article-songs-list">
+        {songs.map((song) => <SongCard song={song} />)}
+      </div>
+    </section>
+  )}
+
+  <aside class="article-cta">
+    <p>{cta.text}</p>
+    <a href={cta.href} class="btn btn-primary">{cta.label} <span class="btn-arrow">→</span></a>
+    <p class="article-cta-contact">Ou directement : <a href={`tel:${site.phoneIntl}`}>{site.phone}</a> · <a href={`mailto:${site.email}`}>{site.email}</a></p>
+  </aside>
+</article>
+
+{others.length > 0 && (
+  <section class="article-others" aria-labelledby="others-title">
+    <h2 id="others-title">À lire aussi</h2>
+    <div class="blog-grid">
+      {others.map((p) => (
+        <a href={`/blog/${p.slug}`} class="blog-card">
+          <div class="blog-card-image"><img src={p.data.cover} alt="" loading="lazy" /></div>
+          <div class="blog-card-body">
+            <h3>{p.data.title}</h3>
+            <p>{p.data.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<SiteFooter site={site} current="blog" />
+
+</BaseLayout>

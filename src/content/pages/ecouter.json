@@ -1,0 +1,55 @@
+{
+  "seo": {
+    "title": "Écouter des chansons personnalisées | Instant Sonore",
+    "description": "Écoutez des chansons personnalisées créées par Carole Correvon : hommages, transitions de vie et célébrations. Chaque chanson raconte une histoire unique.",
+    "keywords": "écouter chanson personnalisée, chanson hommage, chanson deuil, chanson mariage, chanson anniversaire, chanson résilience, Instant Sonore, Carole Correvon",
+    "ogTitle": "Écouter les créations — Instant Sonore",
+    "ogDescription": "Hommages, transitions, célébrations : des chansons uniques, nées d'histoires vraies.",
+    "ogImage": "/uploads/og/og-ecouter.jpg"
+  },
+  "header": {
+    "eyebrow": "Écouter",
+    "title": "Écouter <em>les créations.</em>",
+    "lead": "Chaque écoute vous dira plus que tous les mots.",
+    "image": "/uploads/web/creations-vinyle.webp",
+    "imageAlt": "Vinyle et paroles manuscrites sur un tissu doré"
+  },
+  "univers": [
+    {
+      "id": "hommages",
+      "category": "hommage",
+      "num": "I",
+      "title": "Hommages",
+      "sub": "Lien éternel & héritage",
+      "description": "Honorer une personne, dire au revoir autrement, garder ce qui reste au-delà de l'absence.",
+      "shareTitle": "Écouter les hommages"
+    },
+    {
+      "id": "transitions",
+      "category": "transition",
+      "num": "II",
+      "title": "Transitions",
+      "sub": "Passage et renouveau",
+      "description": "Traverser une étape, déposer ce qui doit l'être, marquer un tournant. Des chansons pour donner du sens à ce qui se transforme.",
+      "shareTitle": "Écouter les transitions"
+    },
+    {
+      "id": "celebrations",
+      "category": "celebration",
+      "num": "III",
+      "title": "Célébrations",
+      "sub": "Élan de vie",
+      "description": "Exprimer l'amour, la joie, l'importance d'un lien. Des chansons pour marquer un moment heureux et le rendre inoubliable.",
+      "shareTitle": "Écouter les célébrations"
+    }
+  ],
+  "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme.",
+  "cta": {
+    "title": "Et si la prochaine chanson<br/>racontait <em>votre histoire ?</em>",
+    "text": "Un premier échange, simple et sans engagement, pour parler du moment à honorer.",
+    "button": {
+      "label": "Premier échange",
+      "href": "/#contact"
+    }
+  }
+}

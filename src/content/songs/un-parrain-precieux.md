@@ -1,8 +1,12 @@
 ---
 title: Un parrain précieux
-context: Un hommage qui continue de vivre - Depuis, son épouse m'en parle
-  encore. C'est une chanson qui reste, que la famille peut écouter à tout
-  moment, comme un lien vivant. »
+category: hommage
+context: Les souvenirs d'une filleule transformés en chanson pour être offerts à sa femme, qui réside à Paris.
+keywords:
+  - Souvenirs
+  - Gratitude
+  - Famille
+  - Lien
 src: /uploads/audio/un-parrain-precieux.mp3
-order: 1
+order: 2
 ---

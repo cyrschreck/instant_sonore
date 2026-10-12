@@ -1,0 +1,10 @@
+---
+// /ecouter/hommages, /ecouter/transitions, /ecouter/celebrations
+import EcouterPage from '../../components/EcouterPage.astro';
+
+export function getStaticPaths() {
+  return ['hommages', 'transitions', 'celebrations'].map((univers) => ({ params: { univers } }));
+}
+const { univers } = Astro.params as { univers: 'hommages' | 'transitions' | 'celebrations' };
+---
+<EcouterPage focus={univers} />

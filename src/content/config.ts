@@ -29,7 +29,10 @@ const songs = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    context: z.string(),
+    category: z.enum(['hommage', 'transition', 'celebration']).optional()
+      .describe('Univers affiché sur la page Écouter'),
+    context: z.string().describe('Court explicatif affiché avant le lecteur'),
+    keywords: z.array(z.string()).optional(),
     src: z.string().describe('URL MP3 (Cloudinary)'),
     order: z.number().optional()
   })
@@ -82,6 +85,7 @@ const homeSchema = z.object({
       sub: z.string(),
       description: z.string(),
       tags: z.array(z.string()),
+      cta: ctaSchema.optional(),
       songs: z.array(z.string()).optional().describe('slugs vers /src/content/songs/')
     }))
   }),
@@ -92,7 +96,7 @@ const homeSchema = z.object({
     subtitle: z.string(),
     note: z.string().optional(),
     decorImage: imgSchema.optional(),
-    songs: z.array(z.string()).describe('slugs vers /src/content/songs/')
+    songs: z.array(z.string()).optional().describe('slugs vers /src/content/songs/')
   }),
   processus: z.object({
     eyebrow: z.string(),
@@ -112,6 +116,17 @@ const homeSchema = z.object({
     paragraphs: z.array(z.string()),
     signature: z.string()
   }),
+  presse: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    source: z.string(),
+    date: z.string(),
+    headline: z.string(),
+    text: z.string(),
+    image: imgSchema,
+    imageAlt: z.string(),
+    link: z.string().optional()
+  }).optional(),
   tarifs: z.object({
     eyebrow: z.string(),
     title: z.string(),
@@ -122,7 +137,7 @@ const homeSchema = z.object({
       name: z.string(),
       context: z.string(),
       price: z.string(),
-      priceUnit: z.string(),
+      priceUnit: z.string().nullable().optional(),
       featured: z.boolean().default(false),
       tag: z.string().nullable().optional(),
       includes: z.array(z.string()),
@@ -346,13 +361,66 @@ const pompesSchema = z.object({
   })
 });
 
+// ─── 6. Page Écouter ─────────────────────────────────────────
+const ecouterSchema = z.object({
+  seo: z.object({
+    title: z.string(),
+    description: z.string(),
+    keywords: z.string(),
+    ogTitle: z.string(),
+    ogDescription: z.string(),
+    ogImage: imgSchema
+  }),
+  header: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    lead: z.string(),
+    image: imgSchema,
+    imageAlt: z.string()
+  }),
+  univers: z.array(z.object({
+    id: z.enum(['hommages', 'transitions', 'celebrations']),
+    category: z.enum(['hommage', 'transition', 'celebration']),
+    num: z.string(),
+    title: z.string(),
+    sub: z.string(),
+    description: z.string(),
+    shareTitle: z.string()
+  })),
+  note: z.string().optional(),
+  cta: z.object({
+    title: z.string(),
+    text: z.string(),
+    button: ctaSchema
+  })
+});
+
 const pages = defineCollection({
   type: 'data',
-  schema: ({ image }) => z.union([homeSchema, mariageSchema, pompesSchema])
+  schema: ({ image }) => z.union([homeSchema, mariageSchema, pompesSchema, ecouterSchema])
+});
+
+// ─── 7. Blog (articles « Ressources ») ───────────────────────
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().max(170).describe('Meta description, 140 à 155 caractères'),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    audience: z.enum(['familles', 'pompes-funebres', 'wedding-planners', 'prescripteurs']),
+    univers: z.enum(['hommage', 'transition', 'celebration']).optional(),
+    cover: imgSchema,
+    coverAlt: z.string(),
+    relatedSongs: z.array(z.string()).optional().describe('slugs vers /src/content/songs/'),
+    cta: ctaSchema.optional(),
+    draft: z.boolean().default(false)
+  })
 });
 
 export const collections = {
   settings,
   songs,
-  pages
+  pages,
+  blog
 };

@@ -1,0 +1,54 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = (await getEntry('settings', 'site'))!.data;
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const audiences: Record<string, string> = {
+  'familles': 'Pour les familles',
+  'pompes-funebres': 'Pour les pompes funèbres',
+  'wedding-planners': 'Pour les wedding planners',
+  'prescripteurs': "Pour les professionnels de l'accompagnement"
+};
+const fmt = (d: Date) => d.toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const seo = {
+  title: 'Articles : hommage, deuil, célébrations en chanson | Instant Sonore',
+  description: "Conseils et repères pour honorer un proche, préparer une cérémonie ou célébrer un moment de vie en chanson. Par Carole Correvon, Echallens (VD).",
+  ogTitle: 'Articles & ressources — Instant Sonore',
+  ogDescription: 'Repères et idées pour dire l’essentiel en musique : hommages, transitions, célébrations.'
+};
+---
+<BaseLayout seo={seo} site={site} bodyClass="page-blog">
+
+<SiteNav site={site} current="blog" />
+
+<header class="blog-head">
+  <span class="eyebrow">Articles & ressources</span>
+  <h1>Dire l'essentiel, <em>en musique.</em></h1>
+  <p>Des repères pour honorer un proche, préparer une cérémonie, accompagner une fin de vie ou célébrer un moment heureux.</p>
+</header>
+
+<section class="blog-list" aria-label="Tous les articles">
+  <div class="blog-grid">
+    {posts.map((p) => (
+      <a href={`/blog/${p.slug}`} class="blog-card">
+        <div class="blog-card-image"><img src={p.data.cover} alt="" loading="lazy" /></div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">{audiences[p.data.audience]}</span>
+          <h2>{p.data.title}</h2>
+          <p>{p.data.description}</p>
+          <span class="blog-card-date">{fmt(p.data.date)}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<SiteFooter site={site} current="blog" />
+
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const site = (await getEntry('settings', 'site'))!.data;
+const seo = {
+  title: 'Page introuvable | Instant Sonore',
+  description: "Cette page n'existe pas ou a été déplacée. Écoutez les créations d'Instant Sonore ou prenez contact avec Carole Correvon."
+};
+---
+<BaseLayout seo={seo} site={site} bodyClass="page-404" noindex>
+
+<SiteNav site={site} current="blog" />
+
+<header class="blog-head notfound">
+  <span class="eyebrow">Page introuvable</span>
+  <h1>Cette page s'est <em>tue.</em></h1>
+  <p>Elle n'existe pas ou a été déplacée. Voici où retrouver l'essentiel :</p>
+  <div class="univers-nav">
+    <a class="univers-btn" href="/ecouter">Écouter les créations</a>
+    <a class="univers-btn" href="/#tarifs">Tarifs</a>
+    <a class="univers-btn" href="/#contact">Contact</a>
+  </div>
+  <p class="notfound-contact">Ou directement : <a href={`tel:${site.phoneIntl}`}>{site.phone}</a> · <a href={`mailto:${site.email}`}>{site.email}</a></p>
+</header>
+
+<SiteFooter site={site} current="blog" />
+</BaseLayout>

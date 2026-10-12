@@ -47,8 +47,8 @@
   "collab": {
     "eyebrow": "Une collaboration simple & valorisante",
     "title": "Aucune charge <em>pour vous.</em>",
-    "image": "/uploads/images/anniversaire.png",
-    "imageAlt": "Célébration",
+    "image": "/uploads/web/anniversaire.webp",
+    "imageAlt": "Moment de célébration partagé en musique",
     "intro": "Proposer Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [
       "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
@@ -135,8 +135,8 @@
   "pourquoi": {
     "eyebrow": "Pourquoi ce partenariat vous concerne",
     "title": "Vous créez des mariages <em>uniques.</em>",
-    "image": "/uploads/mariage-émotion-casque.png",
-    "imageAlt": "Mains qui se tiennent",
+    "image": "/uploads/web/mariage-emotion-casque.webp",
+    "imageAlt": "Mariée émue qui écoute sa chanson au casque",
     "paragraphs": [
       "Vous connaissez l'importance de chaque détail qui fait la différence. Une chanson personnalisée est l'un de ces détails — celui dont on parle encore des années plus tard. <strong>Celle qui touche les mariés et leurs invités au plus profond.</strong>",
       "Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — vous mentionnez la possibilité, je prends le relais."
@@ -147,7 +147,7 @@
     "eyebrow": "Pour les wedding planners — Suisse romande",
     "title": "La chanson que les mariés <em>n'attendaient pas.</em>",
     "tagline": "Celle qui touche les mariés et leurs invités, du premier au dernier rang. Celle dont on parlera encore des années plus tard.",
-    "image": "/uploads/mariés-de-de-profil-4-5.png",
+    "image": "/uploads/web/maries-de-de-profil-4-5.webp",
     "ctaPrimary": {
       "label": "Voir des idées concrètes",
       "href": "#idees"
@@ -158,12 +158,12 @@
     }
   },
   "seo": {
-    "title": "Wedding planners — Instant Sonore | Une chanson sur mesure pour rendre un mariage inoubliable",
-    "description": "Pour les wedding planners de Suisse romande : enrichissez votre offre d'une chanson personnalisée — surprise lors de la cérémonie, déclaration, cadeau d'invités. Création par Carole Correvon, Echallens (VD).",
+    "title": "Chanson de mariage sur mesure pour wedding planners | Instant Sonore",
+    "description": "Offrez à vos mariés une chanson écrite pour leur histoire : surprise de cérémonie, déclaration, demande. Partenariat pour wedding planners romands.",
     "keywords": "chanson personnalisée mariage, chanson sur mesure cérémonie, demande mariage chanson, wedding planner Suisse romande, surprise mariage musical, Carole Correvon",
     "ogTitle": "Wedding planners — Instant Sonore",
     "ogDescription": "La chanson est le cadeau que les mariés n'attendaient pas — et qu'ils n'oublieront jamais.",
-    "ogImage": "/uploads/images/mariage.png"
+    "ogImage": "/uploads/og/og-mariage.jpg"
   },
   "ecouter": {
     "eyebrow": "Écouter",

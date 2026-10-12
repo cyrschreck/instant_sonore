@@ -1,0 +1,67 @@
+---
+// Menu principal de l'accueil, réutilisé sur la page Écouter.
+// Sur l'accueil, les ancres restent relatives (#tarifs) pour le scroll doux ;
+// ailleurs elles pointent vers l'accueil (/#tarifs).
+export interface Props {
+  site: { phone: string; phoneIntl: string; email: string };
+  current?: 'home' | 'ecouter' | 'blog';
+}
+const { site, current = 'home' } = Astro.props;
+const h = (id: string) => (current === 'home' ? `#${id}` : `/#${id}`);
+const brandHref = current === 'home' ? '#' : '/';
+---
+<nav class="nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href={brandHref} class="nav-brand" aria-label={current === 'home' ? 'Instant Sonore — retour en haut' : "Instant Sonore — retour à l'accueil"}>Instant<span>✦</span>Sonore</a>
+    <ul class="nav-sections" role="list">
+      <li><a href={h('origine')} class="nav-section-link" data-section="origine">Origine</a></li>
+      <li><a href={h('moments')} class="nav-section-link" data-section="moments">Moments</a></li>
+      <li><a href="/ecouter" class:list={['nav-section-link', { 'is-active': current === 'ecouter' }]} aria-current={current === 'ecouter' ? 'page' : undefined}>Écouter</a></li>
+      <li><a href={h('carole')} class="nav-section-link" data-section="carole">Qui suis-je</a></li>
+      <li><a href={h('tarifs')} class="nav-section-link" data-section="tarifs">Tarifs</a></li>
+      <li><a href={h('faq')} class="nav-section-link" data-section="faq">Questions</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-pro-menu" id="navProMenu">
+        <button class="nav-pro-trigger" id="navProTrigger" aria-expanded="false" aria-controls="navProDropdown">
+          <span class="nav-pro-icon">✦</span> Pour les pros
+          <span class="nav-pro-trigger-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-pro-dropdown" id="navProDropdown" role="menu">
+          <a href="/pompes-funebres" role="menuitem">
+            <span class="nav-pro-dropdown-title">Pompes funèbres</span>
+            <span class="nav-pro-dropdown-sub">Hommage, cérémonie, deuil</span>
+          </a>
+          <a href="/mariage" role="menuitem">
+            <span class="nav-pro-dropdown-title">Wedding planners</span>
+            <span class="nav-pro-dropdown-sub">Mariages, demandes, cérémonies</span>
+          </a>
+        </div>
+      </div>
+      <a href={h('contact')} class="nav-cta">Premier échange</a>
+      <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Menu">
+  <div class="nav-overlay-inner">
+    <ul class="nav-overlay-list" role="list">
+      <li><a href={h('origine')}>L'origine</a></li>
+      <li><a href={h('moments')}>Les moments</a></li>
+      <li><a href="/ecouter">Écouter les créations</a></li>
+      <li><a href={h('processus')}>Le processus</a></li>
+      <li><a href={h('carole')}>Qui je suis</a></li>
+      <li><a href={h('tarifs')}>Tarifs</a></li>
+      <li><a href={h('faq')}>Questions fréquentes</a></li>
+      <li><a href="/blog">Articles & ressources</a></li>
+      <li class="nav-overlay-divider"><a href="/pompes-funebres">✦ Pompes funèbres</a></li>
+      <li class="nav-overlay-divider"><a href="/mariage">✦ Wedding planners</a></li>
+    </ul>
+    <a href={h('contact')} class="nav-overlay-cta">Premier échange →</a>
+    <div class="nav-overlay-foot">
+      <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </div>
+</div>

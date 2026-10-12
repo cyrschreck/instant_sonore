@@ -1,0 +1,42 @@
+---
+// Carte chanson de la page Écouter : titre, court explicatif, mots-clés, lecteur.
+// La classe .player est pilotée par le lecteur audio de BaseLayout.
+import { render, type CollectionEntry } from 'astro:content';
+
+export interface Props {
+  song: CollectionEntry<'songs'>;
+}
+const { song } = Astro.props;
+const { title, context, keywords = [], src } = song.data;
+const hasStory = Boolean(song.body && song.body.trim());
+const { Content } = hasStory ? await render(song) : { Content: null };
+---
+<article class="song-card player" data-src={src} id={`chanson-${song.slug}`}>
+  <div class="player-head">
+    <button class="player-btn" aria-label={`Écouter ${title}`}>
+      <span class="player-btn-icon">
+        <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.5v13l11-6.5z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+      </span>
+    </button>
+    <div class="player-text">
+      <h3 class="player-title">{title}</h3>
+    </div>
+    <div class="player-time">--:--</div>
+  </div>
+  <div class="player-progress"><div class="player-progress-bar"></div><button class="player-seek" aria-label={`Avancer dans ${title}`}></button></div>
+  <div class="song-card-body">
+    <p class="song-card-desc">{context}</p>
+    {keywords.length > 0 && (
+      <ul class="song-card-keywords" aria-label="Mots-clés">
+        {keywords.map((k) => <li>{k}</li>)}
+      </ul>
+    )}
+    {Content && (
+      <details class="song-card-story">
+        <summary>Lire l'histoire de cette chanson</summary>
+        <div class="song-card-story-body"><Content /></div>
+      </details>
+    )}
+  </div>
+</article>

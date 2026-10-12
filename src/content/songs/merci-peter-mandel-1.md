@@ -1,8 +1,14 @@
 ---
-title: Merci Peter Mandel - chanson à télécharger
-context: Hommage a un homme qui a transformé des vies
-src: à mettre
-order: 4
+title: Merci Peter Mandel
+category: hommage
+context: Un hommage de gratitude à un homme dont le travail et la transmission ont transformé de nombreuses vies.
+keywords:
+  - Gratitude
+  - Transmission
+  - Héritage
+  - Hommage
+src: /uploads/audio/merci-peter-mandel.mp3
+order: 5
 ---
 ### Qui était Peter Mandel ?
 

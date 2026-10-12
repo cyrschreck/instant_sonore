@@ -65,10 +65,77 @@ collections:
     identifier_field: "title"
     fields:
       - { label: "Titre de la chanson", name: "title", widget: "string" }
-      - { label: "Contexte", name: "context", widget: "string", hint: "Ex: 'Hommage · Garder ce qui demeure au-delà de l'absence'" }
-      - { label: "URL du fichier MP3", name: "src", widget: "string", hint: "URL Cloudinary du fichier audio" }
-      - { label: "Ordre d'affichage", name: "order", widget: "number", required: false, value_type: "int", min: 1 }
-      - { label: "(corps optionnel)", name: "body", widget: "markdown", required: false, hint: "Notes internes ou paroles — non affiché actuellement sur le site" }
+      - label: "Univers (page Écouter)"
+        name: "category"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Hommages", value: "hommage" }
+          - { label: "Transitions", value: "transition" }
+          - { label: "Célébrations", value: "celebration" }
+        hint: "Rubrique dans laquelle la chanson apparaît sur la page Écouter. Laisser vide pour ne pas l'y afficher."
+      - { label: "Court explicatif", name: "context", widget: "text", hint: "1 à 2 phrases affichées avant le lecteur" }
+      - label: "Mots-clés"
+        name: "keywords"
+        widget: "list"
+        required: false
+        hint: "3 à 4 mots, ex : Courage, Amitié, Joie, Souvenirs"
+        field: { label: "Mot-clé", name: "keyword", widget: "string" }
+      - { label: "URL du fichier MP3", name: "src", widget: "string", hint: "Ex : /uploads/audio/ma-chanson.mp3" }
+      - { label: "Ordre dans l'univers", name: "order", widget: "number", required: false, value_type: "int", min: 1, hint: "1 = en premier" }
+      - { label: "Histoire de la chanson (optionnel)", name: "body", widget: "markdown", required: false, hint: "Si rempli, un lien « Lire l'histoire de cette chanson » s'affiche sous le lecteur sur la page Écouter" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # ✍️ ARTICLES (blog « Ressources »)
+  # ═══════════════════════════════════════════════════════════════
+  - name: "blog"
+    label: "✍️ Articles"
+    label_singular: "Article"
+    description: "Articles affichés sur /blog et dans le pied de page (« Ressources »)."
+    folder: "src/content/blog"
+    format: "frontmatter"
+    extension: "md"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    sortable_fields: ["date", "title"]
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", hint: "Idéalement moins de 65 caractères" }
+      - { label: "Description (Google)", name: "description", widget: "text", hint: "140 à 155 caractères : ce qui s'affiche sous le titre dans Google" }
+      - { label: "Date de publication", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Mis à jour le (optionnel)", name: "updated", widget: "datetime", required: false, date_format: "DD.MM.YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - label: "Public visé"
+        name: "audience"
+        widget: "select"
+        options:
+          - { label: "Familles", value: "familles" }
+          - { label: "Pompes funèbres", value: "pompes-funebres" }
+          - { label: "Wedding planners", value: "wedding-planners" }
+          - { label: "Professionnels de l'accompagnement", value: "prescripteurs" }
+        hint: "Détermine le bouton d'action en bas de l'article"
+      - label: "Univers (optionnel)"
+        name: "univers"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Hommages", value: "hommage" }
+          - { label: "Transitions", value: "transition" }
+          - { label: "Célébrations", value: "celebration" }
+      - { label: "Image de couverture", name: "cover", widget: "image", hint: "Format paysage de préférence, moins de 300 Ko" }
+      - { label: "Description de l'image", name: "coverAlt", widget: "string" }
+      - label: "Chansons à écouter sous l'article"
+        name: "relatedSongs"
+        widget: "relation"
+        collection: "songs"
+        value_field: "{{slug}}"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        multiple: true
+        required: false
+      - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Texte de l'article", name: "body", widget: "markdown" }
 
   # ═══════════════════════════════════════════════════════════════
   # 🏠 PAGE D'ACCUEIL
@@ -171,38 +238,26 @@ collections:
                     name: "tags"
                     widget: "list"
                     field: { label: "Ligne", name: "tag", widget: "string" }
-                  - label: "Chansons à écouter (3-4 max)"
-                    name: "songs"
-                    widget: "relation"
-                    collection: "songs"
-                    value_field: "{{slug}}"
-                    search_fields: ["title", "context"]
-                    display_fields: ["title", "context"]
-                    multiple: true
+                  - label: "Bouton sous la carte"
+                    name: "cta"
+                    widget: "object"
                     required: false
-                    hint: "Mini-lecteurs affichés sous la catégorie — choisis dans 🎵 Bibliothèque"
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string", hint: "Ex : Écouter les hommages" }
+                      - { label: "Lien", name: "href", widget: "string", hint: "/ecouter/hommages, /ecouter/transitions ou /ecouter/celebrations" }
 
           # ─── Écouter ─────────────────────────────────
-          - label: "🎧 Écouter (chansons)"
+          - label: "🎧 Écouter (aperçu sur l'accueil)"
             name: "ecouter"
             widget: "object"
             collapsed: true
+            hint: "Les 3 univers et leurs chansons se gèrent dans 🎧 Page Écouter et 🎵 Bibliothèque"
             fields:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Phrase d'intro (italique)", name: "lead", widget: "string" }
               - { label: "Titre H2", name: "title", widget: "string", hint: "HTML autorisé" }
               - { label: "Sous-titre", name: "subtitle", widget: "text" }
               - { label: "Note de bas (optionnel)", name: "note", widget: "text", required: false }
-              - { label: "Image décorative (coin bas-droit)", name: "decorImage", widget: "image", required: false, hint: "Visible sur grand écran uniquement" }
-              - label: "Chansons à afficher"
-                name: "songs"
-                widget: "relation"
-                collection: "songs"
-                value_field: "{{slug}}"
-                search_fields: ["title", "context"]
-                display_fields: ["title", "context"]
-                multiple: true
-                hint: "Choisis les chansons dans la bibliothèque (modifiables individuellement dans 🎵 Bibliothèque)"
 
           # ─── Processus ──────────────────────────────
           - label: "📋 Processus (étapes)"
@@ -239,6 +294,23 @@ collections:
                 field: { label: "Paragraphe", name: "text", widget: "text", hint: "HTML autorisé" }
               - { label: "Signature (italique dorée)", name: "signature", widget: "text" }
 
+          # ─── Presse ─────────────────────────────────
+          - label: "📰 Dans la presse"
+            name: "presse"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Journal", name: "source", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Titre de l'article", name: "headline", widget: "string" }
+              - { label: "Texte d'accompagnement", name: "text", widget: "text" }
+              - { label: "Image de l'article", name: "image", widget: "image" }
+              - { label: "Texte alternatif", name: "imageAlt", widget: "string" }
+              - { label: "Lien vers l'article en ligne (optionnel)", name: "link", widget: "string", required: false, hint: "Sinon, le lien ouvre l'image en grand" }
+
           # ─── Tarifs ─────────────────────────────────
           - label: "💰 Tarifs (3 formules)"
             name: "tarifs"
@@ -257,8 +329,8 @@ collections:
                 fields:
                   - { label: "Nom", name: "name", widget: "string", hint: "Ex: '<em>Instant</em> Unique'" }
                   - { label: "Contexte", name: "context", widget: "string" }
-                  - { label: "Prix", name: "price", widget: "string", hint: "Ex: 'CHF 330' ou 'dès CHF 600'" }
-                  - { label: "Unité prix", name: "priceUnit", widget: "string", hint: "Ex: '/ chanson' ou '/ sur devis'" }
+                  - { label: "Prix", name: "price", widget: "string", hint: "Ex: 'CHF 350.–' ou 'dès CHF 550.–'" }
+                  - { label: "Unité prix", name: "priceUnit", widget: "string", required: false, hint: "Ex: 'sur devis' — laisser vide si inutile" }
                   - { label: "Mise en avant ?", name: "featured", widget: "boolean", default: false }
                   - { label: "Étiquette (si mis en avant)", name: "tag", widget: "string", required: false, hint: "Ex: 'Le plus choisi'" }
                   - label: "Inclusions"
@@ -286,7 +358,7 @@ collections:
                 widget: "list"
                 summary: "{{fields.tag}} — {{fields.title}}"
                 fields:
-                  - { label: "Lien (page cible)", name: "href", widget: "string", hint: "mariage.html ou pompes-funebres.html" }
+                  - { label: "Lien (page cible)", name: "href", widget: "string", hint: "/mariage ou /pompes-funebres" }
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Texte alt", name: "imageAlt", widget: "string" }
                   - { label: "Tag (catégorie pro)", name: "tag", widget: "string" }
@@ -331,6 +403,65 @@ collections:
               - { label: "Libellé du bouton d'envoi", name: "submitLabel", widget: "string" }
               - { label: "Message de succès", name: "successMessage", widget: "string" }
               - { label: "Mention confidentialité", name: "privacy", widget: "string" }
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🎧 PAGE ÉCOUTER
+  # ═══════════════════════════════════════════════════════════════
+  - name: "page_ecouter"
+    label: "🎧 Page Écouter"
+    files:
+      - file: "src/content/pages/ecouter.json"
+        label: "Page Écouter"
+        name: "ecouter"
+        fields:
+          - label: "📄 SEO"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Mots-clés", name: "keywords", widget: "text" }
+              - { label: "OG Title", name: "ogTitle", widget: "string" }
+              - { label: "OG Description", name: "ogDescription", widget: "text" }
+              - { label: "OG Image", name: "ogImage", widget: "image" }
+          - label: "🎬 En-tête"
+            name: "header"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé (<em>...</em>)" }
+              - { label: "Phrase d'intro", name: "lead", widget: "string" }
+              - { label: "Image du haut", name: "image", widget: "image" }
+              - { label: "Texte alternatif", name: "imageAlt", widget: "string" }
+          - label: "✦ Les 3 univers"
+            name: "univers"
+            widget: "list"
+            allow_add: false
+            allow_remove: false
+            summary: "{{fields.title}}"
+            hint: "Les chansons de chaque univers se choisissent dans 🎵 Bibliothèque (champ « Univers »)"
+            fields:
+              - { label: "Identifiant d'URL (ne pas modifier)", name: "id", widget: "string" }
+              - { label: "Catégorie (ne pas modifier)", name: "category", widget: "string" }
+              - { label: "Numéro romain", name: "num", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Sous-titre", name: "sub", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Titre pour le partage", name: "shareTitle", widget: "string", hint: "Affiché quand on partage le lien direct, ex : Écouter les hommages" }
+          - { label: "Note (italique)", name: "note", widget: "text", required: false }
+          - label: "📞 Appel à l'action (bas de page)"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "title", widget: "string", hint: "HTML autorisé" }
+              - { label: "Texte", name: "text", widget: "text" }
+              - label: "Bouton"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "Libellé", name: "label", widget: "string" }
+                  - { label: "Lien", name: "href", widget: "string" }
 
   # ═══════════════════════════════════════════════════════════════
   # 💍 PAGE MARIAGE

@@ -13,6 +13,38 @@
   to = "/admin/"
   status = 301
 
+# Page Écouter : URLs propres et liens partageables par univers
+[[redirects]]
+  from = "/ecouter"
+  to = "/ecouter.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ecouter/hommages"
+  to = "/ecouter/hommages.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ecouter/transitions"
+  to = "/ecouter/transitions.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ecouter/celebrations"
+  to = "/ecouter/celebrations.html"
+  status = 200
+  force = true
+
+# Blog : la page liste et le dossier des articles portent le même nom
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+  force = true
+
 # Headers de sécurité de base
 [[headers]]
   for = "/*"

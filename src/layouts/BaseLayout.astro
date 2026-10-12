@@ -14,14 +14,21 @@ export interface Props {
   site: {
     name: string;
     domain: string;
+    phone?: string;
+    phoneIntl?: string;
   };
   jsonLd?: string; // bloc JSON-LD optionnel
   bodyClass?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
 }
 
-const { seo, site, jsonLd, bodyClass } = Astro.props;
-const canonicalUrl = seo.canonical || `https://${site.domain}${Astro.url.pathname}`;
-const ogImage = seo.ogImage || '/uploads/images/mains-et-note.png';
+const { seo, site, jsonLd, bodyClass, ogType = 'website', noindex = false } = Astro.props;
+// URLs propres : /mariage plutôt que /mariage.html, / plutôt que /index
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+const canonicalUrl = seo.canonical || `https://${site.domain}${cleanPath}`;
+// Les réseaux sociaux exigent une adresse d'image complète
+const ogImage = new URL(encodeURI(seo.ogImage || '/uploads/og/og-accueil.jpg'), `https://${site.domain}`).href;
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,15 +41,17 @@ const ogImage = seo.ogImage || '/uploads/images/mains-et-note.png';
 {seo.keywords && <meta name="keywords" content={seo.keywords} />}
 <meta name="author" content="Carole Correvon" />
 <link rel="canonical" href={canonicalUrl} />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:locale" content="fr_CH" />
 <meta property="og:site_name" content={site.name} />
 <meta property="og:title" content={seo.ogTitle || seo.title} />
 <meta property="og:description" content={seo.ogDescription || seo.description} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={seo.ogTitle || seo.title} />
@@ -58,25 +67,33 @@ const ogImage = seo.ogImage || '/uploads/images/mains-et-note.png';
 
 {jsonLd && <script type="application/ld+json" set:html={jsonLd}></script>}
 
-<!-- Netlify Identity Widget (pour le flow d'invitation Decap CMS) -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<!-- Netlify Identity (invitation Decap CMS) : chargé seulement quand le lien d'invitation est ouvert -->
+<script is:inline>
+if (/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)) {
+  var s = document.createElement('script');
+  s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+  s.onload = function () {
+    window.netlifyIdentity.on('init', function (user) {
+      if (!user) window.netlifyIdentity.on('login', function () { document.location.href = '/admin/'; });
+    });
+    window.netlifyIdentity.init();
+  };
+  document.head.appendChild(s);
+}
+</script>
 </head>
 <body class={bodyClass}>
 
 <slot />
 
-<script>
-// ── Netlify Identity → redirige vers /admin/ après acceptation de l'invitation ──
-if ((window as any).netlifyIdentity) {
-  (window as any).netlifyIdentity.on("init", (user: any) => {
-    if (!user) {
-      (window as any).netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
+{site.phoneIntl && (
+  <div class="mobile-contact" aria-label="Contact rapide">
+    <a href={`tel:${site.phoneIntl}`} class="mobile-contact-call">Appeler</a>
+    <a href={`https://wa.me/${site.phoneIntl.replace(/\D/g, '')}?text=${encodeURIComponent('Bonjour Carole, je souhaiterais parler d\'une chanson.')}`} class="mobile-contact-wa" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+)}
 
+<script>
 // ── Reveal on scroll ──
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
@@ -164,6 +181,8 @@ document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(link => {
     e.preventDefault();
     const top = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - 60;
     window.scrollTo({ top, behavior: 'smooth' });
+    // Ancre visible dans l'URL, pour pouvoir partager le lien d'une rubrique
+    history.pushState(null, '', href);
   });
 });
 
@@ -267,23 +286,23 @@ if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
-    if (botcheck && botcheck.checked) return;
+    const botField = form.querySelector<HTMLInputElement>('input[name="bot-field"]');
+    if (botField && botField.value) return;
     submit.disabled = true;
     submit.classList.add('is-loading');
     submitLabel.textContent = 'Envoi en cours…';
     status.className = 'form-status is-loading';
     status.textContent = '';
     try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-      const data = await response.json().catch(() => ({}));
-      if (response.ok && data.success !== false) {
+      // Netlify Forms : envoi encodé en x-www-form-urlencoded vers la racine du site
+      const body = new URLSearchParams(new FormData(form) as any).toString();
+      const response = await fetch('/', { method: 'POST', body, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+      if (response.ok) {
         status.className = 'form-status is-success';
         status.innerHTML = successMessage;
         form.reset();
         setTimeout(() => status.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-      } else { throw new Error(data.message || 'Submission failed'); }
+      } else { throw new Error(`Envoi refusé (${response.status})`); }
     } catch (err) {
       status.className = 'form-status is-error';
       status.innerHTML = `Une erreur est survenue. Vous pouvez m'écrire à <a href="mailto:${siteEmail}">${siteEmail}</a> ou m'appeler au <a href="tel:${sitePhoneIntl}">${sitePhone}</a>.`;

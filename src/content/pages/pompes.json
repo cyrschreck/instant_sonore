@@ -47,8 +47,8 @@
   "collab": {
     "eyebrow": "Une collaboration simple & sans contrainte",
     "title": "Aucune charge <em>pour vous.</em>",
-    "image": "/uploads/images/mains-tiennent.png",
-    "imageAlt": "Mains qui se tiennent",
+    "image": "/uploads/web/mains-tiennent.webp",
+    "imageAlt": "Deux mains qui se tiennent avec douceur",
     "intro": "Proposer Instant Sonore <strong>s'intègre naturellement dans votre accompagnement</strong> — sans modifier votre organisation.",
     "list": [
       "Une <strong>dimension émotionnelle rare</strong> qui enrichit votre offre",
@@ -111,8 +111,8 @@
   "pourquoi": {
     "eyebrow": "Pourquoi ce partenariat vous concerne",
     "title": "Vous accompagnez des familles dans <em>l'un des moments les plus profonds</em> de l'existence.",
-    "image": "/uploads/deuil-femme-qui-regarde-tableau-4-3.png",
-    "imageAlt": "Bouquet en hommage",
+    "image": "/uploads/web/deuil-femme-qui-regarde-tableau-4-3.webp",
+    "imageAlt": "Femme qui regarde un tableau en souvenir d'un proche disparu",
     "paragraphs": [
       "Vous savez mieux que quiconque combien il est difficile de trouver les mots justes — pour dire au revoir, pour honorer, pour garder vivant ce lien.",
       "<strong>Instant Sonore propose quelque chose de différent et de complémentaire</strong> à ce que vous faites déjà avec soin.",
@@ -124,7 +124,7 @@
     "eyebrow": "Pour les pompes funèbres — Suisse romande",
     "title": "Un hommage qui demeure <em>bien au-delà de la cérémonie.</em>",
     "tagline": "Une chanson sur mesure pour honorer une vie. Les fleurs accompagnent un moment, la musique reste pour toujours.",
-    "image": "/uploads/deuil-famille.4-3-png.png",
+    "image": "/uploads/web/deuil-famille-4-3-png.webp",
     "ctaPrimary": {
       "label": "Découvrir le concept",
       "href": "#apports"
@@ -135,12 +135,12 @@
     }
   },
   "seo": {
-    "title": "Pompes funèbres — Instant Sonore | Une chanson sur mesure pour accompagner le deuil avec dignité",
-    "description": "Pour les pompes funèbres de Suisse romande : une trace vivante en complément des fleurs. Chanson personnalisée pour cérémonie d'adieu, deuil, hommage. Livraison 48h pour les urgences. Carole Correvon, Echallens (VD).",
+    "title": "Chanson d’hommage sur mesure pour pompes funèbres | Instant Sonore",
+    "description": "Une chanson d'hommage écrite pour le défunt, livrable en 48 h, pour accompagner les familles en deuil. Partenariat pour pompes funèbres romandes.",
     "keywords": "chanson personnalisée deuil, hommage musical funéraire, cérémonie d'adieu chanson, pompes funèbres Suisse romande, fin de vie héritage sonore, chanson hommage défunt, Carole Correvon, Vaud",
     "ogTitle": "Pompes funèbres — Instant Sonore",
     "ogDescription": "Les fleurs accompagnent un moment — la musique, elle, reste pour toujours.",
-    "ogImage": "/uploads/images/bouquet-deuil.jpg"
+    "ogImage": "/uploads/og/og-pompes.jpg"
   },
   "ecouter": {
     "eyebrow": "Écouter",

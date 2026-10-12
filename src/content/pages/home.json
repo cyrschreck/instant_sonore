@@ -14,8 +14,8 @@
   "concept": {
     "lead": "Il y a des moments dans une vie où quelque chose demande à être <em>dit</em>.",
     "body": "Les mots sont là, au fond du cœur, mais il n'est pas toujours facile de leur donner la place qu'ils méritent.\nInstant Sonore est né pour cela : transformer vos émotions, vos souvenirs et vos mots en une chanson unique, à offrir, à partager ou à garder pour toujours.",
-    "image": "/uploads/deuil-famille-2-4-3.png",
-    "imageAlt": "Famille qui écoute une chanson"
+    "image": "/uploads/web/deuil-famille-2-4-3.webp",
+    "imageAlt": "Famille réunie qui écoute ensemble une chanson personnalisée"
   },
   "processus": {
     "eyebrow": "Le processus",
@@ -55,8 +55,8 @@
     "items": [
       {
         "num": "I",
-        "image": "/uploads/deuil-tableau-4-3.png",
-        "imageAlt": "Hommage et mémoire",
+        "image": "/uploads/web/deuil-tableau-4-3.webp",
+        "imageAlt": "Tableau et bougie, moment de recueillement pour un hommage",
         "title": "Hommage",
         "sub": "Lien éternel & héritage",
         "description": "Honorer une personne, dire au revoir autrement, garder ce qui reste au-delà de l'absence.",
@@ -65,16 +65,15 @@
           "Fin de vie · héritage sonore",
           "Dernier message"
         ],
-        "songs": [
-          "ose-la-vie",
-          "un-parrain-precieux",
-          "ce-qui-reste"
-        ]
+        "cta": {
+          "label": "Écouter les hommages",
+          "href": "/ecouter/hommages"
+        }
       },
       {
         "num": "II",
-        "image": "/uploads/retraite-transition.-4-5-png.png",
-        "imageAlt": "Transition de vie",
+        "image": "/uploads/web/retraite-transition-4-3.webp",
+        "imageAlt": "Homme debout sur un pont de pierre face à un lac, au seuil d'une nouvelle étape",
         "title": "Transition",
         "sub": "Passage et renouveau",
         "description": "Traverser une étape, déposer ce qui doit l'être, marquer un tournant. Une chanson pour donner du sens à ce qui se transforme.",
@@ -83,14 +82,15 @@
           "Mots non-dits",
           "Réconciliation"
         ],
-        "songs": [
-          "quand-les-mots"
-        ]
+        "cta": {
+          "label": "Écouter les transitions",
+          "href": "/ecouter/transitions"
+        }
       },
       {
         "num": "III",
-        "image": "/uploads/mariage-émotion-casque.png",
-        "imageAlt": "Mariage",
+        "image": "/uploads/web/mariee-emue-4-5.webp",
+        "imageAlt": "Mariée émue, main sur le cœur",
         "title": "Célébration",
         "sub": "Élan de vie",
         "description": "Exprimer l'amour, la joie, l'importance d'un lien. Une chanson pour marquer un moment heureux et le rendre inoubliable.",
@@ -99,10 +99,10 @@
           "Naissance · anniversaire",
           "Message d'amour · reconnaissance"
         ],
-        "songs": [
-          "50-soleils",
-          "demande-complice"
-        ]
+        "cta": {
+          "label": "Écouter les célébrations",
+          "href": "/ecouter/celebrations"
+        }
       }
     ]
   },
@@ -115,17 +115,17 @@
     "formules": [
       {
         "name": "<em>Instant</em> Unique",
-        "context": "Un moment, une chanson",
-        "price": "CHF 420",
-        "priceUnit": "/ chanson",
+        "context": "1 chanson",
+        "price": "CHF 350.–",
+        "priceUnit": "",
         "featured": false,
         "tag": null,
         "includes": [
-          "1 entretien",
-          "1 chanson sur mesure",
-          "1 adaptation selon vos souhaits",
-          "Envoi MP3",
-          "Envoi paroles de la chanson"
+          "Entretien",
+          "Écriture",
+          "Création",
+          "Ajustements",
+          "Fichier audio"
         ],
         "cta": {
           "label": "Choisir cette formule",
@@ -134,17 +134,17 @@
       },
       {
         "name": "<em>Instant</em> du Cœur",
-        "context": "Deux chansons, deux ambiances",
-        "price": "CHF 650",
-        "priceUnit": "/ chanson",
+        "context": "2 chansons",
+        "price": "CHF 500.–",
+        "priceUnit": "",
         "featured": true,
         "tag": "Le plus choisi",
         "includes": [
-          "1 entretien",
-          "2 chansons sur mesure (paroles et styles différents)",
-          "Vous recevez les deux chansons",
-          "2 adaptations selon vos souhaits",
-          "Envoi MP3 et paroles des deux chansons"
+          "Entretien",
+          "2 chansons",
+          "Création",
+          "Ajustements",
+          "Fichiers audio"
         ],
         "cta": {
           "label": "Choisir cette formule",
@@ -153,18 +153,13 @@
       },
       {
         "name": "<em>Instant</em> sur mesure",
-        "context": "Tout est possible, rien n'est figé",
-        "price": "dès CHF 650",
-        "priceUnit": "/ sur devis",
+        "context": "Projet particulier / besoin spécifique",
+        "price": "dès CHF 550.–",
+        "priceUnit": "sur devis",
         "featured": false,
         "tag": null,
         "includes": [
-          "Échanges approfondis à votre rythme",
-          "Entretiens multiples",
-          "Disponibilité adaptée à la situation",
-          "Libre choix du nombre de chansons",
-          "Présence, flexibilité et accompagnement humain",
-          "Envoi MP3 et paroles de chaque chanson"
+          "Contenu défini selon le projet"
         ],
         "cta": {
           "label": "Demander un devis",
@@ -176,7 +171,7 @@
   "carole": {
     "eyebrow": "Qui je suis",
     "title": "Écouter,<br/>ressentir, <em>traduire.</em>",
-    "photo": null,
+    "photo": "/uploads/web/carole-correvon.webp",
     "photoCaption": "Carole Correvon · Echallens",
     "paragraphs": [
       "<strong>Je suis Carole Correvon</strong> — infirmière de première formation et thérapeute facilitatrice de changement depuis de nombreuses années. Je vis à Echallens, dans le canton de Vaud.",
@@ -185,6 +180,16 @@
       "Je ne cherche pas à analyser ni à réparer. Mon rôle est d'écouter, ressentir, et traduire avec justesse ce que la personne vit, ressent et souhaite exprimer."
     ],
     "signature": "Je suis là pour ceux qui veulent transmettre un message sans trop savoir comment le faire."
+  },
+  "presse": {
+    "eyebrow": "Dans la presse",
+    "title": "On parle d'<em>Instant Sonore.</em>",
+    "source": "L'Écho du Gros-de-Vaud",
+    "date": "7 août 2026",
+    "headline": "« Composition personnalisée pour chanter ce qui est difficile à dire »",
+    "text": "Un article consacré à la naissance d'Instant Sonore et à la création de chansons personnalisées pour dire l'essentiel, dans les moments heureux comme dans les moments de séparation.",
+    "image": "/uploads/web/presse-echo-gros-de-vaud.webp",
+    "imageAlt": "Article de L'Écho du Gros-de-Vaud du 7 août 2026 : Composition personnalisée pour chanter ce qui est difficile à dire"
   },
   "faq": {
     "eyebrow": "Questions fréquentes",
@@ -226,14 +231,14 @@
     ]
   },
   "hero": {
-    "eyebrow": "Chansons personnalisées — Suisse romande",
+    "eyebrow": "Chansons personnalisées sur mesure — Suisse romande",
     "title": "Quand les mots<br/>deviennent <em>musique.</em>",
     "tagline": "Parce que certaines émotions méritent plus qu'un simple discours.",
     "sub": "Hommage, gratitude, amour, pardon, transmission : chaque chanson raconte l'essentiel. ",
-    "image": "/uploads/images/mains-et-note.png",
+    "image": "/uploads/web/mains-et-note.webp",
     "ctaPrimary": {
       "label": "Écouter une création",
-      "href": "#ecouter"
+      "href": "/ecouter"
     },
     "ctaGhost": {
       "label": "Premier échange",
@@ -241,26 +246,18 @@
     }
   },
   "seo": {
-    "title": "Instant Sonore — Chanson personnalisée pour les moments essentiels | Carole Correvon, Vaud",
-    "description": "Une chanson unique sur mesure pour célébrer, transmettre, honorer. Mariage, hommage, fin de vie, mots non-dits. Création par Carole Correvon, Echallens (VD), Suisse romande.",
+    "title": "Chanson personnalisée sur mesure en Suisse romande | Instant Sonore",
+    "description": "Une chanson unique écrite pour vous : hommage, obsèques, mariage, anniversaire, retraite. Création par Carole Correvon, Echallens (VD). Dès CHF 350.–",
     "keywords": "chanson personnalisée, chanson sur mesure, cadeau musical, hommage musical, chanson deuil, chanson mariage, chanson fin de vie, héritage sonore, cadeau de naissance, cadeau anniversaire, Suisse romande, Vaud, Echallens, Carole Correvon",
     "ogTitle": "Instant Sonore — Quand les mots deviennent musique",
-    "ogDescription": "Une chanson unique pour les moments essentiels de votre vie."
+    "ogDescription": "Une chanson unique, écrite à partir de votre histoire, pour les moments essentiels de la vie."
   },
   "ecouter": {
     "eyebrow": "Écouter",
     "lead": "Chaque écoute vous dira plus que tous les mots.",
     "title": "Écouter <em>quelques créations.</em>",
-    "subtitle": "Chaque chanson est unique — ces extraits illustrent différents styles et contextes.",
-    "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme.",
-    "songs": [
-      "quand-les-mots",
-      "ce-qui-reste",
-      "50-soleils",
-      "demande-complice",
-      "un-parrain-precieux",
-      "merci-peter-mandel-1"
-    ]
+    "subtitle": "Hommages, transitions, célébrations : choisissez un univers et découvrez l'histoire de chaque chanson.",
+    "note": "Ce ne sont pas seulement des chansons — ce sont des émotions qui ont pris forme."
   },
   "prosGateway": {
     "eyebrow": "Pour les professionnels",
@@ -268,17 +265,17 @@
     "subtitle": "Instant Sonore peut s'intégrer naturellement dans votre accompagnement, comme un complément précieux à ce que vous offrez déjà à vos clients.",
     "cards": [
       {
-        "href": "pompes-funebres.html",
-        "image": "/uploads/deuil-femme-qui-regarde-tableau-4-3.png",
-        "imageAlt": "Fleur et lanterne — hommage",
+        "href": "/pompes-funebres",
+        "image": "/uploads/web/deuil-femme-qui-regarde-tableau-4-3.webp",
+        "imageAlt": "Femme qui regarde un tableau en souvenir d'un proche disparu",
         "tag": "Pompes funèbres",
         "title": "Une trace vivante,<br/><em>au-delà de la cérémonie.</em>",
         "description": "Un complément émotionnel fort pour les familles en deuil — une chanson sur mesure, livrable en 48h pour les urgences."
       },
       {
-        "href": "mariage.html",
-        "image": "/uploads/mariés-de-de-profil-4-5.png",
-        "imageAlt": "Mains qui se tiennent — mariage",
+        "href": "/mariage",
+        "image": "/uploads/web/maries-de-de-profil-4-5.webp",
+        "imageAlt": "Couple de mariés de profil, au moment de la cérémonie",
         "tag": "Wedding planners",
         "title": "Une chanson <em>qu'ils n'oublieront jamais.</em>",
         "description": "Surprise lors de la cérémonie, déclaration, cadeau d'invités — un moment unique au cœur du mariage que vous orchestrez."
@@ -296,10 +293,10 @@
     "thanks": "Un merci tout particulier à Cyr, spécialiste en communication, sans qui Instant Sonore n'aurait peut-être jamais vu le jour.",
     "eyebrow": "L'origine",
     "outro": "C'est ainsi qu'est né Instant Sonore : pour créer votre propre chanson, celle qui raconte une histoire unique et transmet ce qui compte vraiment.",
-    "imageAlt": "Carnet et stylo, espace d'écriture",
+    "imageAlt": "Femme qui écrit dans un carnet avec un casque audio, là où naissent les chansons",
     "pullQuote": "Quand les mots deviennent musique, quelque chose se transforme. Les émotions trouvent leur place. Les souvenirs continuent de vivre. Et ce qui compte vraiment peut enfin être transmis.",
     "title": "Pourquoi <em>Instant Sonore</em> est né.",
-    "image": "/uploads/instant-sonore-est-né-femme-qui-écrit-casque-4-5.png",
+    "image": "/uploads/web/instant-sonore-est-ne-femme-qui-ecrit-casque-4-5.webp",
     "quote": "Là où les mots manquent, la chanson fait parler le cœur."
   }
 }

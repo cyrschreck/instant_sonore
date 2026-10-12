@@ -1,0 +1,17 @@
+---
+// Bloc « Ressources » du pied de page : derniers articles du blog.
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+---
+{posts.length > 0 && (
+  <div class="footer-resources">
+    <div class="footer-resources-title">Ressources</div>
+    <ul class="footer-resources-list" role="list">
+      {posts.map((post) => <li><a href={`/blog/${post.slug}`}>{post.data.title}</a></li>)}
+    </ul>
+    <a class="footer-resources-all" href="/blog">Tous les articles →</a>
+  </div>
+)}
